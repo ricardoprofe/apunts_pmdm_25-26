@@ -30,11 +30,11 @@ do
         echo "<p><a href='$file'>$file</a></p>" >> index.html
     done
 
-    FILES="$dir*.pdf"
-    for file in $FILES
-    do
-        echo "<p><a href='$file'>$file</a></p>" >> index.html
-    done
+    #FILES="$dir*.pdf"
+    #for file in $FILES
+    #do
+    #    echo "<p><a href='$file'>$file</a></p>" >> index.html
+    #done
 done
 
 #### Footer
