@@ -8,13 +8,13 @@ echo "<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DWES IES Jaume II El Just 2023-24</title>
+    <title>PMDM IES Maria Enriquez 2025-26</title>
     <link rel="stylesheet" href="web_template/aqua.css">
 </head>
 <body> 
 <div id="content">
 <header id="title-block-header">
-<h1>Server-side Web Development - IES Jaume II El Just - 2024-25</h1>
+<h1>Multimedia and mobile device programming - IES Maria Enriquez 2025-26</h1>
 </header>
 <main>
 " > index.html
