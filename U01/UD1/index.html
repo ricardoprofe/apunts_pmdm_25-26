@@ -1,0 +1,1384 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unit 01. Introduction to Mobile Development. - Multimedia and mobile device programming - 2DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-01-introduction-to-mobile-development" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-header__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimedia and mobile device programming - 2DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit 01. Introduction to Mobile Development.
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-nav__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Multimedia and mobile device programming - 2DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multimedia and mobile device programming - 2DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mobile-devices" class="md-nav__link">
+    1. Mobile Devices
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Mobile Devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-types-of-mobile-devices" class="md-nav__link">
+    1.1 Types of Mobile Devices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-characteristics-of-mobile-devices" class="md-nav__link">
+    1.2 Characteristics of Mobile Devices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-hardware-of-a-mobile-device" class="md-nav__link">
+    1.3 Hardware of a Mobile Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-operating-systems-os" class="md-nav__link">
+    1.4 Operating Systems (OS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-applications-apps" class="md-nav__link">
+    1.5 Applications (Apps)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-technologies-for-mobile-application-development" class="md-nav__link">
+    1.6 Technologies for Mobile Application Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-trends-and-future" class="md-nav__link">
+    1.7 Trends and Future
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction-to-android-development" class="md-nav__link">
+    2. Introduction to Android development
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Introduction to Android development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-origins-of-android" class="md-nav__link">
+    2.1 Origins of Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-android-operating-system" class="md-nav__link">
+    2.2 The Android Operating System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-characteristics" class="md-nav__link">
+    2.3 Characteristics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-android-versions" class="md-nav__link">
+    2.4 Android Versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-android-architecture" class="md-nav__link">
+    2.5 Android Architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-apps-for-android" class="md-nav__link">
+    2.6 Apps for Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-api-levels-compatibility-libraries-and-jetpack" class="md-nav__link">
+    2.7 API Levels, Compatibility Libraries, and Jetpack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-android-studio" class="md-nav__link">
+    3. Android Studio
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Android Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-device-manager" class="md-nav__link">
+    3.1 Device Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-android-studio-installation" class="md-nav__link">
+    3.2 Android Studio installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-genymotion-emulator-installation" class="md-nav__link">
+    3.3 Genymotion emulator installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-yout-first-android-app" class="md-nav__link">
+    3.4 Yout first Android app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-structure-of-an-android-project" class="md-nav__link">
+    3.5 Structure of an Android project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mobile-devices" class="md-nav__link">
+    1. Mobile Devices
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Mobile Devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-types-of-mobile-devices" class="md-nav__link">
+    1.1 Types of Mobile Devices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-characteristics-of-mobile-devices" class="md-nav__link">
+    1.2 Characteristics of Mobile Devices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-hardware-of-a-mobile-device" class="md-nav__link">
+    1.3 Hardware of a Mobile Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-operating-systems-os" class="md-nav__link">
+    1.4 Operating Systems (OS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-applications-apps" class="md-nav__link">
+    1.5 Applications (Apps)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-technologies-for-mobile-application-development" class="md-nav__link">
+    1.6 Technologies for Mobile Application Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-trends-and-future" class="md-nav__link">
+    1.7 Trends and Future
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduction-to-android-development" class="md-nav__link">
+    2. Introduction to Android development
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Introduction to Android development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-origins-of-android" class="md-nav__link">
+    2.1 Origins of Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-android-operating-system" class="md-nav__link">
+    2.2 The Android Operating System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-characteristics" class="md-nav__link">
+    2.3 Characteristics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-android-versions" class="md-nav__link">
+    2.4 Android Versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-android-architecture" class="md-nav__link">
+    2.5 Android Architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-apps-for-android" class="md-nav__link">
+    2.6 Apps for Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-api-levels-compatibility-libraries-and-jetpack" class="md-nav__link">
+    2.7 API Levels, Compatibility Libraries, and Jetpack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-android-studio" class="md-nav__link">
+    3. Android Studio
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Android Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-device-manager" class="md-nav__link">
+    3.1 Device Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-android-studio-installation" class="md-nav__link">
+    3.2 Android Studio installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-genymotion-emulator-installation" class="md-nav__link">
+    3.3 Genymotion emulator installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-yout-first-android-app" class="md-nav__link">
+    3.4 Yout first Android app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-structure-of-an-android-project" class="md-nav__link">
+    3.5 Structure of an Android project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-01-introduction-to-mobile-development">Unit 01. Introduction to Mobile Development</h1>
+<h2 id="1-mobile-devices">1. Mobile Devices</h2>
+<p>We live in a hyper-connected society where we are permanently online thanks to mobile devices. These devices have evolved from being simple communication tools to becoming authentic personal assistants that help us in our daily lives.</p>
+<p>The evolution of mobile devices has been spectacular, from the first mobile phones that only allowed voice calls and SMS to the current smartphones, which are authentic pocket computers with which we can surf the internet, play multimedia content, play video games, take high-quality photos and videos, geolocate ourselves, etc.</p>
+<p>This evolution has been possible thanks to the development of hardware (processors, memory, screens, batteries, sensors, etc.) and software (operating systems and applications).</p>
+<div class="admonition info">
+<p class="admonition-title">IBM Simon</p>
+<p>The first true smartphone was the <strong>IBM Simon</strong>, manufactured in 1992 and distributed in the United States between 1994 and 1995.</p>
+<p><img alt="IBM Simon" src="../images/IBM_Simon_Personal_Communicator.png" /></p>
+</div>
+<h3 id="11-types-of-mobile-devices">1.1 Types of Mobile Devices</h3>
+<p>There are different types of mobile devices, the most common being:</p>
+<ul>
+<li>
+<p><strong>Mobile Phones / Smartphones:</strong> They are the most common and popular. They have a touch screen and an operating system (Android, iOS) that allows the installation of applications (apps) that expand their functionalities.</p>
+</li>
+<li>
+<p><strong>Tablets:</strong> They are devices with a screen size larger than that of a smartphone but smaller than that of a laptop. They are ideal for consuming multimedia content (videos, books, magazines, internet browsing) and are widely used in the educational field.</p>
+</li>
+<li>
+<p><strong>Wearables:</strong> They are devices that can be worn on the body. The most common are smartwatches and smartbands (or activity bands). They are usually companions to the smartphone and are used to monitor physical activity, receive notifications, control music playback, etc.</p>
+</li>
+<li>
+<p><strong>Cars (Smart/Connected Cars):</strong> Modern vehicles are now mobile computing platforms with internet access, operating systems, and app support, enabling connectivity with phones, other cars, and infrastructure.</p>
+</li>
+<li>
+<p><strong>ChromeOS Devices (Chromebooks):</strong> These are lightweight, portable laptops and tablets that primarily rely on web and cloud-based applications, with added support for Android and Linux software.</p>
+</li>
+<li>
+<p><strong>TVs (Smart TVs):</strong> Traditional televisions enhanced with integrated operating systems and internet connectivity, allowing users to stream content, browse the web, and interact with other smart devices.</p>
+</li>
+<li>
+<p><strong>XR (Extended Reality):</strong> An umbrella term for immersive technologies, including:</p>
+<ul>
+<li><strong>VR (Virtual Reality):</strong> Fully digital, immersive experiences using headsets.</li>
+<li><strong>AR (Augmented Reality):</strong> Digital overlays on the real world, viewed via smartphones or glasses.</li>
+<li><strong>MR (Mixed Reality):</strong> Advanced AR where digital and physical objects interact in real time.</li>
+</ul>
+</li>
+<li>
+<p><strong>E-book readers:</strong> Devices designed specifically for reading digital books. They use electronic ink technology (e-ink), which mimics the appearance of paper and is much less tiring for the eyes than a conventional screen. Their autonomy is very high.</p>
+</li>
+</ul>
+<p><img alt="Types of mobile devices" src="../images/devices-types.png" /></p>
+<h3 id="12-characteristics-of-mobile-devices">1.2 Characteristics of Mobile Devices</h3>
+<p>The main characteristics that define a mobile device are:</p>
+<ul>
+<li><strong>Mobility:</strong> Its small size and weight, together with its wireless connectivity, allow it to be used anywhere.</li>
+<li><strong>Wireless Connectivity:</strong> They can connect to the internet and other devices without cables, mainly through Wi-Fi and mobile data networks (3G, 4G, 5G). They also usually have other types of wireless connectivity such as Bluetooth, NFC, or GPS.</li>
+<li><strong>Touch Screen:</strong> They are the main input and output element. Interaction is done through gestures (tap, double-tap, drag, pinch, etc.).</li>
+<li><strong>Sensors:</strong> They incorporate numerous sensors that allow them to interact with the environment:<ul>
+<li><strong>Accelerometer:</strong> Measures acceleration and tilt.</li>
+<li><strong>Gyroscope:</strong> Measures orientation and rotation.</li>
+<li><strong>Magnetometer:</strong> Digital compass that detects magnetic north.</li>
+<li><strong>GPS:</strong> Determines the geographic location.</li>
+<li><strong>Light Sensor:</strong> Adjusts screen brightness automatically.</li>
+<li><strong>Proximity Sensor:</strong> Detects if the device is close to an object (e.g., turns off the screen during a call).</li>
+<li><strong>Fingerprint Sensor / Face Recognition:</strong> For device unlocking and authentication.</li>
+</ul>
+</li>
+<li><strong>Autonomy:</strong> They have a battery that allows them to operate for a certain time without being connected to the electrical grid. Autonomy is a key factor.</li>
+<li><strong>Applications (Apps):</strong> Their functionality is extended by installing applications downloaded from official stores (Google Play, App Store) or other sources.</li>
+</ul>
+<h3 id="13-hardware-of-a-mobile-device">1.3 Hardware of a Mobile Device</h3>
+<h4 id="the-processor-and-the-soc">The Processor and the SoC</h4>
+<p>A mobile device contains essentially the same hardware as a computer, but with a different architecture, as they are constrained by the device's smaller size. Therefore, when we talk about the processor in a mobile device, we must talk about the <strong>SoC</strong> or <strong>System on a Chip</strong>, an integrated circuit that combines different parts of the system, such as the CPU itself, the GPU (graphics processor), RAM, ROM, and USB or Wi-Fi controllers.</p>
+<p>It is worth highlighting the importance of the British company <strong>ARM Holdings</strong> in the world of mobile processors. It is the creator of the architecture of the same name, <strong>ARM (Advanced RISC Machines)</strong>, a 32- and 64-bit <strong>RISC (Reduced Instruction Set Computer)</strong> architecture that is present in the majority of mobile devices.</p>
+<p><img alt="SoC" src="../images/soc.jpg" /></p>
+<h4 id="ram-memory">RAM Memory</h4>
+<p>The type of RAM memory found inside the SoC is dynamic (DRAM), which requires periodic refreshing and is very fast. To reduce energy consumption and minimize heating, this RAM is placed close to the CPU and GPU. This RAM is shared by both units.</p>
+<h4 id="screens-on-mobile-devices">Screens on Mobile Devices</h4>
+<p>One of the defining characteristics of smartphones is the screen, through which most of the interaction with the device takes place.</p>
+<p>There are primarily two types of technologies, with different variations and generations:</p>
+<ul>
+<li>
+<p><strong>LCD or Inorganic:</strong> <em>Liquid Crystal Display</em>, which lets light pass through based on its polarity, just like computer monitors. For this, they have a backlight panel located behind the display, which can be made of fluorescent lights or LEDs. Within this type, we find TFT, LED, IPS, PLS, or Apple's Retina displays.</p>
+</li>
+<li>
+<p><strong>OLED or Organic:</strong> These use organic materials that emit light by themselves when electricity is applied, meaning they do not need a backlight panel and can turn individual pixels on or off independently. These are thinner screens than LCDs, as they have fewer layers, with lower consumption, higher contrast, and greater brightness. Furthermore, this manufacturing technology allows panels to be flexible, leading to mobile phones with foldable or rollable screens. Within this family, we find AMOLED, Super AMOLED, or Dynamic AMOLED screens.</p>
+</li>
+</ul>
+<p><img alt="LCD vs. OLED" src="../images/oled_lcd.jpg" /></p>
+<p>Apart from the screen manufacturing technology, it is important to know some other characteristics about them.</p>
+<h4 id="resolution-and-density">Resolution and Density</h4>
+<p>The <strong>screen resolution refers to the number of pixels displayed on it</strong> and is determined by the number of pixels in the horizontal and vertical directions.</p>
+<p>From the resolution, we can determine the <strong>aspect ratio</strong> and the <strong>density of pixels per inch (ppi)</strong>. This density is a measure that relates the size of the screen to its resolution. Two screens of different sizes with the same resolution will have different densities, and therefore, different image quality. Ideally, this density should be greater than 300 or 400 ppi.</p>
+<h4 id="aspect-ratio">Aspect Ratio</h4>
+<p>This is the relationship between the width and height of the screen. Traditionally, this ratio has followed the <strong>widescreen 16:9 format</strong> (for every 16 pixels in width, there are 9 in height). For example, the 1920x1080 format fulfills this proportion.</p>
+<p>However, a few years ago, the <strong>18:9</strong> (and even 19:9) ratio began to become popular, aimed at larger panels with almost no bezels. This ratio allows a device to be less wide than another with the same diagonal in a 16:9 format, thereby improving its ergonomics.</p>
+<blockquote>
+<p><img alt="Different aspect ratios. Source: https://www.movilzona.es/tutoriales/pantalla/relacion-aspecto-pantalla-formatos-ejemplos/" src="../images/relacioAspecte.jpg" /></p>
+</blockquote>
+<h4 id="cameras">Cameras</h4>
+<p>One of the components that is most often demanded in a mobile device is the photographic camera or cameras. These are mainly composed of:</p>
+<ul>
+<li>An <strong>optical block</strong>, which is relatively limited, although some devices allow for the connection of an external lens, and</li>
+<li>A <strong>sensor</strong>, composed of an array of photoreceptors, which translate light signals into electrical ones, thus obtaining the value for each point in the image.</li>
+</ul>
+<p>Over time, mobile devices have incorporated more cameras, besides the front and rear ones, so that currently we can find three, four, or even five cameras (telephoto, wide-angle, monochromatic, or even infrared).</p>
+<h4 id="sensors">Sensors</h4>
+<p>Mobile devices can incorporate a wide variety of sensors, with which we can obtain very diverse information from our environment. Among the sensors we can find in a mobile device, the following stand out:</p>
+<ul>
+<li>
+<p><strong>GPS (Global Positioning System):</strong> Provides <strong>location services</strong> by using a continuous signal to GPS satellites, allowing it to show where on the planet we are. This device opens up a whole range of possibilities such as LBS or Location-Based Services.</p>
+</li>
+<li>
+<p><strong>Accelerometer and Gyroscope:</strong> The gyroscope measures the device's movements thanks to angular acceleration, even allowing the detection of small rotations, making it very suitable for, for example, augmented reality applications. On the other hand, the accelerometer is less precise and allows detection of the device's position relative to the three axes: x, y, and z. With this, we can determine, for example, if the device is in a horizontal or vertical position, as well as detect turns, vibrations, tilt, or collisions.</p>
+</li>
+<li>
+<p><strong>Light Sensor:</strong> Allows the detection of ambient light, so the device can adjust the screen brightness to adapt to different lighting conditions.</p>
+</li>
+<li>
+<p><strong>Proximity Sensor:</strong> Allows the detection of the distance from the device to other objects through an infrared LED, and enables, for example, the screen to turn off when we bring it close to our face during a call.</p>
+</li>
+</ul>
+<p>In addition to these, we can find many others, such as biometric sensors (fingerprint or iris readers), magnetometer, barometer, capacitive sensors, infrared sensor, heart rate sensor, color spectrum sensor, or pedometer.</p>
+<p><img alt="Sensors of mobile devices" src="../images/Sensors-in-Mobile-Phones.png" /></p>
+<h3 id="14-operating-systems-os">1.4 Operating Systems (OS)</h3>
+<p>The OS is the most important software that manages the device's hardware and allows applications to run. The most common are:</p>
+<ul>
+<li>
+<p><strong>Android:</strong> Developed by <strong>Google</strong>. It is the most used OS in the world. It is an open-source system, which allows manufacturers to adapt it to their devices.</p>
+</li>
+<li>
+<p><strong>iOS:</strong> Developed by Apple. It is exclusively used on the company's devices (iPhone, iPad). It is a closed-source system, known for its security, performance, and integration with the Apple ecosystem.</p>
+</li>
+<li>Others: HarmonyOS (Huawei), etc.</li>
+</ul>
+<p><img alt="Android and iOs" src="../images/android-ios.png" /></p>
+<h3 id="15-applications-apps">1.5 Applications (Apps)</h3>
+<p>Applications are programs designed to perform specific tasks on mobile devices. There are applications for almost everything: social networks, messaging, email, photography, music, video, maps, banking, news, games, etc.</p>
+<p>They are mainly downloaded from official stores:</p>
+<ul>
+<li>
+<p><strong>Google Play Store</strong> (for Android).</p>
+</li>
+<li>
+<p><strong>App Store</strong> (for iOS).</p>
+</li>
+</ul>
+<p>Mobile devices have countless uses, among which we can highlight:</p>
+<ul>
+<li><strong>Communication:</strong> Calls, video calls, instant messaging (WhatsApp, Telegram), email, social networks (Instagram, TikTok, X - Twitter).</li>
+<li><strong>Information:</strong> Internet browsing, reading news, consulting Wikipedia.</li>
+<li><strong>Entertainment:</strong> Listening to music (Spotify), watching videos (YouTube, Netflix), playing games.</li>
+<li><strong>Photography and Video:</strong> Taking photos, recording videos, editing them, and sharing them.</li>
+<li><strong>Navigation and Maps:</strong> Geolocation, GPS navigation (Google Maps), searching for nearby places.</li>
+<li><strong>E-commerce:</strong> Online shopping, banking applications, payment with the mobile phone (NFC).</li>
+<li><strong>Productivity:</strong> Calendar, notes, document editing, task management.</li>
+<li><strong>Health and Sports:</strong> Monitoring physical activity, counting steps, measuring heart rate.</li>
+</ul>
+<h3 id="16-technologies-for-mobile-application-development">1.6 Technologies for Mobile Application Development</h3>
+<p>Developing an application that runs natively on a specific operating system requires using its native technologies. However, to minimize the need for platform-specific development, several technologies exist that aim to enable cross-platform development in the broadest sense. These range from responsive web applications to compiled applications, including hybrid or progressive web applications (PWAs), each with its own advantages and disadvantages.</p>
+<p>Let's look at each of them, categorized by their distance from or closeness to native code.</p>
+<h4 id="webapps-or-responsive-web-applications">WebApps or Responsive Web Applications</h4>
+<p>These are applications based on web technologies: <strong>HTML, CSS, and JavaScript</strong>. They require only a web browser to run. Being "responsive" means their interface adapts to any device. For this type of application, no native code development is necessary, and they are entirely <em>cross-platform</em> because they run on the operating system's own web browser. Therefore, we have a single codebase that runs on all platforms. The main disadvantage is that they do not offer as good a user experience as native apps and do not allow access to all of the system's components.</p>
+<h4 id="hybrid-applications">Hybrid Applications</h4>
+<p>These use the trio of HTML, CSS, and JavaScript to build a website that is loaded within a <strong>WebView</strong> component—essentially a browser without the navigation bar or other options—giving it the appearance of a native application. This type of application can access some device features, like location or the accelerometer, through this component. Currently, the most popular framework for developing hybrid applications is <strong>Ionic</strong>, which allows development using other web frameworks like <em>React</em>, <em>Angular</em>, or <em>Vue</em>. </p>
+<h4 id="progressive-web-applications-pwas">Progressive Web Applications (PWAs)</h4>
+<p>Closer to native applications are <strong>Progressive Web Applications (PWAs)</strong>, which are revolutionizing the current landscape. These applications incrementally enhance their functionalities based on the mobile device they run on, to leverage more potential. They can access hardware, work offline or with poor connectivity, and offer system notifications. There are numerous frameworks for PWA development, including React PWA Library, Angular PWA Framework, Vue PWA Framework, Ionic PWA Framework, Svelte, PWA Builder, and Polymer.</p>
+<p><img alt="PWA vs Native apps" src="../images/Native-app-vs-PWA-Comparison.png" /></p>
+<h4 id="compiled-applications">Compiled Applications</h4>
+<p>These are technologies that aim to use a single programming language to generate mobile applications into the native code of each platform. Some of the most widely used technologies in this category are:</p>
+<ul>
+<li>
+<p><strong>React Native and NativeScript:</strong> They use JavaScript as their base programming language. However, instead of building interfaces with HTML, they use the framework's own components, which are compiled to native code, making the use of a WebView as an intermediary unnecessary.</p>
+</li>
+<li>
+<p><strong>Flutter:</strong> Developed and maintained by Google, Flutter allows for cross-platform application development using the <strong>Dart</strong> language, which compiles to native code that runs entirely on the device. Flutter's way of working involves designing user interfaces using <strong>widgets</strong>, integrated directly into the code. Flutter comes with a set of predefined widgets, such as buttons, navigation bars, etc.</p>
+</li>
+<li>
+<p><strong>Kotlin Multiplatform and Compose Multiplatform:</strong> With Kotlin Multiplatform, we can share code between various platforms (Android, iOS, web, etc.) using <strong>Kotlin</strong> as the programming language. This means we can write an application's logic once and reuse it on different platforms, reducing development time and effort. With Compose Multiplatform, a technology based on Jetpack Compose, we can create shared user interfaces for Android, iOS, desktop, and web using Kotlin. This facilitates the creation of consistent and reusable user interfaces across various platforms.</p>
+</li>
+</ul>
+<p><a href="https://appfigures.com/top-sdks/development/apps">The Most Popular Development SDKs</a></p>
+<h4 id="programming-for-ios">Programming for iOS</h4>
+<p>To program for <strong>iOS (iPhone, iPad, Apple Watch, etc.)</strong>, you’ll need a mix of <strong>hardware, software, and knowledge</strong>. Here’s a clear breakdown:</p>
+<p><strong>Hardware</strong></p>
+<ul>
+<li><strong>Mac computer</strong> (MacBook, iMac, Mac Mini, etc.)
+  iOS development officially requires macOS.</li>
+<li><strong>iOS device (optional but recommended)</strong>
+  You can test apps in the simulator, but real device testing is important.</li>
+</ul>
+<p><strong>Software</strong></p>
+<ol>
+<li>
+<p><strong>Xcode</strong> (free, from the Mac App Store)</p>
+</li>
+<li>
+<p>Apple’s official IDE (Integrated Development Environment).</p>
+</li>
+<li>
+<p>Includes editor, compiler, debugger, Interface Builder (UI designer), and the iOS Simulator.</p>
+</li>
+<li>
+<p><strong>iOS SDK</strong> (comes with Xcode)</p>
+</li>
+<li>
+<p>Provides APIs, frameworks (UIKit, SwiftUI, Core Data, ARKit, etc.), and tools needed for building iOS apps.</p>
+</li>
+<li>
+<p><strong>Apple Developer Account</strong> (optional at first, required for publishing)</p>
+</li>
+<li>
+<p>Free: lets you learn, run apps on simulator.</p>
+</li>
+<li>Paid (\$99/year): required to publish to the App Store and to install apps on your physical iPhone.</li>
+</ol>
+<p><strong>Programming Languages</strong></p>
+<ul>
+<li><strong>Swift</strong> Apple’s modern language, recommended for all new projects.</li>
+<li><strong>Objective-C</strong> older language, still used in legacy apps and some libraries.</li>
+</ul>
+<h3 id="17-trends-and-future">1.7 Trends and Future</h3>
+<p>The future of mobile devices points towards:</p>
+<ul>
+<li><strong>5G Connectivity:</strong> Much higher speed and lower latency, enabling new applications.</li>
+<li><strong>Folding screens and new formats.</strong></li>
+<li><strong>Augmented Reality (AR) and Virtual Reality (VR):</strong> More integrated into mobile devices.</li>
+<li><strong>Artificial Intelligence (AI):</strong> Integrated into the device to improve photography, battery management, and personalize the user experience.</li>
+<li><strong>More and better sensors.</strong></li>
+<li><strong>Greater integration with other devices</strong> (Internet of Things - IoT): Controlling the home, the car, etc., from the smartphone.</li>
+</ul>
+<h2 id="2-introduction-to-android-development">2. Introduction to Android development</h2>
+<p>As we saw previously, there are different technologies for mobile application development.</p>
+<p>In the next units, we will focus on native applications for the Android operating system, maintained by Google and based on the Linux kernel.</p>
+<h3 id="21-origins-of-android">2.1 Origins of Android</h3>
+<p>The origins of Android lie with the Palo Alto (California) company <strong>Android Inc.</strong>, founded in <strong>2003</strong> by Andy Rubin. This company began by developing an operating system for digital cameras, but due to the sector's low profitability, they decided to pivot to mobile devices, a market then dominated by Symbian and Windows Mobile. In <strong>2005</strong>, Google acquired Android Inc., and two years later, alongside the creation of the Open Handset Alliance—a consortium of various technology companies aimed at developing open standards for mobile devices—the first version of Android, Apple Pie, was announced. This version began to be incorporated into devices in <strong>2008</strong>, and two years later, it captured nearly half of the market share.</p>
+<p><img alt="History of Android" src="../images/History-Of-Android.jpg" /></p>
+<h3 id="22-the-android-operating-system">2.2 The Android Operating System</h3>
+<p>Android is the most widely used operating system for mobile devices today. As we know, it is an operating system for touch-screen devices based on the Linux kernel and other open software standards.</p>
+<p>Android is developed as <strong>open source</strong> software, meaning both its source code and its issue tracker are accessible. The <strong>Android Open Source Project</strong> (https://source.android.com/) contains the Android source code, released under the <strong>Apache license</strong>.</p>
+<p>In June 2025, the latest version of Android, Android 16, was launched. Since its first version, it has continuously incorporated updates and new functionalities into the system. Furthermore, the ease it provides for application development has resulted in a large community of developers, whose work has produced over three million apps on the Google Play Store, the official Android application repository.</p>
+<h3 id="23-characteristics">2.3 Characteristics</h3>
+<p>Some of the most relevant characteristics of Android are:</p>
+<ul>
+<li>Adaptable to a wide variety of screen sizes and resolutions, with support for 2D and 3D graphics libraries based on OpenGL.</li>
+<li>Natively supports multi-touch screens.</li>
+<li>Offers local storage through a lightweight database, <strong>SQLite</strong>.</li>
+<li>Supports a wide range of connectivity technologies.</li>
+<li>Includes a web browser based on the <strong>WebKit</strong> rendering engine and the V8 JavaScript engine from Google Chrome.</li>
+<li>Native applications are programmed with <strong>Java</strong> or <strong>Kotlin</strong> and are compiled for the <strong>ART (Android Runtime) virtual machine</strong>.</li>
+<li>Incorporates support for a wide variety of multimedia formats and streaming.</li>
+<li>Supports a vast array of hardware devices and sensors.</li>
+<li>Features a very extensive catalog of applications through the <strong>Google Play</strong> service.</li>
+</ul>
+<h3 id="24-android-versions">2.4 Android Versions</h3>
+<p>Android has undergone a significant transformation since its first versions. As a summary, we will look at some characteristics of the most relevant updates.</p>
+<p>The system began its journey in 2008 with versions 1.0 and 1.1, which included apps like Gmail, Maps, Calendar, and YouTube. It was in version 1.5, Cupcake, that a version name was introduced, and a large number of interface improvements were included, such as the on-screen keyboard, which allowed devices to eliminate physical keyboards. Subsequently, with version 1.6, Donut, the system began to adapt to different screen sizes and resolutions.</p>
+<p>Versions 2.0 and 2.2 (Eclair and Froyo) introduced aspects like voice-guided navigation, real-time traffic information, and the bottom dock. Version 3.0, Honeycomb, was launched specifically for larger devices, like tablets, and in version 4.0, Ice Cream Sandwich, in 2011, this new interface, Holo, was unified for tablets and smartphones, thus entering the era of modern design.</p>
+<p>But the biggest change was yet to come with versions 5.0 and 5.1, Lollipop, in 2014. Google reinvented Android in what is perhaps the most important update to the system, introducing the <strong>Material Design</strong> standard—a set of design specifications affecting the operating system, the web, and apps. With Material, flat color designs were introduced to give weight and depth to different interface elements using shadows, layers, or animations.</p>
+<p>Subsequent versions included some interface improvements, such as split-screen mode in Android 7.0/7.1 (Nougat) and the picture-in-picture floating window in Android 8/8.1 (Oreo). With Android 10, the dessert-based version code names were abandoned, and some aspects of the interface were reinvented regarding gestures and the navigation system.</p>
+<p>In Android 11, in 2020, substantial changes to privacy arrived, allowing users to grant apps <strong>temporary permissions</strong> to access location, camera, or microphone only when required, instead of permanently during installation.</p>
+<p>And in 2021, Android 12 arrived, representing the biggest update since Android 5.0, with the introduction of <strong>Material You</strong>, which allows for system design personalization to automatically adjust to the user's settings. This means, for example, that the theme's color palette adapts to the user's chosen wallpaper. Additionally, under the hood, it offers a simpler and more granular way to control how apps access our data through the new privacy dashboard.</p>
+<p>In August 2022, Android 13 (Tiramisu) appeared, evolving Material You and presenting improvements in security, audio, and integration with other Google products. Android 14 (Upside Down Cake), in October 2023, incorporated improvements in customization, privacy, and accessibility.</p>
+<p>In September 2024, the launch of Android 15 is expected, bringed improvements to the user interface, security, and performance.</p>
+<p>The last release is <strong>Android 16</strong>, in June 2025. Android 16's major updates include a new "Material 3 Expressive" UI with advanced animations and blur effects, a desktop mode for tablets, and an expanded Linux terminal to run full desktop applications. It also enhances privacy with features like Notification Cooldown and introduces improved media sharing via Bluetooth LE Audio.</p>
+<p><img alt="Android versions logos" src="../images/versions.jpg" /></p>
+<p><a href="https://en.wikipedia.org/wiki/Android_version_history#Overview">Android versions</a></p>
+<h3 id="25-android-architecture">2.5 Android Architecture</h3>
+<p>The Android architecture is composed of a stack of layers, based on the Linux kernel, and is adapted to a wide variety of devices. The different components of the system are shown in the following figure:</p>
+<p><img alt="Android System Components" src="../images/android-stack_2x.png" /></p>
+<p><em>Original at: https://developer.android.com/guide/platform</em></p>
+<p>We can see the following components:</p>
+<ul>
+<li>
+<p><strong>System Applications:</strong> These form the base system and include the email client, calendar, SMS application, Maps, camera app, browser, contacts app, dialer, among others.</p>
+</li>
+<li>
+<p><strong>Application Framework (Java API Framework):</strong> Offers applications access to all Android functions, as well as the ability to publish and securely offer their functionalities to others. All this is designed to simplify the reuse of system components and modular services. Among these services we can find:</p>
+<ul>
+<li>An enriched view system for building the user interface,</li>
+<li>A resource manager, to access application resources such as translations, images, or layout files,</li>
+<li>A notification manager, to display alerts in the status bar,</li>
+<li>An activity manager, to manage the application lifecycle and handle navigation,</li>
+<li>Content providers, so that applications can access data provided by other applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>C/C++ Libraries:</strong> These are libraries used by some system components, offered to developers through the Application Framework. Some of these libraries include the standard C library, 3D graphics libraries, multimedia libraries, or the SQLite database.</p>
+</li>
+<li>
+<p><strong>Android Runtime:</strong> Includes the ART virtual machine itself and the core Java libraries. Apps run their own processes as instances of the ART virtual machine, following the process virtualization paradigm (similar to the JVM for PC). The executables for this virtual machine are in DEX format, a bytecode specifically designed for Android and optimized to occupy minimal memory space.</p>
+</li>
+<li>
+<p><strong>Hardware Abstraction Layer (HAL):</strong> Consists of a series of library modules for the different hardware components of the device, such as the camera or sensors, and offers an interface to the upper layers to facilitate access to them.</p>
+</li>
+<li>
+<p><strong>Linux Kernel:</strong> This is the foundation of the Android platform, providing it with basic system functionalities such as process management, memory management, networking, drivers, and security.</p>
+</li>
+</ul>
+<h3 id="26-apps-for-android">2.6 Apps for Android</h3>
+<p>Android applications are natively programmed in Kotlin or Java and are compiled by the Android SDK, along with data and resource files (interfaces, images, etc.), to generate an <code>.apk</code> file. This file contains the application itself and the information Android needs for its installation.</p>
+<p>Android implements the <strong>principle of least privilege</strong> in applications, which provides a certain level of security. This principle is based on:</p>
+<ul>
+<li>Android is a multi-user operating system, as it is based on Linux. The peculiarity is that for Android, each application is a different user.</li>
+<li>Each app has a user ID known only to the system, which establishes the necessary permissions for it to access its resources.</li>
+<li>Each process has its own virtual machine, so its code runs independently. In principle, each app will have its own process.</li>
+</ul>
+<p>With this, each application only has access to the components it needs. However, an application can share data with other applications and access system services, either by having two applications share the same user ID or by requesting user permission to access device data and resources (camera, microphone, Bluetooth connection, SD card, contacts, etc.).</p>
+<h3 id="27-api-levels-compatibility-libraries-and-jetpack">2.7 API Levels, Compatibility Libraries, and Jetpack</h3>
+<p>We have seen how different versions of Android introduce substantial changes in terms of operation and features. For developers, more than the version, we are interested in the <strong>API levels</strong>. These levels determine the compatibility of applications with Android versions. With each new version of the system, one or more API levels are introduced, which determine which device functionalities will be available to us.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Android 16 is API level 36.</p>
+</div>
+<p>When we start developing an Android application, we must consider which API functionalities we will need and establish the <strong>minimum level</strong> that our application will require. For example, if we develop an application that we want to follow Material Design standards, we must use a minimum API level 21, which was introduced in Android 5.0. Or if we desire functionalities present in Android 11 or 12, we must use API levels 30 and 31, respectively.</p>
+<p>To provide new functionalities or use equivalent functionalities in earlier versions of Android, Google launched a compatibility layer through <strong>Support Libraries</strong>. Currently, these libraries are integrated into <strong>Android Jetpack</strong>, a set of libraries that allows developers to focus on application logic and follow recommended practices, reducing boilerplate code and producing consistent code across different system versions.</p>
+<div class="admonition info">
+<p class="admonition-title">Jetpack Compose</p>
+<p>Traditionally, the design of native user interfaces has used <strong>XML files</strong>, which must be injected and manipulated from the source code.</p>
+<p>With <strong>Jetpack Compose</strong>, a more modern toolkit for interface development is introduced, following a <strong>declarative model</strong>. This means we describe the state of the interface, and Compose takes care of the rest, simplifying the code and making it more maintainable and reusable.</p>
+</div>
+<h2 id="3-android-studio">3. Android Studio</h2>
+<p><strong>Android Studio</strong> is the official IDE for Android development, based on JetBrains' IntelliJ IDE. Until 2014, Eclipse with the Android Development Tools (ADT) plugin was used.</p>
+<p>The main characteristics of Android Studio are:</p>
+<ul>
+<li>It is a cross-platform IDE (Windows, Linux, macOS)</li>
+<li>It is distributed under the Apache 2.0 license (free),</li>
+<li>It uses Gradle for building packages,</li>
+<li>It includes a series of templates for common application layouts,</li>
+<li>It allows Android-specific code refactoring,</li>
+<li>It offers support for development on different devices: smartphones, tablets, televisions, or wearables,</li>
+<li>It incorporates the Device Manager component, which allows creating and managing virtual Android devices to run, debug applications, or analyze performance, as well as linking physical devices to our development environment,</li>
+<li>It includes support for Google Cloud Platform, enabling integration with various Google services.</li>
+</ul>
+<h3 id="31-device-manager">3.1 Device Manager</h3>
+<p>The built-in <strong>Device Manager</strong> in Android Studio allows us to create and manage virtual Android devices, as well as link physical devices to our development environment.</p>
+<p>We must keep in mind that the architecture and system for which we develop our applications are different from those of our development machine, not to mention that we can also create applications for a wide range of devices.</p>
+<p>For testing and debugging applications, we can either directly connect a device to the machine and enable developer mode, or use virtualized devices. The advantage of virtualization is that we can test our applications with a wide range of devices and different configurations. The disadvantage is that we will have to create a virtual machine for each device we want to test, with the associated consumption of storage space and memory.</p>
+<h3 id="32-android-studio-installation">3.2 Android Studio installation</h3>
+<p>The best way of install Android Studio i to download the installer and follow the installation instructions. Once installed, Android Studio automatically checks for updates.</p>
+<p>But before start the installation, read carefully the system requirements.</p>
+<p><a href="https://developer.android.com/studio">Download Android Studio</a></p>
+<p><a href="https://developer.android.com/studio/install">Installation guide (with system requirements)</a></p>
+<p><a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-install-android-studio?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-1-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-install-android-studio#0">Download and install Android Studio (Codelab)</a></p>
+<div class="admonition question">
+<p class="admonition-title">Task</p>
+<p>Install Android Studio</p>
+</div>
+<h3 id="33-genymotion-emulator-installation">3.3 Genymotion emulator installation</h3>
+<p><strong>Genymotion</strong> is a third-party Android emulator and virtual device management platform. It is a powerful alternative to the emulator that comes bundled with Android Studio (which is now based on the Android Emulator Hypervisor Driver for faster performance).</p>
+<p>While Android Studio's Device Manager is the official tool for creating and running Android Virtual Devices (AVDs), Genymotion is often favored by developers for its significantly faster performance, advanced features, and ease of use for specific testing scenarios.</p>
+<p>Additionally, Genymotion offers a cloud service that allows you to run emulators on remote servers. This is ideal for continuous integration/continuous deployment (CI/CD) pipelines, automated testing on a large scale, or accessing a powerful emulator from a less powerful local machine.</p>
+<p>As a drawback, if you use the free license of Genymotion, you won't have access to the latest Android version and to the pro widgets.</p>
+<p><a href="https://www.genymotion.com/product-desktop/download/">Genymotion download</a></p>
+<p><a href="https://docs.genymotion.com/desktop/Get_started/013_Linux_install/">Requirements and installation guides</a></p>
+<div class="admonition question">
+<p class="admonition-title">Task</p>
+<p>Install <strong>Genymotion Desktop</strong> and create and launch an Android Virtual Device with the latest API allowed.</p>
+</div>
+<h3 id="34-yout-first-android-app">3.4 Yout first Android app</h3>
+<p>Once you have Android Studio installed, it's time to create your first Android app. The purpose of this section is to practice the basic use of IDE and emulators.</p>
+<div class="admonition question">
+<p class="admonition-title">Task</p>
+<ol>
+<li>Follow the guide at <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-1-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-first-app#0">Create your first Android app codcelab</a></li>
+<li>Run the app on the Android Emulator. You can follow this <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-emulator?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-1-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-emulator#0">codelab</a></li>
+<li>Close the Android emulator and start the Genymotion virtual device. Run your app on the Genymotion device.</li>
+<li>Connect your Android device and run the app on it. You can follow this <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-connect-device?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-1-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-connect-device#0">codelab</a></li>
+</ol>
+</div>
+<h3 id="35-structure-of-an-android-project">3.5 Structure of an Android project</h3>
+<p>Android Studio uses <strong>Gradle</strong> as the project build tool. Android projects are organized into modules, where each module will be a different application. This allows us to have multiple versions of our application for different types of devices (tablets, wearables, etc.) under the same project.</p>
+<p>Below, we see the structure generated in an Android project, from both the <strong>Project Files</strong> view in the side tool window and the <strong>Android</strong> view.</p>
+<p><img alt="Project structure" src="../images/fitxersProjecte.png" /></p>
+<p>In the <strong>project files view</strong>, we can see the typical file structure of a Gradle project, with general application files in the root folder, as well as the specific folder for the application module (<code>app</code>). However, the <strong>Android view</strong> presents a more compact and simplified view of this information, organized into several main logical folders: <code>app</code> (which contains <code>manifests</code>, <code>kotlin+java</code>, and <code>res</code>), plus the <code>Gradle Scripts</code> folder.</p>
+<p>Let's see some of the most important elements of this organization:</p>
+<ul>
+<li>The <strong>Gradle build scripts</strong>, in Kotlin DSL format (<code>build.gradle.kts</code>). This includes both the general script located in the root (with information common to all modules) and the one specific to the application module (<code>app/build.gradle.kts</code>). In the Android view, both scripts are shown under <code>Gradle Scripts</code>, indicating whether it's the script for the project or the module.</li>
+<li>Inside the module folder (<code>app</code>) we find the <code>src</code> folder, which contains the application's source code (<code>app/src/main</code>). In the Android view, this is located in the <code>kotlin+java</code> folder and is displayed in package name format instead of showing the directory structure.</li>
+<li>The <code>app/src/main/res</code> folder, which will contain the application's resources (images, layouts, text strings, etc.). If we look at the detail, this folder contains many subfolders for the different types of resources. In the Android view, this content is displayed in a more compact and organized way, according to the resource type.</li>
+<li>The application descriptor file: <code>app/AndroidManifest.xml</code>, with information associated with it. As we will see, this is one of the most important files in our project, as it defines aspects such as the application name, package, icon, and its different components.</li>
+</ul>
+<h4 id="gradle-scripts">Gradle Scripts</h4>
+<h5 id="general-build-script">General Build Script</h5>
+<p>As mentioned, an Android project defines a general configuration script <code>build.gradle.kts</code> for the project, located in the root folder, and another located in the <code>app</code> folder, which refers to the application module itself.</p>
+<p>The content of the general build script will have the following structure:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">android</span><span class="p">.</span><span class="na">application</span><span class="p">)</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">kotlin</span><span class="p">.</span><span class="na">android</span><span class="p">)</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">kotlin</span><span class="p">.</span><span class="na">compose</span><span class="p">)</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>It contains aliases to the plugins it uses, defined in the version catalog file <code>libs.versions.toml</code>.</p>
+<p>In previous versions, plugins were specified in this same file, but now this catalog is used to manage the versions of plugins and dependencies, to facilitate maintenance and version updates, since all are defined in the same place.</p>
+<p>This file, located in the <code>gradle</code> folder, contains, among other things:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">[versions]</span>
+<span class="n">agp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8.13.0&quot;</span>
+<span class="n">kotlin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2.0.21&quot;</span>
+<span class="p">...</span>
+
+<span class="k">[libraries]</span>
+<span class="p">...</span>
+
+<span class="k">[plugins]</span>
+<span class="n">android-application</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;com.android.application&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;agp&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">kotlin-android</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;org.jetbrains.kotlin.android&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;kotlin&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">kotlin-compose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;org.jetbrains.kotlin.plugin.compose&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="p">.</span><span class="n">ref</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;kotlin&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This means it uses the plugins <code>com.android.application</code> (it's an Android application), <code>kotlin-android</code> (it's a Kotlin application) and <code>kotlin-compose</code>, with versions <code>8.13.0</code> for the first and <code>2.0.21</code> for the second.</p>
+<div class="admonition info">
+<p>The utility of these plugins is to correctly configure the project build process, ensuring that the Kotlin code is compiled properly and packaged correctly for Android.</p>
+</div>
+<p>Although by default plugins are loaded immediately, we can use the <code>apply false</code> syntax to load them later in the configuration files of each module.</p>
+<h5 id="module-scripts">Module Scripts</h5>
+<p>The build file most important is the <code>build.gradle.kts</code> of the application module itself. The main blocks that compose it are the following:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">android</span><span class="p">.</span><span class="na">application</span><span class="p">)</span>
+<span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">kotlin</span><span class="p">.</span><span class="na">android</span><span class="p">)</span>
+<span class="w">    </span><span class="n">alias</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">plugins</span><span class="p">.</span><span class="na">kotlin</span><span class="p">.</span><span class="na">compose</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This is where the plugins that the module will depend on are specified; specifically those defined in the general build file.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">android</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.example.helloandroid&quot;</span>
+<span class="w">    </span><span class="n">compileSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
+
+<span class="w">    </span><span class="n">defaultConfig</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">applicationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.example.helloandroid&quot;</span>
+<span class="w">        </span><span class="n">minSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">24</span>
+<span class="w">        </span><span class="n">targetSdk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span>
+<span class="w">        </span><span class="n">versionCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">        </span><span class="n">versionName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.0&quot;</span>
+
+<span class="w">        </span><span class="n">testInstrumentationRunner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;androidx.test.runner.AndroidJUnitRunner&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">buildTypes</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">release</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">isMinifyEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">            </span><span class="n">proguardFiles</span><span class="p">(</span>
+<span class="w">                </span><span class="n">getDefaultProguardFile</span><span class="p">(</span><span class="s">&quot;proguard-android-optimize.txt&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="s">&quot;proguard-rules.pro&quot;</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">compileOptions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sourceCompatibility</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JavaVersion</span><span class="p">.</span><span class="na">VERSION_11</span>
+<span class="w">        </span><span class="n">targetCompatibility</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JavaVersion</span><span class="p">.</span><span class="na">VERSION_11</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">kotlinOptions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">jvmTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;11&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">buildFeatures</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">compose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This <code>android</code> block is where some of the most important aspects of the application are configured. It contains the namespace of our application (<code>namespace</code>) and the SDK version it was developed with (<code>compileSdk</code>).</p>
+<p>Furthermore, it includes several sub-blocks, such as:</p>
+<ul>
+<li><code>defaultConfig</code>: Specifies the default configuration, with parameters such as the application ID (<code>applicationId</code>), the minimum SDK version the application will work with (<code>minSdk</code>), or the version it was developed for (<code>targetSdk</code>), among others.</li>
+<li><code>buildTypes</code>: Where parameters for the different builds can be specified. When creating a module, two builds are created by default: <code>release</code> and <code>debug</code>. Here we specify options like code optimization with Proguard, etc.</li>
+<li><code>compileOptions</code>, where the Java version to be used to compile the project (<code>sourceCompatibility</code>) and the Java version the compilation will target (<code>targetCompatibility</code>) are specified. In this case, the value <code>JavaVersion.VERSION_1_8</code> refers to Java version 8.</li>
+<li><code>kotlinOptions</code> specifies some options for Kotlin; in this case <code>jvmTarget</code>, which indicates the Java version that will be used for the Kotlin code.</li>
+</ul>
+<p>And finally, we have the following project <strong>dependencies</strong> block:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">core</span><span class="p">.</span><span class="na">ktx</span><span class="p">)</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">lifecycle</span><span class="p">.</span><span class="na">runtime</span><span class="p">.</span><span class="na">ktx</span><span class="p">)</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">activity</span><span class="p">.</span><span class="na">compose</span><span class="p">)</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">platform</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">bom</span><span class="p">))</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">ui</span><span class="p">)</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">ui</span><span class="p">.</span><span class="na">graphics</span><span class="p">)</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">ui</span><span class="p">.</span><span class="na">tooling</span><span class="p">.</span><span class="na">preview</span><span class="p">)</span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">material3</span><span class="p">)</span>
+<span class="w">    </span><span class="n">testImplementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">junit</span><span class="p">)</span>
+<span class="w">    </span><span class="n">androidTestImplementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">junit</span><span class="p">)</span>
+<span class="w">    </span><span class="n">androidTestImplementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">espresso</span><span class="p">.</span><span class="na">core</span><span class="p">)</span>
+<span class="w">    </span><span class="n">androidTestImplementation</span><span class="p">(</span><span class="n">platform</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">bom</span><span class="p">))</span>
+<span class="w">    </span><span class="n">androidTestImplementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">ui</span><span class="p">.</span><span class="na">test</span><span class="p">.</span><span class="na">junit4</span><span class="p">)</span>
+<span class="w">    </span><span class="n">debugImplementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">ui</span><span class="p">.</span><span class="na">tooling</span><span class="p">)</span>
+<span class="w">    </span><span class="n">debugImplementation</span><span class="p">(</span><span class="n">libs</span><span class="p">.</span><span class="na">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">ui</span><span class="p">.</span><span class="na">test</span><span class="p">.</span><span class="na">manifest</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Among these dependencies, we highlight the Jetpack libraries (<code>libs.androidx.core.ktx</code>), as well as the Compose libraries (<code>libs.androidx.compose...</code>), among others. Note that we are also using aliases here, and the name and versions of the libraries are specified in the <code>gradle/libs.versions.toml</code> file.</p>
+<p>At this point, we we can see how, unlike other types of Gradle applications, the main class (<code>mainClass</code>) is not specified, and the <code>application</code> section doesn't even exist. As we will see next, the entry point will be specified in the Manifest file.</p>
+<h4 id="the-androidmanifestxml-file-and-application-components">The AndroidManifest.xml File and Application Components</h4>
+<p>The Manifest file is a file specific to each application that contains information about it. This information is used by the Android build tools, the system itself, and Google Play.</p>
+<p>Among the information we can find in it, we can highlight:</p>
+<ul>
+<li>The different <strong>components of the application and their properties</strong>: Activities (<code>&lt;activity&gt;</code>), Services (<code>&lt;service&gt;</code>), Broadcast Receivers (<code>&lt;receiver&gt;</code>), and Content Providers (<code>&lt;provider&gt;</code>). We will discuss these components later.</li>
+<li>The <strong>application's permissions</strong> to access protected system resources or other applications, as well as the permissions that other applications must possess to access this application's content.</li>
+<li>The different <strong>hardware and software features</strong> that our application will need, so that Google Play prevents its installation on devices that do not have these features.</li>
+</ul>
+<p>As an example, let's look at the <code>AndroidManifest.xml</code> of a typical "Hello World" application, like the one we created. The general structure of the file is as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+<span class="w">    </span><span class="na">xmlns:tools=</span><span class="s">&quot;http://schemas.android.com/tools&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;application&gt;</span><span class="w"> </span>
+<span class="w">        </span>...
+<span class="w">    </span><span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>As we can see, the root element <code>manifest</code> defines two namespaces:</p>
+<ul>
+<li><code>xmlns:android</code>, with which we can define Android-specific attributes (<code>android:</code>) in the document, which serve to define the application's behavior and its interaction with the system. Furthermore, it allows us to define information related to components (activities, services, etc.).</li>
+<li><code>xmlns:tools</code> allows us to use certain debugging and helper tools from the IDE, but it has no effect on the application's operation.</li>
+</ul>
+<div class="admonition info">
+<p>In older versions of Android Studio, with Gradle prior to 7.3, the package name was also specified in the <code>manifest</code> tag, instead of in the project's Gradle build file. Therefore, in old projects, you might find it in this file.</p>
+</div>
+<p>Let's now move on to the <code>application</code> element, which contains all the information about the application:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;application</span>
+<span class="w">    </span><span class="na">android:allowBackup=</span><span class="s">&quot;true&quot;</span>
+<span class="w">    </span><span class="na">android:dataExtractionRules=</span><span class="s">&quot;@xml/data_extraction_rules&quot;</span>
+<span class="w">    </span><span class="na">android:fullBackupContent=</span><span class="s">&quot;@xml/backup_rules&quot;</span>
+<span class="w">    </span><span class="na">android:icon=</span><span class="s">&quot;@mipmap/ic_launcher&quot;</span>
+<span class="w">    </span><span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+<span class="w">    </span><span class="na">android:roundIcon=</span><span class="s">&quot;@mipmap/ic_launcher_round&quot;</span>
+<span class="w">    </span><span class="na">android:supportsRtl=</span><span class="s">&quot;true&quot;</span>
+<span class="w">    </span><span class="na">android:theme=</span><span class="s">&quot;@style/Theme.HelloAndroid&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;activity&gt;</span><span class="w"> </span>...<span class="w"> </span><span class="nt">&lt;/activity&gt;</span>
+<span class="nt">&lt;/application&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>As we can see, several Android-specific attributes are defined here, such as the icon, label, or theme that defines the application's appearance. Many of these elements are referenced preceded by the <code>@</code> symbol, which indicates that they refer to application resources.</p>
+<p>Inside <code>application</code>, as mentioned, the different components of the application are defined. In this case, there is a single activity:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;activity</span>
+<span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;.MainActivity&quot;</span>
+<span class="w">    </span><span class="na">android:exported=</span><span class="s">&quot;true&quot;</span>
+<span class="w">    </span><span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+<span class="w">    </span><span class="na">android:theme=</span><span class="s">&quot;@style/Theme.HelloAndroid&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;intent-filter&gt;</span>
+<span class="w">        </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>With this, we indicate that the application contains an activity named <code>.MainActivity</code> (actually <code>com.example.helloandroid.MainActivity</code>), and that this activity can receive messages from outside the application (<code>android:exported="true"</code>), or in other words, that this activity will be an entry point to our application.</p>
+<p>Furthermore, an <code>intent-filter</code> element is defined, which specifies the actions this activity will react to. In this case, the action <code>android.intent.action.MAIN</code> is defined with the category <code>android.intent.category.LAUNCHER</code>. With <code>MAIN</code> we indicate that this is the entry point to the application, and by specifying the <code>LAUNCHER</code> category, we indicate that this activity should appear in the application launcher.</p>
+<p>Within this same <code>application</code> element, we will define the rest of the application's components. Any components not included will not be visible to the system.</p>
+<h5 id="application-resources">Application Resources</h5>
+<p>The application's resources folder (<code>res</code>) contains, organized in subfolders, the different types of resources used by the application. When programming any application, it is convenient to keep resources external to the application to facilitate their independent maintenance.</p>
+<p>Although there are several physical folders for the different types of resources, the Android view presents us with a logical organization of all of them. Among these logical folders we can find:</p>
+<ul>
+<li><strong><code>drawable/</code></strong>: Contains graphic design elements that can be drawn on the device screen: not only images but also layer lists, states, or levels, among many others.</li>
+<li><strong><code>mipmap/</code></strong>: Contains the different application icons, in different densities (dpi).</li>
+<li><strong><code>layout/</code></strong>: For apps that use XML layouts, contains the layouts of different parts of the user interface, in XML format.</li>
+<li><strong><code>values/</code></strong>: Contains files in XML format with simple values, such as character strings, integer values, or colors.</li>
+<li><strong><code>xml/</code></strong>: XML files that can be read at runtime, with some special configurations.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>
