@@ -1,0 +1,1644 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../U02.1%20-%20Kotlin/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unit 2.2. Basic Android development - Multimedia and mobile device programming - 2DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-021-introduction-to-mobile-development" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-header__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimedia and mobile device programming - 2DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit 2.2. Basic Android development
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-nav__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Multimedia and mobile device programming - 2DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multimedia and mobile device programming - 2DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U02.1%20-%20Kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.1. The Kotlin language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-jetpack-compose" class="md-nav__link">
+    Getting Started with Jetpack Compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started with Jetpack Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composable-functions" class="md-nav__link">
+    Composable Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifiers" class="md-nav__link">
+    Modifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-of-composables" class="md-nav__link">
+    Lifecycle of composables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layouts-and-ui-components" class="md-nav__link">
+    Layouts and UI Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Layouts and UI Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-layouts" class="md-nav__link">
+    Common Layouts
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Layouts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#column" class="md-nav__link">
+    Column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row" class="md-nav__link">
+    Row
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#box" class="md-nav__link">
+    Box
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lazycolumn" class="md-nav__link">
+    LazyColumn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spacer" class="md-nav__link">
+    Spacer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dividers" class="md-nav__link">
+    Dividers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-components" class="md-nav__link">
+    UI Components
+  </a>
+  
+    <nav class="md-nav" aria-label="UI Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    Text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-fields" class="md-nav__link">
+    Text fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buttons" class="md-nav__link">
+    Buttons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-action-button-fab" class="md-nav__link">
+    Floating Action Button (FAB)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snackbar" class="md-nav__link">
+    Snackbar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surface" class="md-nav__link">
+    Surface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaffold" class="md-nav__link">
+    Scaffold
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-components" class="md-nav__link">
+    Other components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theming-and-styling" class="md-nav__link">
+    Theming and Styling
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-jetpack-compose" class="md-nav__link">
+    Getting Started with Jetpack Compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started with Jetpack Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composable-functions" class="md-nav__link">
+    Composable Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifiers" class="md-nav__link">
+    Modifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-of-composables" class="md-nav__link">
+    Lifecycle of composables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layouts-and-ui-components" class="md-nav__link">
+    Layouts and UI Components
+  </a>
+  
+    <nav class="md-nav" aria-label="Layouts and UI Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-layouts" class="md-nav__link">
+    Common Layouts
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Layouts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#column" class="md-nav__link">
+    Column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#row" class="md-nav__link">
+    Row
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#box" class="md-nav__link">
+    Box
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lazycolumn" class="md-nav__link">
+    LazyColumn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spacer" class="md-nav__link">
+    Spacer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dividers" class="md-nav__link">
+    Dividers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-components" class="md-nav__link">
+    UI Components
+  </a>
+  
+    <nav class="md-nav" aria-label="UI Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    Text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-fields" class="md-nav__link">
+    Text fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buttons" class="md-nav__link">
+    Buttons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-action-button-fab" class="md-nav__link">
+    Floating Action Button (FAB)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snackbar" class="md-nav__link">
+    Snackbar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surface" class="md-nav__link">
+    Surface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaffold" class="md-nav__link">
+    Scaffold
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-components" class="md-nav__link">
+    Other components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theming-and-styling" class="md-nav__link">
+    Theming and Styling
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-021-introduction-to-mobile-development">Unit 02.1. Introduction to Mobile Development</h1>
+<p>In this unit we will learn the basics of Jetpack Compose. We will see the different components that make up a Compose application and how to create user interfaces with Compose.</p>
+<h2 id="getting-started-with-jetpack-compose">Getting Started with Jetpack Compose</h2>
+<p><strong>Jetpack Compose</strong> is a modern toolkit for building Android UIs. It simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs. You can build then UI by defining <strong>composable functions</strong> that describe your UI.</p>
+<p>To get started with Jetpack Compose, you need to set up your development environment. This includes installing Android Studio and the necessary SDKs. Once your environment is set up, you can create a new Compose project using the <strong>"Empty Activity"</strong> template and start building your user interface.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To view how was developing with XML views, create a new project with <strong>"Empty Views Activity"</strong> template.</p>
+</div>
+<h3 id="composable-functions">Composable Functions</h3>
+<p>A <strong>composable function</strong> is a special type of function that can be used to define a part of your UI. Composable functions are annotated with the <code>@Composable</code> annotation. Here is an example of a simple composable function that displays a text:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">Greeting</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, </span><span class="si">$</span><span class="n">name</span><span class="s">!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>An <strong>annotation</strong> is a special kind of metadata that can be added to code elements such as classes, functions, or properties. Annotations provide additional information about the code and can be used by the compiler or runtime to modify behavior or perform specific actions.</p>
+<p>Some annotations can take parameters, which allow you to provide additional information or configuration. For example, the <code>@Composable</code> annotation does not take any parameters, but other annotations like <code>@Preview</code> can take parameters to customize the preview behavior:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Preview</span><span class="p">(</span><span class="n">showBackground</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">DefaultPreview</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Greeting</span><span class="p">(</span><span class="s">&quot;Android&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Composable functions <strong>can accept arguments</strong>, just like regular functions. In the example above, the <code>Greeting</code> function takes a <code>name</code> parameter and uses it to display a personalized greeting. They can also return values, although <strong>it's not common practice</strong> in Compose.</li>
+<li>Composable functions <strong>can be nested</strong>, allowing you to create complex UIs by combining smaller, reusable components. For example, you can create a <code>UserProfile</code> composable that includes a <code>ProfilePicture</code> and a <code>UserName</code> composable.</li>
+<li>The name of a composable function should be <strong>descriptive</strong> and follow the standard naming conventions for functions in Kotlin. It's common to use <strong>PascalCase</strong> for composable function names, as they represent UI components. Examples: <code>UserProfile</code>, <code>LoginButton</code>, <code>ProductList</code>.</li>
+</ul>
+<h2 id="modifiers">Modifiers</h2>
+<p><strong>Modifiers</strong> are used to change the appearance or behavior of a composable function. They can be used to set properties such as size, padding, background color, and more. Modifiers are applied to composable functions using the <code>Modifier</code> class.
+Here is an example of how to use modifiers to set the padding and background color of a <code>Text</code> composable:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span>
+<span class="w">        </span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">LightGray</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Passing modifiers to custom composables is a common practice in Jetpack Compose. It allows you to provide flexibility and customization options for the composable's appearance and behavior. By accepting a <code>Modifier</code> parameter, you enable users of your composable to apply their own modifiers, such as padding, size, or click handling.</p>
+<p>Here is an example of a custom composable that accepts a <code>Modifier</code> parameter:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">CustomButton</span><span class="p">(</span>
+<span class="w">    </span><span class="n">onClick</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">,</span>
+<span class="w">    </span><span class="n">modifier</span><span class="p">:</span><span class="w"> </span><span class="n">Modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Button</span><span class="p">(</span>
+<span class="w">        </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">onClick</span><span class="p">,</span>
+<span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modifier</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Custom Button&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In the example above, the <code>CustomButton</code> composable accepts a <code>modifier</code> parameter of the type <code>Modifier</code> with a default value of <code>Modifier</code> (a companion object that provides default values for the <code>Modifier</code> class).</p>
+</div>
+<p>We can call this <code>CustomButton</code> composable and pass our own modifiers to customize its appearance:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">CustomButton</span><span class="p">(</span>
+<span class="w">    </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Handle click */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span>
+<span class="w">        </span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">8.</span><span class="n">dp</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">background</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">Blue</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">dp and sp</p>
+<p>dp and sp are units of measurement used in Android development to ensure that UI elements are displayed consistently across different screen sizes and densities.</p>
+<ul>
+<li>
+<p><strong>dp (density-independent pixels)</strong>: A unit of measurement that is based on the physical density of the screen. It is used for defining <strong>layout dimensions and spacing</strong>. 1 dp is equivalent to one pixel on a 160 dpi screen. </p>
+</li>
+<li>
+<p><strong>sp (scale-independent pixels)</strong>: A unit of measurement that is similar to dp but is also scaled based on the user's <strong>font size</strong> preference. It is primarily used for defining font sizes. 1 sp is equivalent to one pixel on a 160 dpi screen, but it can be scaled up or down based on the user's font size settings.</p>
+</li>
+</ul>
+</div>
+<h3 id="lifecycle-of-composables">Lifecycle of composables</h3>
+<p>Composable functions have a lifecycle that is managed by the Compose runtime. The lifecycle of a composable function includes the following stages:
+1. <strong>Composition</strong>: When a composable function is called, it is composed, and its UI elements are created and added to the UI tree.
+2. <strong>Recomposition</strong>: When the state of a composable function changes, it is recomposed, and its UI elements are updated to reflect the new state.
+3. <strong>Disposal</strong>: When a composable function is no longer needed, it is disposed of, and its UI elements are removed from the UI tree.</p>
+<p><img alt="Composition lifecycle" src="../images/lifecycle-composition.png" /></p>
+<h2 id="layouts-and-ui-components">Layouts and UI Components</h2>
+<h3 id="common-layouts">Common Layouts</h3>
+<p>Jetpack Compose provides several layout components that help you arrange your UI elements. Some of the most commonly used layouts include:</p>
+<h4 id="column">Column</h4>
+<p>Arranges its children in a vertical sequence.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 3&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="row">Row</h4>
+<p>Arranges its children in a horizontal sequence.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 3&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="box">Box</h4>
+<p>Stacks its children on top of each other.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Box</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 2&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Layouts" src="../images/layout-column-row-box.svg" /></p>
+<h4 id="lazycolumn">LazyColumn</h4>
+<p>A vertically scrolling list that only composes and lays out the currently visible items.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">LazyColumn</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">items</span><span class="p">(</span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">-&gt;</span>
+
+<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item #</span><span class="si">$</span><span class="n">index</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="spacer">Spacer</h4>
+<p>A spacer is a composable that creates an empty space between UI elements. It can be used to adjust the layout and improve the visual appearance of your UI using modifiers to set its width and height, like <code>Modifier.width()</code> and <code>Modifier.height()</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Spacer</span><span class="p">(</span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">width</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 2&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="dividers">Dividers</h4>
+<p>A divider is a composable that creates a visual divider between UI elements. You can implement dividers in your app using the <code>HorizontalDivider</code> and <code>VerticalDivider</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HorizontalDivider</span><span class="p">(</span>
+<span class="w">        </span><span class="n">thickness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">dp</span><span class="p">,</span>
+<span class="w">        </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">DarkGray</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 2&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">VerticalDivider</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Item 2&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="https://developer.android.com/develop/ui/compose/layouts">Layouts in Compose</a></p>
+<h3 id="ui-components">UI Components</h3>
+<p>Jetpack Compose provides a variety of UI components that you can use to build your user interface. Some of the most commonly used components include:</p>
+<h4 id="text">Text</h4>
+<p>Displays a text string.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>But the recommendation is to display text from resources:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span><span class="n">stringResource</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">hello_world</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>In this example, <code>R.string.hello_world</code> is a reference to a string resource defined in the <code>res/values/strings.xml</code> file.</p>
+<p>You can change the color, font size, font style, and more by using parameters:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Red</span><span class="p">,</span>
+<span class="w">    </span><span class="n">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">24.</span><span class="n">sp</span><span class="p">,</span>
+<span class="w">    </span><span class="n">fontStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontStyle</span><span class="p">.</span><span class="na">Italic</span><span class="p">,</span>
+<span class="w">    </span><span class="n">fontWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontWeight</span><span class="p">.</span><span class="na">Bold</span><span class="p">,</span>
+<span class="w">    </span><span class="n">fontFamily</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontFamily</span><span class="p">.</span><span class="na">Serif</span><span class="p">,</span>
+<span class="w">    </span><span class="n">textAlign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextAlign</span><span class="p">.</span><span class="na">Center</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>You can also use the <code>style</code> parameter:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Text</span><span class="p">(</span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextStyle</span><span class="p">(</span>
+<span class="w">        </span><span class="n">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20.</span><span class="n">sp</span><span class="p">,</span>
+<span class="w">        </span><span class="n">fontWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontWeight</span><span class="p">.</span><span class="na">Bold</span><span class="p">,</span>
+<span class="w">        </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">Blue</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Don't forget to import the necessary classes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.graphics.Color</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.text.TextStyle</span>
+<span class="p">...</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p><a href="https://developer.android.com/develop/ui/compose/text">Text in Compose</a></p>
+<h4 id="text-fields">Text fields</h4>
+<p>A text field allows the user to enter and edit text.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rememberSaveable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">mutableStateOf</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="n">TextField</span><span class="p">(</span>
+<span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">,</span>
+<span class="w">    </span><span class="n">onValueChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Label&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="TextField" src="../images/text-textfield-hello.png" /></p>
+<p>In this code we use <code>rememberSaveable</code> to save the state of the text field across recompositions and configuration changes, such as screen rotations. And <code>mutableStateOf</code> to create a mutable state variable that holds the current value of the text field.</p>
+<p>You can also use <code>OutlinedTextField</code> for a different style:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rememberSaveable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">mutableStateOf</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="n">OutlinedTextField</span><span class="p">(</span>
+<span class="w">    </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">,</span>
+<span class="w">    </span><span class="n">onValueChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Label&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="OutlinedTextField" src="../images/text-outlinedtextfield.png" /></p>
+<p>Other parameters you can use are <code>placeholder</code>, <code>leadingIcon</code>, <code>trailingIcon</code>, <code>isError</code>, <code>singleLine</code>, <code>maxLines</code>, <code>keyboardOptions</code>, <code>keyboardActions</code>, etc.</p>
+<p><a href="https://developer.android.com/develop/ui/compose/text/user-input?textfield=value-based#textfield-navigation">TextField</a></p>
+<h4 id="images">Images</h4>
+<p>To display an image, you can use the <code>Image</code> composable. You can load images from resources, URLs, or other sources.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Image</span><span class="p">(</span>
+<span class="w">    </span><span class="n">painter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">painterResource</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">drawable</span><span class="p">.</span><span class="na">ic_launcher_foreground</span><span class="p">),</span>
+<span class="w">    </span><span class="n">contentDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;My Image&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>painterResource</code> is used to load an image from resources.</p>
+<p>You also need to provide a <strong>content description</strong> for accessibility purposes.</p>
+<p><a href="https://developer.android.com/develop/ui/compose/graphics/images">Images</a></p>
+<h4 id="buttons">Buttons</h4>
+<p>A button is a clickable component that can be used to perform an action when clicked.</p>
+<p>There are several types of buttons available in Jetpack Compose, each with its own appearance and purpose:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Appearance</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filled</td>
+<td>Solid background with contrasting text.</td>
+<td>High-emphasis buttons. These are for primary actions in an application, such as "submit" and "save." The shadow effect highlights the button's importance.</td>
+</tr>
+<tr>
+<td>Filled tonal</td>
+<td>Background color varies to match the surface.</td>
+<td>Also for primary or significant actions. Filled tonal buttons provide more visual weight and suit functions such as "add to cart" and "Sign in."</td>
+</tr>
+<tr>
+<td>Elevated</td>
+<td>Stands out by having a shadow.</td>
+<td>Serves a similar purpose to tonal buttons. Increase elevation to make the button appear even more prominently.</td>
+</tr>
+<tr>
+<td>Outlined</td>
+<td>Features a border with no fill.</td>
+<td>Medium-emphasis buttons, containing actions that are important but not primary. They pair well with other buttons to indicate alternative, secondary actions like "Cancel" or "Back."</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Displays text with no background or border.</td>
+<td>Low-emphasis buttons, ideal for less critical actions such as navigational links, or secondary functions like "Learn More" or "View details."</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Buttons" src="../images/buttons.svg" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="p">(</span>
+<span class="w">    </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Handle click */</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Click Me&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Parameters:</p>
+<ul>
+<li><strong>onClick</strong>:
+    The function that the system calls when the user presses the button.</li>
+<li><strong>enabled</strong>:
+    When false, this parameter makes the button appear unavailable and inactive.</li>
+<li><strong>contentPadding</strong>:
+    The padding within the button.</li>
+</ul>
+<p><a href="https://developer.android.com/develop/ui/compose/components/button">Buttons</a></p>
+<h4 id="floating-action-button-fab">Floating Action Button (FAB)</h4>
+<p>A Floating Action Button (FAB) is a circular button that floats above the UI and is used for a primary action in an application.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">FloatingActionButton</span><span class="p">(</span>
+<span class="w">    </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Handle click */</span><span class="w"> </span><span class="p">}</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="na">Filled</span><span class="p">.</span><span class="na">Add</span><span class="p">,</span><span class="w"> </span><span class="n">contentDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Add&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>In Material Design, there are four types of FAB:</p>
+<ul>
+<li><strong>FAB</strong>: A floating action button of ordinary size.</li>
+<li><strong>Small FAB</strong>: A smaller floating action button.</li>
+<li><strong>Large FAB</strong>: A larger floating action button.</li>
+<li><strong>Extended FAB</strong>: A floating action button that contains more than just an icon.</li>
+</ul>
+<p><img alt="FAB" src="../images/fabs.svg" /></p>
+<p>Some parameters you can use:
+* <strong>shape</strong>: The shape of the FAB.
+* <strong>containerColor</strong>: The background color of the FAB.
+* <strong>contentColor</strong>: The color of the content inside the FAB.
+* <strong>elevation</strong>: The elevation of the FAB.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">FloatingActionButton</span><span class="p">(</span>
+<span class="w">    </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Handle click */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CircleShape</span><span class="p">,</span>
+<span class="w">    </span><span class="n">containerColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">DarkGray</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contentColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">White</span><span class="p">,</span>
+<span class="w">    </span><span class="n">elevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FloatingActionButtonDefaults</span><span class="p">.</span><span class="na">elevation</span><span class="p">(</span><span class="m">8.</span><span class="n">dp</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="na">Filled</span><span class="p">.</span><span class="na">Add</span><span class="p">,</span><span class="w"> </span><span class="n">contentDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Add&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="https://developer.android.com/develop/ui/compose/components/fab">FAB</a></p>
+<p>More buttons:</p>
+<ul>
+<li><a href="https://developer.android.com/develop/ui/compose/components/icon-button">Icon buttons</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/segmented-button">Segmented buttons</a></li>
+</ul>
+<h4 id="snackbar">Snackbar</h4>
+<p>A <strong>Snackbar</strong> is a small banner that appears at the bottom of the screen to provide feedback about an operation. It can also contain an action button.</p>
+<p>To implement a snackbar, you first create <code>SnackbarHost</code>, which includes a <code>SnackbarHostState</code> property. <code>SnackbarHostState</code> provides access to the <code>showSnackbar()</code> function which you can use to display your snackbar.This suspending function requires a <code>CoroutineScope</code> such as with using <code>rememberCoroutineScope</code> - and can be called in response to UI events to show a Snackbar.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">snackbarHostState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remember</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">SnackbarHostState</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rememberCoroutineScope</span><span class="p">()</span>
+<span class="n">Button</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">snackbarHostState</span><span class="p">.</span><span class="na">showSnackbar</span><span class="p">(</span><span class="s">&quot;Hello, Snackbar!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Show Snackbar&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">SnackbarHost</span><span class="p">(</span><span class="n">hostState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snackbarHostState</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Snackbar" src="../images/snackbar.png" /></p>
+<p>You can provide an optional action and adjust the duration of the Snackbar:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">snackbarHostState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remember</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">SnackbarHostState</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rememberCoroutineScope</span><span class="p">()</span>
+<span class="n">Button</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">scope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snackbarHostState</span>
+<span class="w">            </span><span class="p">.</span><span class="na">showSnackbar</span><span class="p">(</span>
+<span class="w">                </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Snackbar&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">actionLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Action&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="c1">// Defaults to SnackbarDuration.Short</span>
+<span class="w">                </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SnackbarDuration</span><span class="p">.</span><span class="na">Indefinite</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">SnackbarResult</span><span class="p">.</span><span class="na">ActionPerformed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/* Handle snackbar action performed */</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">SnackbarResult</span><span class="p">.</span><span class="na">Dismissed</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/* Handle snackbar dismissed */</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Show Snackbar&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">SnackbarHost</span><span class="p">(</span><span class="n">hostState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snackbarHostState</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Some parameters:
+* <strong>actionLabel</strong>: The label for the action button.
+* <strong>duration</strong>: The duration for which the snackbar is displayed. It can be <code>SnackbarDuration.Short</code>, <code>SnackbarDuration.Long</code>, or <code>SnackbarDuration.Indefinite</code>.</p>
+<p><a href="https://developer.android.com/develop/ui/compose/components/snackbar">Snackbar</a></p>
+<h4 id="cards">Cards</h4>
+<p>A <strong><code>Card</code></strong> is a composable that displays content and actions on a single topic. Cards are used to group related information and make it easier to scan and understand.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Card</span><span class="p">(</span>
+<span class="w">    </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">    </span><span class="n">elevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardDefaults</span><span class="p">.</span><span class="na">cardElevation</span><span class="p">(</span>
+<span class="w">        </span><span class="n">defaultElevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6.</span><span class="n">dp</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Column</span><span class="p">(</span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Card Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontWeight</span><span class="p">.</span><span class="na">Bold</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spacer</span><span class="p">(</span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">height</span><span class="p">(</span><span class="m">8.</span><span class="n">dp</span><span class="p">))</span>
+<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Card content goes here.&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spacer</span><span class="p">(</span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">height</span><span class="p">(</span><span class="m">8.</span><span class="n">dp</span><span class="p">))</span>
+<span class="w">        </span><span class="n">Button</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Handle click */</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Click me&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Card" src="../images/card.png" /></p>
+<p>Similar to <code>Card</code> is <strong><code>ElevatedCard</code></strong>, which has a more pronounced shadow effect.</p>
+<p><a href="https://developer.android.com/develop/ui/compose/components/card">Cards</a></p>
+<h4 id="surface">Surface</h4>
+<p>A <strong><code>Surface</code></strong> is a composable that provides a background for other UI elements. It can be used to create cards, buttons, and other components that need a background.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Surface</span><span class="p">(</span>
+<span class="w">    </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">    </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaterialTheme</span><span class="p">.</span><span class="na">colorScheme</span><span class="p">.</span><span class="na">primary</span><span class="p">,</span>
+<span class="w">    </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoundedCornerShape</span><span class="p">(</span><span class="m">8.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">    </span><span class="n">shadowElevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4.</span><span class="n">dp</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Text</span><span class="p">(</span>
+<span class="w">        </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, Surface!&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">        </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">White</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Surface" src="../images/surface.png" /></p>
+<h4 id="scaffold">Scaffold</h4>
+<p>A <strong><code>Scaffold</code></strong> is a layout structure that provides a framework for implementing the basic material design layout structure. It includes slots for the most common top-level material components such as <code>TopAppBar</code>, <code>BottomAppBar</code> and <code>FloatingActionButton</code>.</p>
+<p>You usually pass a lambda to the <code>Scaffold</code> content parameter, which provides the inner padding values to be applied to the content inside the scaffold.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Scaffold</span><span class="p">(</span>
+<span class="w">    </span><span class="n">topBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TopAppBar</span><span class="p">(</span>
+<span class="w">            </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;My App&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="n">colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topAppBarColors</span><span class="p">(</span>
+<span class="w">                </span><span class="n">containerColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaterialTheme</span><span class="p">.</span><span class="na">colorScheme</span><span class="p">.</span><span class="na">primaryContainer</span><span class="p">,</span>
+<span class="w">                </span><span class="n">titleContentColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaterialTheme</span><span class="p">.</span><span class="na">colorScheme</span><span class="p">.</span><span class="na">primary</span><span class="p">,</span>
+<span class="w">            </span><span class="p">),</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">floatingActionButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">FloatingActionButton</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Handle click */</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="na">Filled</span><span class="p">.</span><span class="na">Add</span><span class="p">,</span><span class="w"> </span><span class="n">contentDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Add&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">bottomBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BottomAppBar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Text</span><span class="p">(</span>
+<span class="w">                </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bottom App Bar&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">16.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">                </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaterialTheme</span><span class="p">.</span><span class="na">colorScheme</span><span class="p">.</span><span class="na">onPrimaryContainer</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">innerPadding</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="n">Column</span><span class="p">(</span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="n">innerPadding</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hello, Scaffold!&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="Scaffold" src="../images/scaffold.png" /></p>
+<p><a href="https://developer.android.com/develop/ui/compose/components/scaffold">Scaffold</a></p>
+<p><a href="https://developer.android.com/develop/ui/compose/components/app-bars">App bars</a></p>
+<h4 id="other-components">Other components</h4>
+<ul>
+<li><a href="https://developer.android.com/develop/ui/compose/components/checkbox">Checkbox</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/radio-button">Radio Button</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/switch">Switch</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/progress">Progress Indicator</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/slider">Slider</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/tabs">Tabs</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/menu">Menus</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/dialog">Dialogs</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/tooltip">Tooltips</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/badges">Badges</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/components/chip">Chips</a></li>
+</ul>
+<h2 id="theming-and-styling">Theming and Styling</h2>
+<p>It's very easy to apply theming and styling in Jetpack Compose. You can use the <code>MaterialTheme</code> composable to apply a material design theme to your app.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ComponentActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+<span class="w">        </span><span class="n">setContent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">MaterialTheme</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Your app content goes here</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+You can create your own custom theme by defining colors, typography, and shapes. You can then apply your custom theme using the <code>MaterialTheme</code> composable.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">MyAppTheme</span><span class="p">(</span><span class="n">content</span><span class="p">:</span><span class="w"> </span><span class="nd">@Composable</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MaterialTheme</span><span class="p">(</span>
+<span class="w">        </span><span class="n">colorScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lightColorScheme</span><span class="p">(</span>
+<span class="w">            </span><span class="n">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFF6200EE</span><span class="p">),</span>
+<span class="w">            </span><span class="n">secondary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFF03DAC5</span><span class="p">)</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">        </span><span class="n">typography</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaterialTheme</span><span class="p">.</span><span class="na">typography</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span>
+<span class="w">            </span><span class="n">bodyLarge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextStyle</span><span class="p">(</span>
+<span class="w">                </span><span class="n">fontFamily</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontFamily</span><span class="p">.</span><span class="na">Serif</span><span class="p">,</span>
+<span class="w">                </span><span class="n">fontWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontWeight</span><span class="p">.</span><span class="na">Normal</span><span class="p">,</span>
+<span class="w">                </span><span class="n">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16.</span><span class="n">sp</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">        </span><span class="n">shapes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaterialTheme</span><span class="p">.</span><span class="na">shapes</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span>
+<span class="w">            </span><span class="n">small</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoundedCornerShape</span><span class="p">(</span><span class="m">4.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">            </span><span class="n">medium</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoundedCornerShape</span><span class="p">(</span><span class="m">8.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">            </span><span class="n">large</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoundedCornerShape</span><span class="p">(</span><span class="m">12.</span><span class="n">dp</span><span class="p">)</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">        </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>It's a good practice to create a separate file for your theme, colors, typography, and shapes. For example, you can create a file named <code>Theme.kt</code> and define your custom theme there.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">MyAppTheme</span><span class="p">(</span><span class="n">content</span><span class="p">:</span><span class="w"> </span><span class="nd">@Composable</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MaterialTheme</span><span class="p">(</span>
+<span class="w">        </span><span class="n">colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myColorPalette</span><span class="p">,</span>
+<span class="w">        </span><span class="n">typography</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myTypography</span><span class="p">,</span>
+<span class="w">        </span><span class="n">shapes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myShapes</span><span class="p">,</span>
+<span class="w">        </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>An example of <code>myTypography</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">myTypography</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Typography</span><span class="p">(</span>
+<span class="w">    </span><span class="n">bodyLarge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextStyle</span><span class="p">(</span>
+<span class="w">        </span><span class="n">fontFamily</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontFamily</span><span class="p">.</span><span class="na">Serif</span><span class="p">,</span>
+<span class="w">        </span><span class="n">fontWeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FontWeight</span><span class="p">.</span><span class="na">Normal</span><span class="p">,</span>
+<span class="w">        </span><span class="n">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16.</span><span class="n">sp</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>myShapes</code> example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">myShapes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Shapes</span><span class="p">(</span>
+<span class="w">    </span><span class="n">small</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoundedCornerShape</span><span class="p">(</span><span class="m">4.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">    </span><span class="n">medium</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoundedCornerShape</span><span class="p">(</span><span class="m">8.</span><span class="n">dp</span><span class="p">),</span>
+<span class="w">    </span><span class="n">large</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoundedCornerShape</span><span class="p">(</span><span class="m">12.</span><span class="n">dp</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>And <code>myColorPalette</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">myColorPalette</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lightColorScheme</span><span class="p">(</span>
+<span class="w">    </span><span class="n">primary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFF6200EE</span><span class="p">),</span>
+<span class="w">    </span><span class="n">secondary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFF03DAC5</span><span class="p">),</span>
+<span class="w">    </span><span class="n">background</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFFFFFFFF</span><span class="p">),</span>
+<span class="w">    </span><span class="n">surface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFFFFFFFF</span><span class="p">),</span>
+<span class="w">    </span><span class="n">onPrimary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFFFFFFFF</span><span class="p">),</span>
+<span class="w">    </span><span class="n">onSecondary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFF000000</span><span class="p">),</span>
+<span class="w">    </span><span class="n">onBackground</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFF000000</span><span class="p">),</span>
+<span class="w">    </span><span class="n">onSurface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="m">0</span><span class="n">xFF000000</span><span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

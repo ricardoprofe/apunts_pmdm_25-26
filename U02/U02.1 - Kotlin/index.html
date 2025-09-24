@@ -14,6 +14,8 @@
         <link rel="prev" href="../../U01/UD1/">
       
       
+        <link rel="next" href="../U02.2%20Basic%20Android/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
@@ -403,6 +405,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#operators" class="md-nav__link">
     Operators
   </a>
@@ -532,6 +541,26 @@
     Lambda expressions
   </a>
   
+    <nav class="md-nav" aria-label="Lambda expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trailing-lambdas" class="md-nav__link">
+    Trailing lambdas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#it-for-single-parameter-functions" class="md-nav__link">
+    it for single parameter functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -543,6 +572,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U02.2%20Basic%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -623,6 +672,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#operators" class="md-nav__link">
     Operators
   </a>
@@ -751,6 +807,26 @@
   <a href="#lambda-expressions" class="md-nav__link">
     Lambda expressions
   </a>
+  
+    <nav class="md-nav" aria-label="Lambda expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trailing-lambdas" class="md-nav__link">
+    Trailing lambdas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#it-for-single-parameter-functions" class="md-nav__link">
+    it for single parameter functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -905,6 +981,17 @@ specify an alternative value when the variable is <em>null</em>.</p>
 <span class="n">println</span><span class="p">(</span><span class="n">name</span><span class="o">?.</span><span class="na">length</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="c1">//prints 4</span>
 </code></pre></div></td></tr></table></div>
 <p>In this example we've used the <code>?.</code> <strong>safe call operator</strong>. It prevents to cause an exception when the variable is null and Kotlin can't call the member function (length in this case).</p>
+<h2 id="constants">Constants</h2>
+<p>We can declare constants in Kotlin using the <code>const</code> keyword. Constants must be initialized with a value at the time of declaration, and their value cannot be changed later. Constants can only be of primitive types and String.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span>
+<span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">APP_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MyKotlinApp&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>snake_case</strong> for naming constants: all uppercase letters with words separated by underscores.</p>
+</div>
+<p>The difference between <code>val</code> and <code>const val</code> is that <code>val</code> can be assigned a value at runtime, while <code>const val</code> must be assigned a value at compile time. Additionally, <code>const val</code> can only be used for top-level or object-level properties, while <code>val</code> can be used in any scope.</p>
 <h2 id="operators">Operators</h2>
 <h3 id="arithmetic-operators">Arithmetic Operators</h3>
 <table>
@@ -1073,6 +1160,7 @@ specify an alternative value when the variable is <em>null</em>.</p>
 <span class="w">    </span><span class="c1">// true</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<p>For values represented by primitive types at runtime (for example, <code>Int</code>), the <code>===</code> equality check is equivalent to the <code>==</code> check.</p>
 <h3 id="logical-operators">Logical Operators</h3>
 <table>
 <thead>
