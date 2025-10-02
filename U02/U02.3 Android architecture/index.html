@@ -1,0 +1,757 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../U02.2%20Basic%20Android/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unit 2.3. Android architecture - Multimedia and mobile device programming - 2DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-23-android-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-header__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimedia and mobile device programming - 2DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit 2.3. Android architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-nav__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Multimedia and mobile device programming - 2DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multimedia and mobile device programming - 2DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U02.1%20-%20Kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.1. The Kotlin language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U02.2%20Basic%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 2.3. Android architecture
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.3. Android architecture
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    Activities
+  </a>
+  
+    <nav class="md-nav" aria-label="Activities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-of-a-composable" class="md-nav__link">
+    Lifecycle of a composable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-log-class" class="md-nav__link">
+    The Log class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intents" class="md-nav__link">
+    Intents
+  </a>
+  
+    <nav class="md-nav" aria-label="Intents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intent-filters" class="md-nav__link">
+    Intent Filters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    Activities
+  </a>
+  
+    <nav class="md-nav" aria-label="Activities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-of-a-composable" class="md-nav__link">
+    Lifecycle of a composable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-log-class" class="md-nav__link">
+    The Log class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intents" class="md-nav__link">
+    Intents
+  </a>
+  
+    <nav class="md-nav" aria-label="Intents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intent-filters" class="md-nav__link">
+    Intent Filters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-23-android-architecture">Unit 2.3. Android architecture</h1>
+<p>Android architecture is a set of guidelines and best practices for building Android applications. It provides a structured approach to app development, making it easier to manage complexity and maintain code quality. The key components of Android architecture include:</p>
+<ol>
+<li>
+<p><strong>Activities and Fragments</strong>: The building blocks of the user interface in Android. Activities represent a single screen, while fragments are reusable components that can be embedded within activities.</p>
+</li>
+<li>
+<p><strong>ViewModel</strong>: A class that holds and manages UI-related data in a lifecycle-conscious way. ViewModels survive configuration changes, such as screen rotations, making them ideal for storing UI state.</p>
+</li>
+<li>
+<p><strong>LiveData</strong>: A data holder class that can be observed for changes. LiveData is lifecycle-aware, meaning it only updates active observers, helping to prevent memory leaks and crashes.</p>
+</li>
+<li>
+<p><strong>Repository</strong>: A class that abstracts data access from multiple sources, such as a local database and a remote server. Repositories provide a clean API for data access, making it easier to switch between data sources.</p>
+</li>
+<li>
+<p><strong>Room</strong>: A persistence library that provides an abstraction layer over SQLite. Room simplifies database access and allows for compile-time verification of SQL queries.</p>
+</li>
+<li>
+<p><strong>Dependency Injection</strong>: A design pattern that allows for the decoupling of components in an application. In Android, popular DI frameworks include Dagger and Hilt.</p>
+</li>
+</ol>
+<p>By following these architectural guidelines, developers can create robust, maintainable, and testable Android applications.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://developer.android.com/jetpack/guide">Guide to App Architecture</a></li>
+</ul>
+<h2 id="activities">Activities</h2>
+<p>Activities are the entry point for interacting with the user in an Android application. Each activity is a single screen with a user interface, and it is responsible for managing the lifecycle of the UI components it contains.</p>
+<p>Every activity has what is known as a <strong>lifecycle</strong>, which consists of the <strong>different states that an activity can go through</strong>, from when the activity first initializes to its destruction, at which time the operating system (OS) reclaims its memory. Typically, the entry point of a program is the <code>main()</code> method. Android activities, however, begin with the <strong><code>onCreate()</code></strong> method.  As the user starts your app, navigates between activities, navigates inside and outside of your app, the activity changes state.</p>
+<p>The following diagram shows all the activity lifecycle states. As their names indicate, these states represent the status of the activity. An activity can go back and forth between states throughout the lifecycle.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An Android app can have multiple activities. However, <strong>it is recommended to have a single activity</strong>.</p>
+</div>
+<p><img alt="Activity lifecycle" src="../images/activitylifecicle.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>onRestart()</code> method is not called every time the state transitions between Created and Started. It is only called if <code>onStop()</code> was called and the activity is subsequently restarted.</p>
+</div>
+<p>The lifecycle states are:</p>
+<ul>
+<li><strong><code>onCreate()</code></strong>: Activity is being created.</li>
+<li><strong><code>onStart()</code></strong>: Activity becomes visible.</li>
+<li><strong><code>onResume()</code></strong>: Activity starts interacting with the user, having focus.</li>
+<li><strong><code>onPause()</code></strong>: Activity is partially visible, but not in focus.</li>
+<li><strong><code>onStop()</code></strong>: Activity is completely hidden, but still in memory.</li>
+<li><strong><code>onDestroy()</code></strong>: Activity is being destroyed.</li>
+<li><strong><code>onRestart()</code></strong>: Activity is being restarted after being stopped.</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Task: exploring lifecycle</p>
+<ol>
+<li>Create a new project from the source code of this <a href="https://github.com/google-developer-training/basic-android-kotlin-compose-training-dessert-clicker.git">GitHub repository</a>.</li>
+<li>Open the <code>MainActivity.kt</code> file and examine the lifecycle methods that have been overridden: <code>onStart</code>, <code>onResume</code>, <code>onPause</code>, <code>onStop</code>, <code>onRestart</code>, <code>onDestroy</code>... Note how thre's a <code>Log.d</code> statement in each method.</li>
+<li>Run the app on an emulator or a physical device and inspect the <strong>logcat output</strong>. You should see the lifecycle methods being called as you interact with the app (e.g., opening, closing, navigating away from the app).</li>
+<li>Do the next to observe the lifecycle methods being called:<ul>
+<li>Rotate the device to see how the activity is recreated.</li>
+<li>Press the home button to send the app to the background and then return to it.</li>
+<li>Open another app to see how your activity is paused and stopped.</li>
+<li>Press the shared button to share content from your app. See how the activity is paused and resumed.</li>
+<li>With the app open, go to Setting and make a change, for example, change the device's rotation setting. See how the activity is recreated.</li>
+</ul>
+</li>
+</ol>
+</div>
+<h3 id="lifecycle-of-a-composable">Lifecycle of a composable</h3>
+<p>The UI of your app is initially built from running composable functions in a process called Composition.</p>
+<p>When the state of your app changes, a recomposition is scheduled. Recomposition is when Compose re-executes the composable functions whose state might have changed and creates an updated UI. The Composition is updated to reflect these changes.</p>
+<p>Composable functions have their own lifecycle that is independent of the Activity lifecycle. Its lifecycle is composed of the events: <strong>enters the Composition</strong>, <strong>recomposing 0 or more times</strong>, <strong>and then leaving the Composition</strong>.</p>
+<p><img alt="Composable lifecycle" src="../images/lifecycle-composition.png" /></p>
+<p>In order for Compose to track and trigger a recomposition, it needs to know when state has changed. To indicate to Compose that it should track an object's state, the object needs to be of type <strong>State</strong> or <strong>MutableState</strong>. The State type is <strong>immutable</strong> and can only be read. A MutableState type is <strong>mutable</strong> and allows reads and writes.</p>
+<p>To create the mutable variable revenue, you declare it using <code>mutableStateOf</code> and an initial value.</p>
+<p>To instruct Compose to retain and reuse its value during recompositions, you need to declare it with the <code>rememberSaveable</code> function. This function tells Compose to save and restore the value across recompositions and configuration changes, such as screen rotations.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">revenue</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">rememberSaveable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">mutableStateOf</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can also use <code>remember</code> instead of <code>rememberSaveable</code>. The difference is that <code>remember</code> only retains the value during recompositions, but not across configuration changes, i.e., if the screen is rotated or the activity is recreated.</p>
+</div>
+<h3 id="the-log-class">The Log class</h3>
+<p>The <code>Log</code> class in Android is used for logging messages that can help developers debug their applications. It provides a way to print messages to the <strong>logcat</strong>, which is a system-wide logging facility that collects and displays log messages from various sources, including the Android system and applications.</p>
+<p>First, you must import the <code>Log</code> class at the top of your Kotlin file:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">android.util.Log</span>
+</code></pre></div></td></tr></table></div>
+<p>A good practice is to define a constant for the log tag, which is a string that identifies the source of the log message (usually the activity's name). This helps in filtering log messages in logcat.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">TAG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MainActivity&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Then, you can use the various logging methods provided by the <code>Log</code> class to log messages at different levels of severity:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Log</span><span class="p">.</span><span class="na">v</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Verbose log message&quot;</span><span class="p">)</span>
+<span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Debug log message&quot;</span><span class="p">)</span>
+<span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Info log message&quot;</span><span class="p">)</span>
+<span class="n">Log</span><span class="p">.</span><span class="na">w</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Warning log message&quot;</span><span class="p">)</span>
+<span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Error log message&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="intents">Intents</h2>
+<p>An <strong>Intent</strong> in Android is a messaging object that you can use to request an action from another app component. Intents are used for various purposes, such as starting activities, services, or broadcasting messages.</p>
+<p>There are two main types of intents:</p>
+<ul>
+<li><strong>Explicit Intents</strong>: These intents specify the exact component (activity, service, etc.) to start by providing the class name. They are typically used for starting activities within the same application.</li>
+</ul>
+<p>Example of an explicit intent to start a new activity:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">intent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">SecondActivity</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="p">)</span>
+<span class="n">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Implicit Intents</strong>: These intents do not specify a specific component but instead declare a general action to perform. The Android system then determines the best component to handle the intent based on the action and data provided.</li>
+</ul>
+<p>Example of an implicit intent to view a webpage:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">intent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Intent</span><span class="p">(</span>
+<span class="w">        </span><span class="n">Intent</span><span class="p">.</span><span class="na">ACTION_VIEW</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Uri</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;https://www.example.com&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="n">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="intent-filters">Intent Filters</h3>
+<p>An <strong>Intent Filter</strong> is a declaration in the AndroidManifest.xml file that specifies the types of intents an activity, service, or broadcast receiver can respond to. Intent filters allow components to be discovered and invoked by other applications based on the actions and data they can handle.</p>
+<p>For example, to declare an activity that can handle the "VIEW" action for web URLs, you would add the following intent filter to the activity in the AndroidManifest.xml file:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;activity</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;.SecondActivity&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;intent-filter&gt;</span>
+<span class="w">        </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;data</span><span class="w"> </span><span class="na">android:scheme=</span><span class="s">&quot;http&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;data</span><span class="w"> </span><span class="na">android:scheme=</span><span class="s">&quot;https&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>This intent filter specifies that <code>SecondActivity</code> can handle the "VIEW" action for both "http" and "https" schemes.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>
