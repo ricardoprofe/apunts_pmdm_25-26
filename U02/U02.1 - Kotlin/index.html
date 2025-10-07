@@ -1832,7 +1832,9 @@ specify an alternative value when the variable is <em>null</em>.</p>
 </code></pre></div></td></tr></table></div>
 <p>To create an instance of a class (an object), use the class name followed by parentheses:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">myCar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Car</span><span class="p">()</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">myCar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Car</span><span class="p">()</span>
+<span class="n">myCar</span><span class="p">.</span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Blue&quot;</span>
 <span class="n">myCar</span><span class="p">.</span><span class="na">start</span><span class="p">()</span><span class="w"> </span><span class="c1">// prints &quot;Car started&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>As you can see, we access the properties and methods of the class using the dot (<code>.</code>) notation.</p>
@@ -2105,7 +2107,7 @@ specify an alternative value when the variable is <em>null</em>.</p>
 <span class="p">}</span><span class="w">   </span>
 </code></pre></div></td></tr></table></div>
 <h3 id="has-a-relationships">HAS-A relationships</h3>
-<p>In addition to inheritance (IS-A relationship), Kotlin also supports composition (HAS-A relationship). This means that a class can contain references to other classes as properties.</p>
+<p>In addition to inheritance (IS-A relationship), Kotlin also supports <strong>composition</strong> (HAS-A relationship). This means that a class can contain references to other classes as properties.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2183,9 +2185,10 @@ specify an alternative value when the variable is <em>null</em>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>A <strong>module</strong> is a collection of source files and build settings that let you divide your project into discrete units of functionality. Your project can have one or many modules. You can independently build, test, and debug each module.</p>
+<p>In an Android project, a module is typically an Android app or a library.</p>
 <p>A package is like a directory or a folder that groups related classes, whereas a module provides a container for your app's source code, resource files, and app-level settings. A module can contain multiple packages.</p>
 </div>
-<p>You can also apply vibility modifiers to methods:</p>
+<p>You can also apply visibility modifiers to methods:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
