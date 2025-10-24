@@ -869,7 +869,7 @@ git<span class="w"> </span>checkout<span class="w"> </span>main
 <span class="kd">fun</span><span class="w"> </span><span class="nf">TipTimeLayout</span><span class="p">(</span>
 <span class="w">    </span><span class="n">tipTimeViewModel</span><span class="p">:</span><span class="w"> </span><span class="n">TipTimeViewModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewModel</span><span class="p">()</span>
 <span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tipTimeUiState</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">tipTimeViewModel</span><span class="p">.</span><span class="na">uiState</span><span class="p">.</span><span class="na">collectAsState</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tipTimeUiState</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">tipTimeViewModel</span><span class="p">.</span><span class="na">uiState</span><span class="p">.</span><span class="na">collectAsState</span><span class="p">()</span>
 <span class="w">    </span><span class="p">...</span>
 </code></pre></div></td></tr></table></div>
 <p>To use this the <code>viewModel()</code> function, you must include the necessary dependency in your <em>build.gradle.kts</em> (or <em>build.gradle</em>) app file:</p>
