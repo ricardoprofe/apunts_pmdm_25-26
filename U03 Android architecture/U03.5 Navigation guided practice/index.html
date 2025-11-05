@@ -14,6 +14,8 @@
         <link rel="prev" href="../U03.4%20Navigation/">
       
       
+        <link rel="next" href="../../U04%20Persistence%20with%20Room/U04.1%20Persistence%20with%20Room/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
@@ -603,6 +605,89 @@
   
 
     
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U04 Persistence with Room
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            U04 Persistence with Room
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.1%20Persistence%20with%20Room/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.1. Persistence with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.2%20Room%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.2. Room guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1179,7 +1264,7 @@
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">canNavigateBack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">IconButton</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">navigateUp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                    </span><span class="n">Icon</span><span class="p">(</span>
-<span class="w">                        </span><span class="n">imageVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Icons</span><span class="p">.</span><span class="na">Filled</span><span class="p">.</span><span class="na">ArrowBack</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">imageVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Icons</span><span class="p">.</span><span class="na">AutoMirrored</span><span class="p">.</span><span class="na">Filled</span><span class="p">.</span><span class="na">ArrowBack</span><span class="p">,</span>
 <span class="w">                        </span><span class="n">contentDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringResource</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">back</span><span class="p">)</span>
 <span class="w">                    </span><span class="p">)</span>
 <span class="w">                </span><span class="p">}</span>
@@ -1190,7 +1275,7 @@
 </code></pre></div></td></tr></table></div>
 <p>The <code>title</code> will display the title of the current screen, stored in the <code>Routes</code> enum class. If <code>canNavigateBack</code> is true, a back button will be displayed that calls the <code>navigateUp</code> lambda when clicked.</p>
 <p>To use the icons remember to include the required dependency in your <code>build.gradle.kts</code> (or <code>build.gradle</code>) app file:</p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -1200,12 +1285,12 @@
 <span class="n">implementation</span><span class="p">(</span><span class="s">&quot;androidx.compose.material:material-icons-extended-android:1.6.8&quot;</span><span class="p">)</span>
 <span class="p">...</span>
 </code></pre></div></td></tr></table></div>
-And, in the <code>TipTimeLayout</code> composable:</p>
+<p>And, in the <code>TipTimeLayout</code> composable:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material.icons.Icons</span>
-<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material.icons.filled.ArrowBack</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material.icons.automirrored.filled.ArrowBack</span>
 </code></pre></div></td></tr></table></div>
-<p>The Up button should only show if there's a composable on the back stack. If the app has no screens on the back stack (we are at the Start screen) then the Up button should not be shown. To check this, you need a reference to the back stack, and</p>
+<p>The Up button should only show if there's a composable on the back stack. If the app has no screens on the back stack (we are at the Start screen) then the Up button should not be shown. To check this, you need a reference to the back stack. For that, you can use the <code>currentBackStackEntryAsState()</code> extension function of <code>NavController</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
