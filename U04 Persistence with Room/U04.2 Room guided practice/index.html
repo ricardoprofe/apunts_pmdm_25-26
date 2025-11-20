@@ -694,6 +694,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#12-fixing-state-issues" class="md-nav__link">
+    12. Fixing state issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#improvements" class="md-nav__link">
     Improvements
   </a>
@@ -876,6 +883,13 @@
         <li class="md-nav__item">
   <a href="#11-deleting-tips" class="md-nav__link">
     11. Deleting tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-fixing-state-issues" class="md-nav__link">
+    12. Fixing state issues
   </a>
   
 </li>
@@ -2076,6 +2090,107 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Done! Check that everything is working fine by running the app. You should be able to delete existing tips.</p>
+<h2 id="12-fixing-state-issues">12. Fixing state issues</h2>
+<p>You can notice some sate issues when rotating the Edit Screen. To fix it, we need to save the current tip ID in the next files:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//TipTimeEditScreen.kt</span>
+
+<span class="nd">@Composable</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">TipTimeEditScreen</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// Existing parameters</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Use LaunchedEffect to load the tip when the screen is first displayed</span>
+<span class="w">    </span><span class="n">LaunchedEffect</span><span class="p">(</span><span class="n">tipId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tipId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tipId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Assuming 0 is not a valid ID</span>
+<span class="w">            </span><span class="n">tipTimeViewModel</span><span class="p">.</span><span class="na">loadOrKeepTip</span><span class="p">(</span><span class="n">tipId</span><span class="p">)</span><span class="w">  </span><span class="c1">//CHANGE THIS</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//tipTimeViewModel.resetTip() // DELETE THIS</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//TipTimeLayout.kt</span>
+
+<span class="p">...</span>
+
+<span class="n">floatingActionButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentScreen</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Routes</span><span class="p">.</span><span class="na">Start</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">androidx</span><span class="p">.</span><span class="na">compose</span><span class="p">.</span><span class="na">material3</span><span class="p">.</span><span class="na">FloatingActionButton</span><span class="p">(</span>
+<span class="w">            </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tipTimeViewModel</span><span class="p">.</span><span class="na">resetTip</span><span class="p">()</span><span class="w"> </span><span class="c1">//ADD THIS</span>
+<span class="w">                </span><span class="n">navController</span><span class="p">.</span><span class="na">navigate</span><span class="p">(</span><span class="n">Routes</span><span class="p">.</span><span class="na">EditTip</span><span class="p">.</span><span class="na">createRouteFor</span><span class="p">(</span><span class="m">0</span><span class="p">))</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="p">...</span>
+
+<span class="w">    </span><span class="n">composable</span><span class="p">(</span><span class="n">route</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Routes</span><span class="p">.</span><span class="na">TipResult</span><span class="p">.</span><span class="na">route</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TipTimeResultScreen</span><span class="p">(</span>
+<span class="w">                </span><span class="n">tipTimeViewModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tipTimeViewModel</span><span class="p">,</span>
+<span class="w">                </span><span class="n">onBackButtonClicked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">navController</span><span class="p">.</span><span class="na">navigate</span><span class="p">(</span><span class="n">Routes</span><span class="p">.</span><span class="na">Start</span><span class="p">.</span><span class="na">route</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">popUpTo</span><span class="p">(</span><span class="m">0</span><span class="p">)}</span>
+<span class="w">                    </span><span class="n">tipTimeViewModel</span><span class="p">.</span><span class="na">resetTip</span><span class="p">()</span><span class="w"> </span><span class="c1">//ADD THIS</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">()</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">padding</span><span class="p">(</span><span class="m">10.</span><span class="n">dp</span><span class="p">)</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//TipTimeViewModel.kt</span>
+
+<span class="c1">//ADD THIS FUNCTION</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">loadOrKeepTip</span><span class="p">(</span><span class="n">tipId</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentTipId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">currentTipId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Assuming 0 is not a valid ID</span>
+<span class="w">        </span><span class="n">loadTipById</span><span class="p">(</span><span class="n">tipId</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Basically, we ensure that the tip ID is only reset when navigating to the Edit screen for a new tip or when returning to the Start screen. This prevents the tip ID from being lost during configuration changes like screen rotations.</p>
 <h2 id="improvements">Improvements</h2>
 <p>The basic functionality is in place, but still some possible improvements to the app could be:</p>
 <ul>
