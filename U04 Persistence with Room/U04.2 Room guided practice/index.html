@@ -2190,6 +2190,38 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//TipTimeViewModel.kt</span>
+
+<span class="c1">//MODIFY THIS FUNCTION</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">deleteTip</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tipId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentTipId</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="c1">// If no current tip, do nothing</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tip</span><span class="p">(</span>
+<span class="w">        </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tipId</span><span class="p">,</span>
+<span class="w">        </span><span class="n">billAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_uiState</span><span class="p">.</span><span class="na">value</span><span class="p">.</span><span class="na">amountInput</span><span class="p">.</span><span class="na">toDoubleOrNull</span><span class="p">()</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="m">0.0</span><span class="p">,</span>
+<span class="w">        </span><span class="n">tipPercentage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_uiState</span><span class="p">.</span><span class="na">value</span><span class="p">.</span><span class="na">tipInput</span><span class="p">.</span><span class="na">toIntOrNull</span><span class="p">()</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="m">15</span><span class="p">,</span>
+<span class="w">        </span><span class="n">roundUp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_uiState</span><span class="p">.</span><span class="na">value</span><span class="p">.</span><span class="na">roundUp</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">tipRepository</span><span class="p">.</span><span class="na">deleteTip</span><span class="p">(</span><span class="n">tip</span><span class="p">)</span>
+<span class="w">        </span><span class="n">resetTip</span><span class="p">()</span><span class="w"> </span><span class="c1">//ADD THIS</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <p>Basically, we ensure that the tip ID is only reset when navigating to the Edit screen for a new tip or when returning to the Start screen. This prevents the tip ID from being lost during configuration changes like screen rotations.</p>
 <h2 id="improvements">Improvements</h2>
 <p>The basic functionality is in place, but still some possible improvements to the app could be:</p>
