@@ -729,6 +729,19 @@
     The Flutter Widgets
   </a>
   
+    <nav class="md-nav" aria-label="The Flutter Widgets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-widgets-tree" class="md-nav__link">
+    The widgets tree
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -746,15 +759,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#flutter-documentation-and-resources" class="md-nav__link">
     Flutter Documentation and Resources
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -819,6 +832,19 @@
     The Flutter Widgets
   </a>
   
+    <nav class="md-nav" aria-label="The Flutter Widgets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-widgets-tree" class="md-nav__link">
+    The widgets tree
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -836,15 +862,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#flutter-documentation-and-resources" class="md-nav__link">
     Flutter Documentation and Resources
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -865,6 +891,7 @@
 
 <h1 id="unit-51-introduction-to-flutter">Unit 5.1. Introduction to Flutter</h1>
 <p><strong>Flutter</strong> is an open-source UI software development kit created by <strong>Google</strong>. It is used to develop cross-platform applications for Android, iOS, Linux, macOS, Windows and the web from a single codebase. Flutter was first announced in 2015 and released in May 2017.</p>
+<p><img alt="Flutter Logo" src="../images/flutter_logo.png" /></p>
 <h2 id="key-features-of-flutter">Key Features of Flutter</h2>
 <ul>
 <li><strong>Cross-Platform Development</strong>: Write once, run anywhere. Flutter allows developers to create applications that work on multiple platforms without needing to rewrite code for each one.</li>
@@ -875,7 +902,9 @@
 <li><strong>Strong Community and Ecosystem</strong>: Flutter has a growing community and a rich ecosystem of packages and plugins that extend its functionality.</li>
 </ul>
 <h2 id="the-dart-programming-language">The Dart Programming Language</h2>
-<p>Flutter uses <strong>Dart</strong> as its programming language. Dart is an object-oriented, class-based language with a syntax similar to JavaScript and Java. It is designed for building high-performance applications and offers features such as:</p>
+<p>Flutter uses <strong>Dart</strong> as its programming language. Dart is an object-oriented, class-based language with a syntax similar to JavaScript and Java.</p>
+<p><img alt="Dart Logo" src="../images/dart_logo.png" /></p>
+<p>It is designed for building high-performance applications and offers features such as:</p>
 <ul>
 <li><strong>Ahead-of-Time (AOT) Compilation</strong>: Dart can be compiled to native code (machine code), which improves the performance of Flutter applications.</li>
 <li><strong>Just-in-Time (JIT) Compilation</strong>: During development, Dart supports JIT compilation, allowing for features like hot reload.</li>
@@ -964,6 +993,17 @@
 </tr>
 </tbody>
 </table>
+<h3 id="the-widgets-tree">The widgets tree</h3>
+<p>In Flutter, the user interface is built using a hierarchical structure of widgets, known as the <strong>widget tree</strong>. Each widget can have child widgets, which in turn can have their own children, forming a tree-like structure. The root of the tree is typically a <code>MaterialApp</code> or <code>CupertinoApp</code> widget, which provides the overall structure and theme for the application.</p>
+<p>The widget tree is essential for understanding how Flutter builds and renders the UI. When a widget's state changes, Flutter efficiently rebuilds only the affected parts of the widget tree, ensuring optimal performance. </p>
+<p>For instance, a simple Flutter app might have a widget tree that looks like this:</p>
+<p><img alt="Widget Tree" src="../images/widget_tree.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Material and Cupertino</p>
+<p>Flutter provides two sets of design languages: <strong>Material Design</strong> (used for Android) and <strong>Cupertino</strong> (used for iOS).</p>
+<p>The Material design language was created for any platform, not just Android. When you write a Material app in Flutter, it has the Material look and feel on all devices, even iOS. If you want your app to look like a standard iOS-styled app, then you would use the Cupertino library.</p>
+<p>You can technically run a Cupertino app on either Android or iOS, but (due to licensing issues) Cupertino won't have the correct fonts on Android. For this reason, use an iOS-specific device when writing a Cupertino app.</p>
+</div>
 <h2 id="starting-with-flutter">Starting with Flutter</h2>
 <p>To start developing with Flutter, you need to set up your development environment. Follow the steps form the official <a href="https://docs.flutter.dev/get-started/custom">Flutter installation guide</a></p>
 <div class="admonition question">
@@ -972,6 +1012,7 @@
 <li>Create a new Flutter App project using Android Studio (don't forget to install the Flutter and Dart plugins).</li>
 <li>Explore the default project structure and identify the main files and directories.</li>
 <li>Run the default Flutter app on an emulator or physical device to see it in action.</li>
+<li>Add the plugin <strong>Flutter Snipets</strong> by George Herbert and try some of the snippets listed in <a href="https://github.com/georgeherby/flutter-snippets/blob/master/README.md">https://github.com/georgeherby/flutter-snippets/blob/master/README.md</a></li>
 </ul>
 </div>
 <p>The most important files and directories in a Flutter project are:</p>
@@ -989,21 +1030,36 @@
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>http
 flutter<span class="w"> </span>pub<span class="w"> </span>get
 </code></pre></div></td></tr></table></div>
-<p>Other useful commands are:
-- <code>flutter pub upgrade</code>: Upgrades all the dependencies to the latest versions.
-- <code>flutter pub remove &lt;package_name&gt;</code>: Removes a package from the dependencies.</p>
+<p>If we want to add a package only for the developer environment (for example, testing packages), we can add it under the <code>dev_dependencies</code> section:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>dev:flutter_test
+flutter<span class="w"> </span>pub<span class="w"> </span>get
+</code></pre></div></td></tr></table></div>
+<p>We can specify a particular version of a package by appending the version number:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>http:<span class="w"> </span>^0.13.0
+flutter<span class="w"> </span>pub<span class="w"> </span>get
+</code></pre></div></td></tr></table></div>
+<p>Here, <code>^0.13.0</code> indicates that we want to use version 0.13.0 or any compatible newer version.</p>
+<p>Other useful commands are:</p>
+<ul>
+<li><code>flutter pub upgrade</code>: Upgrades all the dependencies to the latest versions.</li>
+<li><code>flutter pub remove &lt;package_name&gt;</code>: Removes a package from the dependencies.</li>
+<li><code>flutter pub deps</code>: Lists all the dependencies in the project along with their versions.</li>
+</ul>
+<p>For search and explore available packages, you can visit the <a href="https://pub.dev/">pub.dev</a> website.</p>
 <div class="admonition question">
 <p class="admonition-title">Task</p>
 <ul>
 <li>Do the Codelab <a href="https://codelabs.developers.google.com/codelabs/flutter-codelab-first#0">Write your first Flutter app</a></li>
+<li>Refactor the default Flutter app to separate the app's parts in screens, states and components folders.</li>
 </ul>
 </div>
-<h3 id="flutter-documentation-and-resources">Flutter Documentation and Resources</h3>
+<h2 id="flutter-documentation-and-resources">Flutter Documentation and Resources</h2>
 <p>Some useful links to learn more about Flutter:</p>
 <ul>
 <li>Official Flutter Documentation: <a href="https://flutter.dev/docs">https://flutter.dev/docs</a></li>
 <li>Flutter learning resources: <a href="https://docs.flutter.dev/reference/learning-resources">https://flutter.dev/learn</a></li>
-<li>Flutter Samples: <a href="https://flutter.github.io/samples/">https://flutter.github.io/samples/</a></li>
 <li>Flutter widget catalog: <a href="https://docs.flutter.dev/ui/widgets">https://flutter.dev/docs/development/ui/widgets/catalog</a></li>
 <li>Flutter YouTube Channel: <a href="https://www.youtube.com/flutterdev">https://www.youtube.com/flutterdev</a></li>
 </ul>
