@@ -6,3 +6,8 @@ img, video, iframe {
     margin-right: auto;
 }
 
+img {
+    width: 70%;
+    height: auto;
+}
+
