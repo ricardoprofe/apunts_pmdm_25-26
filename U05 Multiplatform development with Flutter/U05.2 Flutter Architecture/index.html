@@ -1447,6 +1447,26 @@ You can see an example of the MVVM pattern applied to Flutter <a href="https://d
     A[&lt;b&gt;MyApp&lt;/b&gt; \n &lt;i&gt;ChangeNotifierProvider&lt;/i&gt;] --&gt; B[&lt;b&gt;CounterScreen&lt;/b&gt; \n &lt;i&gt;Consumer&lt;/i&gt;]
     B --&gt; C([&lt;b&gt;CounterModel&lt;/b&gt; \n &lt;i&gt;ChangeNotifier&lt;/i&gt;])
     C -.-&gt; A</code></pre>
+<p>In case we need to manage multiple providers, we can use the <code>MultiProvider</code> widget to simplify the setup:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">MultiProvider</span><span class="p">(</span>
+<span class="w">  </span><span class="nl">providers:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="n">ChangeNotifierProvider</span><span class="p">(</span><span class="nl">create:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">CounterModel</span><span class="p">()),</span>
+<span class="w">    </span><span class="n">ChangeNotifierProvider</span><span class="p">(</span><span class="nl">create:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">AnotherModel</span><span class="p">()),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nl">child:</span><span class="w"> </span><span class="n">MaterialApp</span><span class="p">(</span>
+<span class="w">    </span><span class="nl">home:</span><span class="w"> </span><span class="n">CounterScreen</span><span class="p">(),</span>
+<span class="w">  </span><span class="p">),</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>This way, we can easily manage multiple providers in our Flutter application using the Provider Pattern.</p>
 
 
 
