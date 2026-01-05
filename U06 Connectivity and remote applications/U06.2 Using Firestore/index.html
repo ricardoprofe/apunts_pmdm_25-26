@@ -1,0 +1,2439 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../U06.1%20Introduction%20to%20Firebase%20and%20Firestore/">
+      
+      
+        <link rel="next" href="../U06.3%20Firebase%20authentication/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unit 6.2 Using Firestore - Multimedia and mobile device programming - 2DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-62-using-firestore" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-header__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimedia and mobile device programming - 2DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit 6.2 Using Firestore
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-nav__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Multimedia and mobile device programming - 2DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multimedia and mobile device programming - 2DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introduction to Mobile Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introduction to Mobile Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introduction%20to%20Mobile%20Development/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Android basics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Android basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.1%20-%20Kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.1. The Kotlin language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.2%20Basic%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U03 Android architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            U03 Android architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.1%20Android%20architecture%20copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.1. Android architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.2%20The%20MVVM%20pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.2 The MVVM design pattern
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.3%20ViewModel%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.3 ViewModel guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.4%20Navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.4 Navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.5%20Navigation%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.5 Navigation guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U04 Persistence with Room
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            U04 Persistence with Room
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.1%20Persistence%20with%20Room/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.1. Persistence with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.2%20Room%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.2. Room guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.3%20Relationships/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.3. Relationships with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.4%20More/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.4. More about Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U05 Multiplatform development with Flutter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            U05 Multiplatform development with Flutter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.1%20Introduction%20to%20Flutter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.1. Introduction to Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.2%20Flutter%20Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.2. Flutter Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.3%20Geolocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.3. Geolocation with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.4%20Mobile%20sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.4. Mobile sensors with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.5%20Camera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.5. Camera with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.6%20Files%20storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.6. Files storage with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U06 Connectivity and remote applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            U06 Connectivity and remote applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.1%20Introduction%20to%20Firebase%20and%20Firestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.1 Introduction to Firebase and Firestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 6.2 Using Firestore
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.2 Using Firestore
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-firebase-for-flutter" class="md-nav__link">
+    Setting up Firebase for Flutter
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up Firebase for Flutter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-firebase-account" class="md-nav__link">
+    Create a Firebase Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-firebase-cli" class="md-nav__link">
+    Install Firebase CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-base-app" class="md-nav__link">
+    Create the base app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-firebase-project" class="md-nav__link">
+    Create a Firebase Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-firestore-to-your-project" class="md-nav__link">
+    Add Firestore to Your Project
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Firestore to Your Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-firestore-database" class="md-nav__link">
+    Step 1: Create a Firestore Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-the-required-command-line-tools" class="md-nav__link">
+    Step 2: Install the required command line tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-your-flutter-app-to-use-firebase" class="md-nav__link">
+    Step 3: Configure your Flutter app to use Firebase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-initialize-firebase-in-your-flutter-app" class="md-nav__link">
+    Step 4: Initialize Firebase in your Flutter app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-add-firebase-plugins" class="md-nav__link">
+    Step 5: Add Firebase plugins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-data-model" class="md-nav__link">
+    Create the Data Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-connection" class="md-nav__link">
+    Database connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud-operations" class="md-nav__link">
+    CRUD Operations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-repository-pattern" class="md-nav__link">
+    The repository pattern
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-new-todo-items" class="md-nav__link">
+    Saving new TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieving-the-list-of-todo-items" class="md-nav__link">
+    Retrieving the list of TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-todo-items" class="md-nav__link">
+    Updating TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-todo-items" class="md-nav__link">
+    Deleting TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compound-queries" class="md-nav__link">
+    Compound queries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order-and-limit-data" class="md-nav__link">
+    Order and limit data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.3%20Firebase%20authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.3 Using Firebase Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.4%20Analytics%20and%20Crashlytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.4 Analytics and Crashlytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.5%20Connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.5 Connectivity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-firebase-for-flutter" class="md-nav__link">
+    Setting up Firebase for Flutter
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up Firebase for Flutter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-firebase-account" class="md-nav__link">
+    Create a Firebase Account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-firebase-cli" class="md-nav__link">
+    Install Firebase CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-base-app" class="md-nav__link">
+    Create the base app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-firebase-project" class="md-nav__link">
+    Create a Firebase Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-firestore-to-your-project" class="md-nav__link">
+    Add Firestore to Your Project
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Firestore to Your Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-firestore-database" class="md-nav__link">
+    Step 1: Create a Firestore Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-the-required-command-line-tools" class="md-nav__link">
+    Step 2: Install the required command line tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-your-flutter-app-to-use-firebase" class="md-nav__link">
+    Step 3: Configure your Flutter app to use Firebase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-initialize-firebase-in-your-flutter-app" class="md-nav__link">
+    Step 4: Initialize Firebase in your Flutter app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-add-firebase-plugins" class="md-nav__link">
+    Step 5: Add Firebase plugins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-data-model" class="md-nav__link">
+    Create the Data Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-connection" class="md-nav__link">
+    Database connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud-operations" class="md-nav__link">
+    CRUD Operations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-repository-pattern" class="md-nav__link">
+    The repository pattern
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saving-new-todo-items" class="md-nav__link">
+    Saving new TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieving-the-list-of-todo-items" class="md-nav__link">
+    Retrieving the list of TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-todo-items" class="md-nav__link">
+    Updating TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-todo-items" class="md-nav__link">
+    Deleting TODO items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compound-queries" class="md-nav__link">
+    Compound queries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order-and-limit-data" class="md-nav__link">
+    Order and limit data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-62-using-firestore">Unit 6.2 Using Firestore</h1>
+<p>To show how to use Firestore in a Flutter application, we are going to create a simple TODO list app that allows users to add, view, update, and delete TODO items stored in a Firestore database.</p>
+<h2 id="setting-up-firebase-for-flutter">Setting up Firebase for Flutter</h2>
+<p>To use Firebase in your Flutter app, you need to set up a Firebase project and configure your Flutter app to connect to it. Follow these steps to get started:</p>
+<h3 id="create-a-firebase-account">Create a Firebase Account</h3>
+<p>To get started with Firebase, you'll need to create a Firebase account. Follow these steps:</p>
+<ol>
+<li>Go to the <a href="https://firebase.google.com/">Firebase website</a>.</li>
+<li>Click on the "Get Started" button.</li>
+<li>Sign in with your Google account. If you don't have a Google account, you'll need to create one.</li>
+<li>Once signed in, you'll be directed to the Firebase console where you can create and manage your Firebase projects.</li>
+</ol>
+<h3 id="install-firebase-cli">Install Firebase CLI</h3>
+<p>The Firebase CLI (Command Line Interface) is a tool that allows you to interact with Firebase services from your terminal.</p>
+<p>Installing the Firebase CLI depends on your operating system and if you want to install it via npm or other methods. The most common way is via npm.</p>
+<p>Follow the instructions from the official Firebase documentation to install the Firebase CLI on your system: <a href="https://firebase.google.com/docs/cli#install_the_firebase_cli">Install the Firebase CLI</a></p>
+<p>Once installed, you can verify the installation logging to your Firebase account by running the following command in your terminal:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>firebase<span class="w"> </span>login
+</code></pre></div></td></tr></table></div>
+<p>This will open a browser window where you can sign in with your Google account. After signing in, you can return to the terminal to continue using the Firebase CLI. You can test that you are logged in by running:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>firebase<span class="w"> </span>projects:list
+</code></pre></div></td></tr></table></div>
+<p>This command will list all the Firebase projects associated with your account.</p>
+<h3 id="create-the-base-app">Create the base app</h3>
+<p>The app we are going to do is a simple TODO list Flutter App. You can download the base project with the basic UI done from this <a href="https://github.com/ricardoprofe/todos_flutter_base_PMDM_25_26">link</a>.</p>
+<p>After downloading the project, perform a <code>flutter pub get</code> to install the required dependencies.</p>
+<h3 id="create-a-firebase-project">Create a Firebase Project</h3>
+<p>To create a new Firebase project, follow these steps:</p>
+<ol>
+<li>Go to the <a href="https://console.firebase.google.com/">Firebase Console</a>.</li>
+<li>Click on the "Add project" button.
+   <img alt="New project" src="../images/firebase_project_01.png" /></li>
+<li>Enter a name for your project and click "Continue".</li>
+<li>(Optional) Enable Gemini AI features for your project and click "Continue".</li>
+<li>(Optional) Enable Google Analytics for your project and configure the settings as desired.</li>
+</ol>
+<p>You will see a dashboard for your new project, where you can access various Firebase services and features.</p>
+<h3 id="add-firestore-to-your-project">Add Firestore to Your Project</h3>
+<p>To add Firestore to your Firebase project, follow these steps:</p>
+<h4 id="step-1-create-a-firestore-database">Step 1: Create a Firestore Database</h4>
+<ol>
+<li>In the Firebase Console, navigate to your project.</li>
+<li>In the left-hand menu, click on <em>Build -&gt; Firestore Database</em>.</li>
+<li>(Recommended) Open the documentation on the <em>How do I get started? View the docs</em> <a href="https://firebase.google.com/docs/firestore/quickstart">link</a>.</li>
+<li>Click on the "Create database" button.</li>
+<li>Select the Standard edition and click "Next".
+   <img alt="Create Firestore" src="../images/firestore01.png" /></li>
+<li>Choose a location (for example Europe) for your Firestore database and click "Next".
+   <img alt="Select location" src="../images/firestore02.png" /></li>
+<li>Select <em>Start in test mode</em> and click "Enable". This will allow you to read and write to the database for the next 30 days without any security rules.
+   <img alt="Start in test mode" src="../images/firestore03.png" /><blockquote>
+<p><strong>Warning</strong>: Make sure to set up proper security rules before deploying your application to production.</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="step-2-install-the-required-command-line-tools">Step 2: Install the required command line tools</h4>
+<p>The next step is to add Firebase to your app project.</p>
+<p>If you're logged in to the Firebase console, install the <em>FlutterFire CLI</em> by running the following command from any directory:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>dart<span class="w"> </span>pub<span class="w"> </span>global<span class="w"> </span>activate<span class="w"> </span>flutterfire_cli
+</code></pre></div></td></tr></table></div>
+<h4 id="step-3-configure-your-flutter-app-to-use-firebase">Step 3: Configure your Flutter app to use Firebase</h4>
+<p>Then, from your Flutter project directory, run the following command to start the app configuration workflow:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutterfire<span class="w"> </span>configure
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>The CLI will prompt you to select the Firebase project you created earlier.</li>
+<li>Then, select the platforms you want to configure (iOS, Android, Web, etc.).</li>
+<li>Confirm the configuration, and the CLI will generate the necessary configuration files for your Flutter app. It will create a <code>firebase_options.dart</code> file in your <code>lib</code> directory. This file contains the Firebase configuration for your app.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>After this initial running of <code>flutterfire configure</code>, you need to re-run the command any time that you:</p>
+<ul>
+<li>Start supporting a new platform in your Flutter app.</li>
+<li>Start using a new Firebase service or product in your Flutter app, especially if you start using sign-in with Google, Crashlytics, Performance Monitoring, or Realtime Database.</li>
+</ul>
+<p>Re-running the command ensures that your Flutter app's Firebase configuration is up-to-date and (for Android) automatically adds any required Gradle plugins to your app.</p>
+</div>
+<h4 id="step-4-initialize-firebase-in-your-flutter-app">Step 4: Initialize Firebase in your Flutter app</h4>
+<p>The next step is to initialize Firebase in your Flutter app.</p>
+<ol>
+<li>From your Flutter project directory, run the following command to install the core plugin: <br />
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>firebase_core
+</code></pre></div></td></tr></table></div></li>
+<li>From your Flutter project directory, run the following command to ensure that your Flutter app's Firebase configuration is up-to-date: <br />
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutterfire<span class="w"> </span>configure
+</code></pre></div></td></tr></table></div></li>
+<li>In your <code>lib/main.dart</code> file, import the Firebase core plugin and the configuration file you generated earlier: <br />
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:firebase_core/firebase_core.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;firebase_options.dart&#39;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Initialize Firebase in the <code>main</code> function before running the app: <br />
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="n">WidgetsFlutterBinding</span><span class="p">.</span><span class="n">ensureInitialized</span><span class="p">();</span><span class="w"> </span><span class="c1">// Ensure Flutter bindings are initialized</span>
+<span class="kd">await</span><span class="w"> </span><span class="n">Firebase</span><span class="p">.</span><span class="n">initializeApp</span><span class="p">(</span>
+<span class="w">   </span><span class="nl">options:</span><span class="w"> </span><span class="n">DefaultFirebaseOptions</span>
+<span class="w">      </span><span class="p">.</span><span class="n">currentPlatform</span><span class="p">,</span><span class="w"> </span><span class="c1">// Initialize Firebase with platform-specific options</span>
+<span class="p">);</span>
+<span class="n">runApp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MyApp</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Rebuild your Flutter application: <br />
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>run
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<p>If the app runs without errors, Firebase has been successfully initialized in your Flutter app.</p>
+<h4 id="step-5-add-firebase-plugins">Step 5: Add Firebase plugins</h4>
+<p>Firebase is based on a modular architecture, so you need to add the plugins for the Firebase services you want to use in your app. To use Firestore in your Flutter app, you'll need to add the Firestore plugin.</p>
+<p>From your Flutter project directory, run the following command to install the Firestore plugin:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>cloud_firestore
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><a href="https://firebase.google.com/docs/flutter/setup">The complete guide to setting up Firebase with Flutter</a></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Firebase on Windows is not intended for production use cases, only local development workflows.</p>
+</div>
+<p>If the app runs without errors, Firestore has been successfully initialized in your Flutter app.</p>
+<p>If you go to your Firebase Console, you should see that your app is connected to your Firebase project.</p>
+<p><img alt="Firebase connected" src="../images/firebase_apps_linked.png" /></p>
+<h2 id="create-the-data-model">Create the Data Model</h2>
+<p>The data model for our TODO list app is simple. Each TODO item will have the following fields:</p>
+<ul>
+<li><code>id</code>: String. A unique identifier for the TODO item.</li>
+<li><code>title</code>: String. The title of the TODO item.</li>
+<li><code>description</code>: String. A description of the TODO item.</li>
+<li><code>isCompleted</code>: bool. A boolean indicating whether the TODO item is completed.
+The basic data model class in Dart would look like this:</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo.dart</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">Todo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="o">?</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">String</span><span class="o">?</span><span class="w"> </span><span class="n">description</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">isCompleted</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">Todo</span><span class="p">({</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">isCompleted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>We also need to add methods to convert the TODO item to and from a map.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo.dart</span>
+
+<span class="w">  </span><span class="c1">// Convert a todo object into a Map object</span>
+<span class="w">  </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toMap</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s1">&#39;title&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">title</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">&#39;description&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">description</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">&#39;isCompleted&#39;</span><span class="o">:</span><span class="w"> </span><span class="n">isCompleted</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Create a todo object from a Map object</span>
+<span class="w">  </span><span class="c1">// Useful when retrieving data from Firestore and general APIs</span>
+<span class="w">  </span><span class="c1">// Note: This method does not get the document id</span>
+<span class="w">  </span><span class="kd">factory</span><span class="w"> </span><span class="n">Todo</span><span class="p">.</span><span class="n">fromMap</span><span class="p">(</span><span class="n">Map</span><span class="w"> </span><span class="n">map</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">map</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span>
+<span class="w">      </span><span class="nl">description:</span><span class="w"> </span><span class="n">map</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">isCompleted:</span><span class="w"> </span><span class="n">map</span><span class="p">[</span><span class="s1">&#39;isCompleted&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The first method, <code>toMap</code>, converts a <code>Todo</code> object into a <code>Map&lt;String, dynamic&gt;</code>. The second method, <code>fromMap</code>, creates a <code>Todo</code> object from a <code>Map</code>.</p>
+<p>This approach will allow us to serialize and deserialize <strong>data that cames form a JSON source</strong>, so it works also with general <strong>APIs</strong>.</p>
+<p>But it is also possible to create the methods to convert to/from Firestore documents directly, using the <code>DocumentSnapshot</code> class.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:cloud_firestore/cloud_firestore.dart&#39;</span><span class="p">;</span>
+
+<span class="c1">// Create a todo object from a Firestore DocumentSnapshot</span>
+<span class="w">  </span><span class="kd">factory</span><span class="w"> </span><span class="n">Todo</span><span class="p">.</span><span class="n">fromFirestore</span><span class="p">(</span><span class="n">DocumentSnapshot</span><span class="w"> </span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Map</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">id:</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span>
+<span class="w">      </span><span class="nl">description:</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">isCompleted:</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;isCompleted&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This method has the advantage of directly getting the document ID from Firestore, which can be useful for updating or deleting documents later. We will use this method instead of <code>fromMap</code> when working with Firestore.</p>
+<div class="admonition info">
+<p class="admonition-title">DocumentSnapshot</p>
+<p>The <code>DocumentSnapshot</code> class represents a snapshot of a document in Firestore at a specific point in time. It contains the data of the document as well as metadata such as the document ID and whether the document exists.</p>
+<p>You can use the <code>data()</code> method to retrieve the data of the document as a map, and you can access the document ID using the <code>id</code> property.</p>
+</div>
+<h2 id="database-connection">Database connection</h2>
+<p>To connect to Firestore from your Flutter app, you can use the <code>FirebaseFirestore</code> class provided by the <code>cloud_firestore</code> plugin.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:cloud_firestore/cloud_firestore.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">final</span><span class="w"> </span><span class="n">_db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseFirestore</span><span class="p">.</span><span class="n">instance</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>This code initializes a Firestore instance that you can use to interact with your Firestore database.</p>
+<h2 id="crud-operations">CRUD Operations</h2>
+<p>To perform CRUD (Create, Read, Update, Delete) we are going to create the class <code>TodoDao</code>, inside the data folder that will handle all the operations with Firestore.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:cloud_firestore/cloud_firestore.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/data/todo.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">TodoDao</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="kd">final</span><span class="w"> </span><span class="n">_db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseFirestore</span><span class="p">.</span><span class="n">instance</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The first method we are going to create is the <code>getTodos</code> method, which retrieves all TODO items from the Firestore database.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="c1">// Get a list of todos</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">getTodos</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Reference to &#39;todos&#39; collection</span>
+<span class="w">      </span><span class="p">.</span><span class="n">snapshots</span><span class="p">()</span><span class="w"> </span><span class="c1">// Get real-time updates as a stream of QuerySnapshot</span>
+<span class="w">      </span><span class="p">.</span><span class="n">map</span><span class="p">(</span>
+<span class="w">         </span><span class="p">(</span><span class="n">snapshot</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">snapshot</span><span class="p">.</span><span class="n">docs</span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Todo</span><span class="p">.</span><span class="n">fromFirestore</span><span class="p">(</span><span class="n">doc</span><span class="p">)).</span><span class="n">toList</span><span class="p">(),</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we are returning a <code>Stream</code> of <code>List&lt;Todo&gt;</code>, which allows us to listen for real-time updates to the TODO items in the Firestore database. Each time the database changes, the stream will emit a new list of TODO items.</p>
+<p>The <code>snapshots()</code> method returns a stream of <code>QuerySnapshot</code> objects, which we then map to a list of <code>Todo</code> objects using the <code>fromFirestore</code> factory constructor we defined earlier.</p>
+<p>To retrieve a songle Todo item by its ID, we can create the <code>getTodoById</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="c1">//Get a single todo by its id</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getTodoById</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">snapshots</span><span class="p">()</span>
+<span class="w">      </span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Todo</span><span class="p">.</span><span class="n">fromFirestore</span><span class="p">(</span><span class="n">doc</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Using <code>doc(id)</code>, we reference a specific document in the 'todos' collection. The <code>snapshots()</code> method returns a stream of <code>DocumentSnapshot</code> objects for that document, which we then map to a Todo object using the <code>fromFirestore</code> factory constructor.</p>
+<p>This method returns a <code>Stream&lt;Todo&gt;</code>, which allows us to listen for real-time updates to a single TODO item in the Firestore database.</p>
+<p>To add a new TODO item to the Firestore database, we can create the <code>addTodo</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="c1">// Add a new todo</span>
+<span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">addTodo</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todoData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="n">add</span><span class="p">(</span><span class="n">todoData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This method takes a <code>Map&lt;String, dynamic&gt;</code> representing the TODO item data and adds it to the 'todos' collection in Firestore using the <code>add</code> method. The <code>add</code> method automatically generates a unique ID for the new document.</p>
+<p>The method returns a <code>Future&lt;void&gt;</code>, which completes when the TODO item has been successfully added to the database.</p>
+<p>To update an existing TODO item in the Firestore database, we can create the <code>updateTodo</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="c1">// Update an existing todo</span>
+<span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todoData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="n">doc</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="n">update</span><span class="p">(</span><span class="n">todoData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This method takes the ID of the TODO item to be updated and a map representing the updated TODO item data. It uses the <code>update</code> method to update the document with the specified ID in the 'todos' collection. It also returns a <code>Future&lt;void&gt;</code>, which completes when the TODO item has been successfully updated in the database.</p>
+<p>Finally, to delete a TODO item from the Firestore database, we can create the <code>deleteTodo</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="c1">// Delete a todo</span>
+<span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deleteTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="n">doc</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="n">delete</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="https://firebase.google.com/docs/firestore/manage-data/add-data">Add and update data</a></li>
+<li><a href="https://firebase.google.com/docs/firestore/query-data/get-data">Get data</a></li>
+<li><a href="https://firebase.google.com/docs/firestore/query-data/listen">Get realtime updates</a></li>
+<li><a href="https://firebase.google.com/docs/firestore/manage-data/delete-data">Delete data</a></li>
+</ul>
+<h2 id="the-repository-pattern">The repository pattern</h2>
+<p>At this point, we can use directly the <code>TodoDao</code> class to perform CRUD operations on our Firestore database. However, it is a good practice to use the <strong>repository pattern</strong> to abstract the data access layer from the rest of the application.</p>
+<p>In our case, we create a method for each CRUD operation in the <code>TodoRepository</code> class that internally calls the corresponding method in the <code>TodoDao</code> class. These methods are static, so we don't need to create an instance of the <code>TodoRepository</code> class to use them.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_repository.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/data/todo.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/data/todo_dao.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">TodoRepository</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">TodoDao</span><span class="w"> </span><span class="n">_todoDao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TodoDao</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Get all Todo items with an static method</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">getAllTodos</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">getTodos</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Get a single Todo item by ID</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">getTodoById</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">getTodoById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">//Insert a new Todo item</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">insertTodo</span><span class="p">(</span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">addTodo</span><span class="p">(</span><span class="n">todo</span><span class="p">.</span><span class="n">toMap</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">//Update an existing Todo item</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateTodo</span><span class="p">(</span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">todo</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">updateTodo</span><span class="p">(</span><span class="n">todo</span><span class="p">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="n">todo</span><span class="p">.</span><span class="n">toMap</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">//Delete a Todo item by ID</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deleteTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">deleteTodo</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Note how, in the <code>insertTodo</code> and <code>updateTodo</code> methods, we convert the <code>Todo</code> object to a map using the <code>toMap</code> method before passing it to the <code>TodoDao</code> methods.</p>
+<h2 id="saving-new-todo-items">Saving new TODO items</h2>
+<p>The steps to insert a new TODO item are as follows:</p>
+<ol>
+<li>The user clicks the "Add" button in the Todo List Screen.</li>
+<li>The app navigates to the Todo Edit Screen in "save" mode.</li>
+<li>The user fills in the TODO item details and clicks the "Save" button.</li>
+<li>The app creates a new <code>Todo</code> object with the provided details.</li>
+<li>The app calls the <code>insertTodo</code> method of the <code>TodoRepository</code> to save the new TODO item to Firestore.</li>
+<li>The app navigates back to the Todo List Screen.</li>
+</ol>
+<p>First, we are going to create the method to save the new TODO item in the <code>TodoProvider</code> class:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_provider.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/data/todo.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/data/todo_repository.dart&#39;</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">saveTodo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span>
+<span class="w">    </span><span class="nl">title:</span><span class="w"> </span><span class="n">_title</span><span class="p">,</span>
+<span class="w">    </span><span class="nl">description:</span><span class="w"> </span><span class="n">_description</span><span class="p">,</span>
+<span class="w">    </span><span class="nl">isCompleted:</span><span class="w"> </span><span class="n">_isCompleted</span><span class="p">,</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">insertTodo</span><span class="p">(</span><span class="n">todo</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The values for the new TODO item are taken from the provider's private variables.</p>
+<p>In the <code>EditTodoScreen</code>, we call the <code>saveTodo</code> method when the user clicks the "Save" button:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/edit_todo_screen.dart</span>
+
+<span class="p">...</span>
+<span class="n">IconButton</span><span class="p">(</span>
+<span class="w">  </span><span class="nl">icon:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">save</span><span class="p">),</span>
+<span class="w">  </span><span class="nl">onPressed:</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">validateTodo</span><span class="p">()</span>
+<span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">state</span><span class="p">.</span><span class="n">saveTodo</span><span class="p">();</span><span class="w"> </span><span class="c1">// Add this</span>
+<span class="w">            </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">          </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Update Todo</span>
+<span class="w">            </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="p">),</span>
+<span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>onPressed</code> callback already has the logic to detect if the Todo is valid (has some characters in the title field) and if we are in "save" or "update" mode. If the <code>id</code> is empty (because the todo is new), we are in "save" mode, so we call the <code>saveTodo</code> method of the provider.</p>
+<p>The app navigates back to the Todo List Screen, but the new todo is not yet visible. However, if you go to the Firestore section of your Firebase Console, you should see the new TODO item added to the 'todos' collection after saving it from the app.</p>
+<p><img alt="New todo in Firestore" src="../images/firestore04.png" /></p>
+<h2 id="retrieving-the-list-of-todo-items">Retrieving the list of TODO items</h2>
+<p>To retrieve the list of TODO items from Firestore and display them in the Todo List Screen, we need to update the <code>TodoListProvider</code> class to use the <code>getAllTodos</code> method from the <code>TodoRepository</code>.</p>
+<p>First, we need some fields to represent the state: a <strong>Todo List</strong> to store the retrieved TODO items; an <strong><code>isLoading</code></strong> boolean to indicate if the data is being loaded; and a <strong>Stream Subscription</strong> to manage the stream of TODO items ang get real-time updates:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_list_provider.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/data/todo.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">TodoListProvider</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChangeNotifier</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_todoList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">todoList</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_todoList</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">isLoading</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_isLoading</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">StreamSubscription</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;&gt;?</span><span class="w"> </span><span class="n">_subscription</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Next, the <code>setTodoList</code> method updates the TODO list and notify listeners:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_list_provider.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/data/todo_repository.dart&#39;</span><span class="p">;</span>
+
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">setTodoList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// if already subscribed, do nothing</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_subscription</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// mark loading and notify UI</span>
+<span class="w">    </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">notifyListeners</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// TodoRepository.getAllTodos() returns a Future&lt;Stream&lt;List&lt;Todo&gt;&gt;&gt;</span>
+<span class="w">    </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">getAllTodos</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="n">then</span><span class="p">((</span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">_subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stream</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span>
+<span class="w">            </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="n">_todoList</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">              </span><span class="n">_todoList</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">todos</span><span class="p">);</span>
+
+<span class="w">              </span><span class="c1">// loading is complete</span>
+<span class="w">              </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">              </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nl">onError:</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="c1">// stop loading on error and notify</span>
+<span class="w">              </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">              </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">              </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Error listening todos: </span><span class="si">$</span><span class="n">error</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">          </span><span class="p">);</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">        </span><span class="p">.</span><span class="n">catchError</span><span class="p">((</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">          </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">          </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Failed to get todos stream: </span><span class="si">$</span><span class="n">err</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This methos first checks if there is already a subscription to the TODO stream. If not, it marks the loading state as true and notifies listeners.</p>
+<p>Then, it calls the <code>getAllTodos</code> method from the <code>TodoRepository</code>, which returns a <code>Future&lt;Stream&lt;List&lt;Todo&gt;&gt;&gt;</code>. When the future completes, we listen to the stream and update the <code>_todoList</code> with the retrieved TODO items. We also handle errors that may occur during the listening process.</p>
+<p>In the <code>TodoListScreen</code>, we call the <code>setTodoList</code> method after the first frame is rendered in the <code>initState</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">initState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">initState</span><span class="p">();</span>
+<span class="w">    </span><span class="n">WidgetsBinding</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">addPostFrameCallback</span><span class="p">((</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Provider</span><span class="p">.</span><span class="n">of</span><span class="o">&lt;</span><span class="n">TodoListProvider</span><span class="o">&gt;</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="nl">listen:</span><span class="w"> </span><span class="kc">false</span><span class="p">).</span><span class="n">setTodoList</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>In the Scaffold body, we want to manage the <code>isLoading</code> and <em>empty list</em> states:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="n">listState</span><span class="p">.</span><span class="n">isLoading</span>
+<span class="w">  </span><span class="o">?</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">CircularProgressIndicator</span><span class="p">())</span>
+<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">.</span><span class="n">isEmpty</span>
+<span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;No TODOs available.&#39;</span><span class="p">))</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span>
+<span class="w">          </span><span class="nl">child:</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span>
+<span class="w">            </span><span class="nl">child:</span><span class="w"> </span><span class="n">ListView</span><span class="p">.</span><span class="n">builder</span><span class="p">(</span>
+<span class="w">            </span><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Next, we update the <code>itemCount</code> of the <code>ListView.builder</code> to use the length of the <code>todoList</code> from the provider:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="nl">child:</span><span class="w"> </span><span class="n">ListView</span><span class="p">.</span><span class="n">builder</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">itemCount:</span><span class="w"> </span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">.</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="c1">// Change to list items count</span>
+<span class="w">      </span><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Now, we update the <code>ListTile</code> parameters to show the TODO item details:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ListTile</span><span class="p">(</span>
+<span class="w">    </span><span class="nl">leading:</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span>
+<span class="w">      </span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">isCompleted</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Icons</span><span class="p">.</span><span class="n">check_box</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Icons</span><span class="p">.</span><span class="n">check_box_outline_blank</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">color:</span><span class="w"> </span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">isCompleted</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Colors</span><span class="p">.</span><span class="n">green</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Colors</span><span class="p">.</span><span class="n">grey</span><span class="p">,</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="nl">title:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span>
+<span class="w">      </span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">title</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">style:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span><span class="w"> </span><span class="m">18</span><span class="p">),</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="nl">subtitle:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span>
+<span class="w">      </span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">description</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">style:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontSize:</span><span class="w"> </span><span class="m">14</span><span class="p">),</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">  </span><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Finally, update the <code>onTap</code> callback to navigate to the <code>EditTodoScreen</code> in "update" mode: fisrt, we clear the todo provider state, then we set the todo ID to load, and navigate to the edit screen.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="nl">onTap:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">todoState</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// Populate the TodoProvider with the tapped todo and open the edit screen</span>
+<span class="w">    </span><span class="n">todoState</span><span class="p">.</span><span class="n">setId</span><span class="p">(</span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">id</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Navigator</span><span class="p">.</span><span class="n">push</span><span class="p">(</span>
+<span class="w">      </span><span class="n">context</span><span class="p">,</span>
+<span class="w">      </span><span class="n">MaterialPageRoute</span><span class="p">(</span>
+<span class="w">        </span><span class="nl">builder:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">EditTodoScreen</span><span class="p">(),</span>
+<span class="w">      </span><span class="p">),</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+</code></pre></div></td></tr></table></div>
+<p>Check that the list of TODO items is displayed correctly in the Todo List Screen. You should see the TODO items retrieved from Firestore, and any changes made to the database (such as adding, updating, or deleting TODO items) should be reflected in real-time in the app.</p>
+<h2 id="updating-todo-items">Updating TODO items</h2>
+<p>To update an existing TODO item in Firestore, we need to implement the update functionality in the <code>TodoProvider</code> class and the <code>EditTodoScreen</code>. </p>
+<p>The steps to update a TODO item are as follows:</p>
+<ol>
+<li>In the Todo Edit Screen, the app gets the todo id from the provider and retrieves the TODO item details from Firestore using the <code>getTodoById</code> method of the <code>TodoRepository</code>.</li>
+<li>The app updates the UI fields with the retrieved TODO item details.</li>
+<li>The user modifies the TODO item details and clicks the "Save" button.</li>
+<li>The app creates a <code>Todo</code> object with the updated details.</li>
+<li>The app calls the <code>updateTodo</code> method of the <code>TodoRepository</code> to save the updated TODO item to Firestore.</li>
+<li>The app navigates back to the Todo List Screen.</li>
+</ol>
+<p>First, we create the <code>getTodoById</code> method in the <code>TodoProvider</code> class:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_provider.dart</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">getTodoById</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">getTodoById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="n">todo</span><span class="p">.</span><span class="n">listen</span><span class="p">((</span><span class="n">Todo</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">title</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">description</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_isCompleted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">isCompleted</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>As we are getting the TODO item as a stream, we listen to it and update the provider's private variables with the retrieved TODO item details.</p>
+<p>In the <code>EditTodoScreen</code>, we call the <code>getTodoById</code> method in the <code>initState</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/edit_todo_screen.dart</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">initState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">initState</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// Initialize controllers empty; we&#39;ll populate them when provider notifies</span>
+<span class="w">    </span><span class="n">_titleController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextEditingController</span><span class="p">();</span>
+<span class="w">    </span><span class="n">_descriptionController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextEditingController</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Defer loading the todo until after the first frame so context is available safely</span>
+<span class="w">    </span><span class="n">WidgetsBinding</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">addPostFrameCallback</span><span class="p">((</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">of</span><span class="o">&lt;</span><span class="n">TodoProvider</span><span class="o">&gt;</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="nl">listen:</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">      </span><span class="n">state</span><span class="p">.</span><span class="n">getTodoById</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">id</span><span class="p">);</span><span class="w"> </span><span class="c1">// Get the todo by its id</span>
+<span class="w">      </span><span class="c1">// If the provider already has values, set them immediately</span>
+<span class="w">      </span><span class="n">_titleController</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">title</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_descriptionController</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">description</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Now, when you tap on a Todo item in the Todo List Screen, the app navigates to the Edit Todo Screen and retrieves the TODO item details from Firestore, populating the UI fields with the current values.</p>
+<p>To update the TODO item when the user clicks the "Save" button, we need to create the <code>updateTodo</code> method in the <code>TodoProvider</code> class:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_provider.dart</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">updateTodo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">id:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">_title</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">description:</span><span class="w"> </span><span class="n">_description</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">isCompleted:</span><span class="w"> </span><span class="n">_isCompleted</span><span class="p">,</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">updateTodo</span><span class="p">(</span><span class="n">todo</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This method creates a <code>Todo</code> object with the updated details from the provider's private variables and calls the <code>updateTodo</code> method of the <code>TodoRepository</code> to save the updated TODO item to Firestore.</p>
+<p>Then, in the <code>EditTodoScreen</code>, we call the <code>updateTodo</code> method when the user clicks the "Save" button:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/edit_todo_screen.dart</span>
+
+<span class="n">IconButton</span><span class="p">(</span>
+<span class="w">  </span><span class="nl">icon:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">save</span><span class="p">),</span>
+<span class="w">  </span><span class="nl">onPressed:</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">validateTodo</span><span class="p">()</span>
+<span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">state</span><span class="p">.</span><span class="n">saveTodo</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">          </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">state</span><span class="p">.</span><span class="n">updateTodo</span><span class="p">();</span><span class="w"> </span><span class="c1">// Add this</span>
+<span class="w">            </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="p">),</span>
+</code></pre></div></td></tr></table></div>
+<p>Check that updating a TODO item works correctly. When you modify the details of a TODO item in the Edit Todo Screen and click the "Save" button, the changes should be saved to Firestore, and the updated TODO item should be reflected in real-time in the Todo List Screen.</p>
+<h2 id="deleting-todo-items">Deleting TODO items</h2>
+<p>To delete a TODO item from Firestore, we need to implement the delete functionality in the <code>TodoProvider</code> class :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_provider.dart</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">deleteTodo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">deleteTodo</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Then, call the <code>deleteTodo</code> method when the user clicks the "Delete" button in the <code>EditTodoScreen</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/edit_todo_screen.dart</span>
+
+<span class="n">IconButton</span><span class="p">(</span>
+<span class="w">  </span><span class="nl">icon:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">delete</span><span class="p">),</span>
+<span class="w">  </span><span class="nl">onPressed:</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">isNotEmpty</span>
+<span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">state</span><span class="p">.</span><span class="n">deleteTodo</span><span class="p">();</span><span class="w"> </span><span class="c1">// Add this</span>
+<span class="w">          </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="p">),</span>
+</code></pre></div></td></tr></table></div>
+<p>Done! Now your app can perform CRUD operations on TODO items using Firestore as the backend database. You can add, retrieve, update, and delete TODO items, and the changes will be reflected in real-time in the app.</p>
+<h2 id="queries">Queries</h2>
+<p>Firestore provides powerful querying capabilities that allow you to retrieve documents based on specific criteria. these queries can be used with <code>get()</code> for one-time retrieval or with <code>snapshots()</code> for real-time updates.</p>
+<p>For example, to retrieve only the completed TODO items, you can use the <code>where</code> method to filter the documents based on the <code>isCompleted</code> field:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="n">todosRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">);</span>
+<span class="kd">final</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">todosRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;isCompleted&#39;</span><span class="p">,</span><span class="w"> </span><span class="nl">isEqualTo:</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>After creating a query object, use the <code>get()</code> function to retrieve the results:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">todosRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;isCompleted&#39;</span><span class="p">,</span><span class="w"> </span><span class="nl">isEqualTo:</span><span class="w"> </span><span class="kc">true</span><span class="p">).</span><span class="kd">get</span><span class="p">().</span><span class="n">then</span><span class="p">(</span><span class="w"> </span>
+<span class="w">  </span><span class="p">(</span><span class="n">querySnapshot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">querySnapshot</span><span class="p">.</span><span class="n">docs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="n">data</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nl">onError:</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Failed to get completed todos: </span><span class="si">$</span><span class="n">e</span><span class="s2">&quot;</span><span class="p">),</span>
+<span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>where()</code> method takes three parameters: a field to filter on, a comparison operator, and a value. Cloud Firestore supports the following Flutter comparison operators:</p>
+<ul>
+<li><code>isLessThan</code></li>
+<li><code>isLessThanOrEqualTo</code></li>
+<li><code>isEqualTo</code></li>
+<li><code>isGreaterThan</code></li>
+<li><code>isGreaterThanOrEqualTo</code></li>
+<li><code>isNotEqualTo</code></li>
+<li><code>arrayContains</code></li>
+<li><code>arrayContainsAny</code></li>
+<li><code>whereIn</code></li>
+<li><code>whereNotIn</code></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ageQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">usersRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isGreaterThan:</span><span class="w"> </span><span class="m">18</span><span class="p">);</span>
+<span class="n">stateQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isEqualTo:</span><span class="w"> </span><span class="s2">&quot;CA&quot;</span><span class="p">);</span>
+<span class="n">populationQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isLessThanOrEqualTo:</span><span class="w"> </span><span class="m">100000</span><span class="p">);</span>
+<span class="n">notCapitals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;capital&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isNotEqualTo:</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="n">westCoastcities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;regions&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">arrayContains:</span><span class="w"> </span><span class="s2">&quot;west_coast&quot;</span><span class="p">);</span>
+<span class="n">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">whereIn:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;USA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Japan&quot;</span><span class="p">]);</span>
+<span class="n">cities2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">whereNotIn:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;USA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Japan&quot;</span><span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="compound-queries">Compound queries</h3>
+<p>You can combine constraints with a logical <strong>AND</strong> by chaining multiple equality operators (<code>==</code> or <code>array-contains</code>). However, you must create a composite index to combine equality operators with the inequality operators, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>!=</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// state == &quot;CA&quot; AND name == &quot;San Francisco&quot;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span>
+<span class="w">    </span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isEqualTo:</span><span class="w"> </span><span class="s2">&quot;CA&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isEqualTo:</span><span class="w"> </span><span class="s2">&quot;San Francisco&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>To perform <strong>OR</strong> queries, use the <code>whereIn</code>, <code>whereNotIn</code>, or <code>arrayContainsAny</code> operators:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// state == &quot;CA&quot; OR state == &quot;WA&quot;</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">citiesRef</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">whereIn:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;WA&quot;</span><span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<p>Another way that involves different fields is to use the <code>Filter.or</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s2">&quot;cities&quot;</span><span class="p">).</span><span class="n">where</span><span class="p">(</span>
+<span class="w">    </span><span class="n">Filter</span><span class="p">.</span><span class="n">or</span><span class="p">(</span>
+<span class="w">      </span><span class="n">Filter</span><span class="p">(</span><span class="s2">&quot;capital&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isEqualTo:</span><span class="w"> </span><span class="kc">true</span><span class="p">),</span>
+<span class="w">      </span><span class="n">Filter</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isGreaterThan:</span><span class="w"> </span><span class="m">1000000</span><span class="p">),</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Queries reference</strong>: <a href="https://firebase.google.com/docs/firestore/query-data/queries">Query data in Cloud Firestore</a></p>
+<h2 id="order-and-limit-data">Order and limit data</h2>
+<p>You can order the results of a query using the <code>orderBy</code> method. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s2">&quot;todos&quot;</span><span class="p">).</span><span class="n">orderBy</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>By default, the results are ordered in ascending order. To order in descending order, you can pass <code>descending: true</code> as a second parameter:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s2">&quot;todos&quot;</span><span class="p">).</span><span class="n">orderBy</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">descending:</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>You can limit the number of results returned by a query using the <code>limit</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span>
+<span class="w">    </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s2">&quot;todos&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">descending:</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">limit</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>You can combine <code>where</code>, <code>orderBy</code>, and <code>limit</code> methods to create complex queries:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span>
+<span class="w">    </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s2">&quot;todos&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="s2">&quot;isCompleted&quot;</span><span class="p">,</span><span class="w"> </span><span class="nl">isEqualTo:</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">limit</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Order and limit reference</strong>: <a href="https://firebase.google.com/docs/firestore/query-data/order-limit-data">Order and limit data</a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

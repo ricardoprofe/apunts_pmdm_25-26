@@ -1,0 +1,1931 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../U06.2%20Using%20Firestore/">
+      
+      
+        <link rel="next" href="../U06.4%20Analytics%20and%20Crashlytics/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unit 6.3 Using Firebase Authentication - Multimedia and mobile device programming - 2DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-63-using-firebase-authentication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-header__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimedia and mobile device programming - 2DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit 6.3 Using Firebase Authentication
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-nav__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Multimedia and mobile device programming - 2DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multimedia and mobile device programming - 2DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introduction to Mobile Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introduction to Mobile Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introduction%20to%20Mobile%20Development/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Android basics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Android basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.1%20-%20Kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.1. The Kotlin language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.2%20Basic%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U03 Android architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            U03 Android architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.1%20Android%20architecture%20copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.1. Android architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.2%20The%20MVVM%20pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.2 The MVVM design pattern
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.3%20ViewModel%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.3 ViewModel guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.4%20Navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.4 Navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.5%20Navigation%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.5 Navigation guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U04 Persistence with Room
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            U04 Persistence with Room
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.1%20Persistence%20with%20Room/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.1. Persistence with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.2%20Room%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.2. Room guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.3%20Relationships/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.3. Relationships with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.4%20More/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.4. More about Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U05 Multiplatform development with Flutter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            U05 Multiplatform development with Flutter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.1%20Introduction%20to%20Flutter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.1. Introduction to Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.2%20Flutter%20Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.2. Flutter Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.3%20Geolocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.3. Geolocation with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.4%20Mobile%20sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.4. Mobile sensors with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.5%20Camera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.5. Camera with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.6%20Files%20storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.6. Files storage with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U06 Connectivity and remote applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            U06 Connectivity and remote applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.1%20Introduction%20to%20Firebase%20and%20Firestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.1 Introduction to Firebase and Firestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.2%20Using%20Firestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.2 Using Firestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 6.3 Using Firebase Authentication
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.3 Using Firebase Authentication
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-firebase-authentication-to-your-app" class="md-nav__link">
+    Adding Firebase Authentication to your app
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementing-authentication-with-firebase_ui_auth" class="md-nav__link">
+    Implementing Authentication with firebase_ui_auth
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associating-user-data-with-todo-items" class="md-nav__link">
+    Associating user data with TODO items
+  </a>
+  
+    <nav class="md-nav" aria-label="Associating user data with TODO items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-ui-changes" class="md-nav__link">
+    Additional UI changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secure-your-firestore-data" class="md-nav__link">
+    Secure your Firestore data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.4%20Analytics%20and%20Crashlytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.4 Analytics and Crashlytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U06.5%20Connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.5 Connectivity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-firebase-authentication-to-your-app" class="md-nav__link">
+    Adding Firebase Authentication to your app
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementing-authentication-with-firebase_ui_auth" class="md-nav__link">
+    Implementing Authentication with firebase_ui_auth
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associating-user-data-with-todo-items" class="md-nav__link">
+    Associating user data with TODO items
+  </a>
+  
+    <nav class="md-nav" aria-label="Associating user data with TODO items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-ui-changes" class="md-nav__link">
+    Additional UI changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secure-your-firestore-data" class="md-nav__link">
+    Secure your Firestore data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-63-using-firebase-authentication">Unit 6.3 Using Firebase Authentication</h1>
+<p>Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook, and Twitter, and more.</p>
+<p>In this section, we will cover the basics of integrating Firebase Authentication into your Flutter app using the TODO app as an example.</p>
+<h2 id="adding-firebase-authentication-to-your-app">Adding Firebase Authentication to your app</h2>
+<p>To add Firebase Authentication to your Flutter app, follow these steps:</p>
+<ol>
+<li><strong>Set up Firebase in your Flutter project</strong>: If you haven't already, set up Firebase in your Flutter project by following the instructions in the <a href="https://firebase.google.com/docs/flutter/setup">Firebase documentation</a>. We have done it in previous sections.</li>
+<li><strong>Add the Firebase Authentication package</strong>: Add the <code>firebase_auth</code> package to your <code>pubspec.yaml</code> file:
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>firebase_auth
+</code></pre></div></td></tr></table></div></li>
+<li>Once added, run <code>flutter run</code> to rebuild your project with the new dependency.</li>
+<li>Go to the Firebase Console, select your project, and navigate to the "Authentication" section. Press the "Get started" button.</li>
+<li>Select the "Sign-in method" tab and enable the desired authentication methods (e.g., Email/Password, Google, etc.). In this example we are going to use <strong><em>Email/Password</em></strong>.
+ <img alt="Enable Email/Password Authentication" src="../images/authentication01.png" /></li>
+</ol>
+<p>Now your app is ready to use Firebase Authentication. The next step should be to create a login/registration screen and implement the authentication logic. But we are going to usea Flutter package that provides pre-built authentication screens and logic to simplify the process.</p>
+<p>The <a href="https://pub.dev/packages/firebase_ui_auth"><code>firebase_ui_auth</code> package</a> offers a set of customizable UI components for Firebase Authentication. Intall it by doing:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>firebase_ui_auth
+</code></pre></div></td></tr></table></div>
+<h2 id="implementing-authentication-with-firebase_ui_auth">Implementing Authentication with firebase_ui_auth</h2>
+<p>The first step is to create a provider for the user data. In this provider we can access the user information from anywhere in the app and we canknow if the user is logged in or not.</p>
+<p>Create a new file <code>ui/providers/user_provider.dart</code> with the following content:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/user_provider.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:firebase_auth/firebase_auth.dart&#39;</span><span class="w"> </span><span class="k">hide</span><span class="w"> </span><span class="n">EmailAuthProvider</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:firebase_ui_auth/firebase_ui_auth.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">UserProvider</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="n">ChangeNotifier</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">providers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">EmailAuthProvider</span><span class="p">()];</span>
+
+<span class="w">  </span><span class="n">User</span><span class="o">?</span><span class="w"> </span><span class="n">_currentUser</span><span class="p">;</span>
+<span class="w">  </span><span class="n">User</span><span class="o">?</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">currentUser</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_currentUser</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">StreamSubscription</span><span class="o">&lt;</span><span class="n">User</span><span class="o">?&gt;?</span><span class="w"> </span><span class="n">_userSubscription</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">UserProvider</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the current user and start listening for changes</span>
+<span class="w">    </span><span class="n">_currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseAuth</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">currentUser</span><span class="p">;</span>
+<span class="w">    </span><span class="n">userChanges</span><span class="p">();</span><span class="w"> </span><span class="c1">// Start listening to user changes</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="n">userChanges</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Cancel any existing subscription before creating a new one</span>
+<span class="w">    </span><span class="n">_userSubscription</span><span class="o">?</span><span class="p">.</span><span class="n">cancel</span><span class="p">();</span>
+<span class="w">    </span><span class="n">_userSubscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseAuth</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">userChanges</span><span class="p">().</span><span class="n">listen</span><span class="p">((</span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+<span class="w">      </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">dispose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_userSubscription</span><span class="o">?</span><span class="p">.</span><span class="n">cancel</span><span class="p">();</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">dispose</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>In the imports, note how we hide the <code>EmailAuthProvider</code> from <code>firebase_auth</code> to avoid conflicts with the one from <code>firebase_ui_auth</code>. This is the one we are going to use.</p>
+<p>As we are going to use only the email/password authentication method, we create a list with only that provider (<code>EmailAuthProvider()</code>).</p>
+<p>The <code>FirebaseAuth.instance.currentUser</code> method gives us the current user if logged in, or null if not.</p>
+<p>The <code>userChanges()</code> method listens for changes in the authentication state and updates the <code>_currentUser</code> variable accordingly and notifies listeners.</p>
+<p>The <code>dispose()</code> method cancels the subscription when the provider is disposed of to prevent memory leaks.</p>
+<p>Finalkly, we need a method to be called when the authentication state changes. This method is based on the one explained in the <a href="https://pub.dev/packages/firebase_ui_auth">firebase_ui_auth documentation</a>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/user_provider.dart</span>
+
+<span class="w">  </span><span class="n">AuthStateChangeAction</span><span class="o">&lt;</span><span class="n">SignedIn</span><span class="o">&gt;</span><span class="w"> </span><span class="n">authStateChangeAction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">AuthStateChangeAction</span><span class="o">&lt;</span><span class="n">SignedIn</span><span class="o">&gt;</span><span class="p">((</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pushReplacement</span><span class="p">(</span>
+<span class="w">        </span><span class="n">context</span><span class="p">,</span>
+<span class="w">        </span><span class="n">MaterialPageRoute</span><span class="p">(</span>
+<span class="w">          </span><span class="nl">builder:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ProfileScreen</span><span class="p">(</span>
+<span class="w">            </span><span class="nl">actions:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="n">SignedOutAction</span><span class="p">((</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">              </span><span class="p">}),</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">          </span><span class="p">),</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This method navigates to the <code>ProfileScreen</code> when the user signs in, and sets up an action to navigate back when the user signs out.</p>
+<p>To get the notification form this provider, we need to add it to the main app. Open <code>my_app.dart</code> and add the new provider to the <code>MultiProvider</code> widget:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// my_app.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/ui/providers/user_provider.dart&#39;</span><span class="p">;</span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">MultiProvider</span><span class="p">(</span>
+<span class="w">   </span><span class="nl">providers:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="n">ChangeNotifierProvider</span><span class="p">(</span><span class="nl">create:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">TodoProvider</span><span class="p">()),</span>
+<span class="w">      </span><span class="n">ChangeNotifierProvider</span><span class="p">(</span><span class="nl">create:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">TodoListProvider</span><span class="p">()),</span>
+<span class="w">      </span><span class="n">ChangeNotifierProvider</span><span class="p">(</span><span class="nl">create:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">UserProvider</span><span class="p">()),</span><span class="w"> </span><span class="c1">// ADD THIS</span>
+<span class="w">   </span><span class="p">],</span>
+</code></pre></div></td></tr></table></div>
+<p>Now, we will add a button to the app bar in the <code>TodoListScreen</code> to allow users to sign in or out. </p>
+<p>Open <code>todo_list_screen.dart</code> and add the required dependencies:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:firebase_ui_auth/firebase_ui_auth.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;package:todos_flutter/ui/providers/user_provider.dart&#39;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Then, add an UserProvider variable to access the user data:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="nd">@override</span>
+<span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">listState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">of</span><span class="o">&lt;</span><span class="n">TodoListProvider</span><span class="o">&gt;</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">todoState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">of</span><span class="o">&lt;</span><span class="n">TodoProvider</span><span class="o">&gt;</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">userProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="p">.</span><span class="n">of</span><span class="o">&lt;</span><span class="n">UserProvider</span><span class="o">&gt;</span><span class="p">(</span><span class="n">context</span><span class="p">);</span><span class="w"> </span><span class="c1">//Add this</span>
+</code></pre></div></td></tr></table></div>
+<p>In the AppBar widget, add an IconButton to handle sign-in and sign-out actions. The button will display a different icon based on the user's authentication state. We can also show the user's display name or email when logged in:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="w">   </span><span class="nl">actions:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="c1">// Profile button</span>
+<span class="w">      </span><span class="n">IconButton</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">icon:</span><span class="w"> </span><span class="n">userProvider</span><span class="p">.</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">person_outline</span><span class="p">)</span>
+<span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="n">Row</span><span class="p">(</span>
+<span class="w">               </span><span class="nl">children:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                  </span><span class="n">Text</span><span class="p">(</span><span class="n">userProvider</span><span class="p">.</span><span class="n">currentUser</span><span class="o">?</span><span class="p">.</span><span class="n">email</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">),</span>
+<span class="w">                  </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">person</span><span class="p">),</span>
+<span class="w">               </span><span class="p">],</span>
+<span class="w">            </span><span class="p">),</span>
+</code></pre></div></td></tr></table></div>
+<p>We can know if the user is logged in or not by checking if <code>userProvider.currentUser</code> is null. If it is null, we show the <code>person_outline</code> icon, otherwise we show the user's email and the <code>person</code> icon.</p>
+<p>Finally, on the <code>onPressed</code> event of the AppBar button actions button, we check if the user is logged in or not. If not, we navigate to the <code>SignInScreen</code>, otherwise we navigate to the <code>ProfileScreen</code> with a sign-out action that navigates back to the previous screen when the user signs out:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="w">   </span><span class="nl">onPressed:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">userProvider</span><span class="p">.</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">         </span><span class="o">?</span><span class="w"> </span><span class="n">Navigator</span><span class="p">.</span><span class="n">push</span><span class="p">(</span>
+<span class="w">               </span><span class="n">context</span><span class="p">,</span>
+<span class="w">               </span><span class="n">MaterialPageRoute</span><span class="p">(</span>
+<span class="w">               </span><span class="nl">builder:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">SignInScreen</span><span class="p">(</span>
+<span class="w">                  </span><span class="nl">providers:</span><span class="w"> </span><span class="n">userProvider</span><span class="p">.</span><span class="n">providers</span><span class="p">,</span>
+<span class="w">                  </span><span class="nl">actions:</span><span class="w"> </span><span class="p">[</span><span class="n">userProvider</span><span class="p">.</span><span class="n">authStateChangeAction</span><span class="p">()],</span>
+<span class="w">               </span><span class="p">),</span>
+<span class="w">               </span><span class="p">),</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="n">Navigator</span><span class="p">.</span><span class="n">push</span><span class="p">(</span>
+<span class="w">               </span><span class="n">context</span><span class="p">,</span>
+<span class="w">               </span><span class="n">MaterialPageRoute</span><span class="p">(</span>
+<span class="w">               </span><span class="nl">builder:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ProfileScreen</span><span class="p">(</span>
+<span class="w">                  </span><span class="nl">actions:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                     </span><span class="n">SignedOutAction</span><span class="p">((</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                     </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="w">                     </span><span class="p">}),</span>
+<span class="w">                  </span><span class="p">],</span>
+<span class="w">               </span><span class="p">),</span>
+<span class="w">               </span><span class="p">),</span>
+<span class="w">            </span><span class="p">);</span>
+<span class="w">   </span><span class="p">},</span>
+</code></pre></div></td></tr></table></div>
+<p>Time to check the behavior of the app. Run the app and press the profile button in the app bar. You should see the sign-in screen and be able to register a new user or sign in with an existing one. Once signed in, you should see your email in the app bar. You can also sign out from the profile screen.</p>
+<p>Check the Firebase Console to see the registered users in the "Authentication" section. Each user is assigned a unique user ID (<strong>UID</strong>) by Firebase.</p>
+<p><img alt="Firebase Authentication Users" src="../images/authentication02.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Task</p>
+<p>Modify the app to wrap the <code>SignInScreen</code> and <code>ProfileScreen</code> with <code>Scaffold</code> widgets to provide a consistent app bar and navigation experience.</p>
+</div>
+<h2 id="associating-user-data-with-todo-items">Associating user data with TODO items</h2>
+<p>To associate TODO items with specific users, we need to change the way they are stored in Firestore. Now, we have this schema:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>todos (collection)   
+   |-- todoId (document)
+      |-- title: string
+      |-- description: string
+      |-- isCompleted: boolean   
+</code></pre></div></td></tr></table></div>
+<p>The new schema will be:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>users (collection)   
+   |-- userId (document)
+      |-- todos (collection)
+         |-- todoId (document)
+            |-- title: string
+            |-- description: string
+            |-- isCompleted: boolean   
+</code></pre></div></td></tr></table></div>
+<p>There are various ways to implement this change. We will modify the <code>TodoDao</code> methods to include the user ID when accessing the TODO items. After that, we will modify the providers to pass the user ID to the DAO methods and update the UI when the authentication state changes.</p>
+<p>First, modify the <code>getTodos</code> method in <code>todo_dao.dart</code> to include the user ID:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">getTodos</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Reference to &#39;users&#39; collection</span>
+<span class="w">      </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="c1">// Reference to the current user&#39;s document</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Reference to &#39;todos&#39; collection</span>
+<span class="w">      </span><span class="p">.</span><span class="n">snapshots</span><span class="p">()</span><span class="w"> </span><span class="c1">// Get real-time updates as a stream of QuerySnapshot</span>
+<span class="w">      </span><span class="p">.</span><span class="n">map</span><span class="p">(</span>
+<span class="w">         </span><span class="p">(</span><span class="n">snapshot</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">            </span><span class="n">snapshot</span><span class="p">.</span><span class="n">docs</span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Todo</span><span class="p">.</span><span class="n">fromFirestore</span><span class="p">(</span><span class="n">doc</span><span class="p">)).</span><span class="n">toList</span><span class="p">(),</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Modify also the <code>addTodo</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">addTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todoData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Adding todo for user: </span><span class="si">$</span><span class="n">userId</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="c1">// Reference to the current user&#39;s document</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">todoData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Now, modify the repository methods to include the user ID:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_repository.dart</span>
+
+<span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">getAllTodos</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">getTodos</span><span class="p">(</span><span class="n">userId</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">insertTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">addTodo</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">todo</span><span class="p">.</span><span class="n">toMap</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The next step is to modify the <code>todo_list_provider.dart</code> <code>setTodoList</code> method to pass the user ID when fetching the TODO items and update the Todo list when the authentication state changes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_list_provider.dart</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">setTodoList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseAuth</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">currentUser</span><span class="o">?</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// If there&#39;s no signed-in user, cancel any existing subscription and</span>
+<span class="w">    </span><span class="c1">// clear the list so the UI shows an empty state.</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_subscription</span><span class="o">?</span><span class="p">.</span><span class="n">cancel</span><span class="p">();</span>
+<span class="w">      </span><span class="n">_subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_todoList</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">      </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">      </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// If already subscribed, cancel first so we re-subscribe for the new user.</span>
+<span class="w">    </span><span class="n">_subscription</span><span class="o">?</span><span class="p">.</span><span class="n">cancel</span><span class="p">();</span>
+<span class="w">    </span><span class="n">_subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">notifyListeners</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// TodoRepository.getAllTodos() returns a Future&lt;Stream&lt;List&lt;Todo&gt;&gt;&gt;</span>
+<span class="w">    </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">getAllTodos</span><span class="p">(</span><span class="n">uid</span><span class="p">).</span><span class="n">then</span><span class="p">((</span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stream</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span>
+<span class="w">        </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">_todoList</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">          </span><span class="n">_todoList</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">todos</span><span class="p">);</span>
+
+<span class="w">          </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">          </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nl">onError:</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">          </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">          </span><span class="c1">// ignore: avoid_print</span>
+<span class="w">          </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Error listening todos: </span><span class="si">$</span><span class="n">error</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}).</span><span class="n">catchError</span><span class="p">((</span><span class="n">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_isLoading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">      </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">      </span><span class="c1">// ignore: avoid_print</span>
+<span class="w">      </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;Failed to get todos stream: </span><span class="si">$</span><span class="n">err</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Finally, modify the <code>todo_list_screen.dart</code> to call <code>setTodoList()</code> whenever the authentication state changes. To do this, we can use a VoidCallback that listens for changes in the <code>UserProvider</code> and calls <code>setTodoList()</code> accordingly. We need to change the <code>initState()</code> and <code>dispose()</code> methods as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">_TodoListScreenState</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">State</span><span class="o">&lt;</span><span class="n">TodoListScreen</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">late</span><span class="w"> </span><span class="n">VoidCallback</span><span class="w"> </span><span class="n">_userListener</span><span class="p">;</span><span class="w"> </span><span class="c1">// Listener for UserProvider changes</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">initState</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">initState</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//Load the list of TODOs from the provider when the widget is mounted</span>
+<span class="w">    </span><span class="n">WidgetsBinding</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">addPostFrameCallback</span><span class="p">((</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">context</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="n">TodoListProvider</span><span class="o">&gt;</span><span class="p">().</span><span class="n">setTodoList</span><span class="p">();</span>
+
+<span class="w">      </span><span class="c1">// Register a listener on UserProvider to reload the todo list when the</span>
+<span class="w">      </span><span class="c1">// authentication state changes (sign-in / sign-out / user updates).</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">userProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="n">UserProvider</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">      </span><span class="n">_userListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// When user changes, refresh the todo list for the new user (or empty)</span>
+<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="n">TodoListProvider</span><span class="o">&gt;</span><span class="p">().</span><span class="n">setTodoList</span><span class="p">();</span>
+<span class="w">      </span><span class="p">};</span>
+<span class="w">      </span><span class="n">userProvider</span><span class="p">.</span><span class="n">addListener</span><span class="p">(</span><span class="n">_userListener</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nd">@override</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">dispose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Remove the listener from UserProvider to avoid leaks. Use try/catch in</span>
+<span class="w">    </span><span class="c1">// case the provider was removed earlier in the tree.</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">userProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="n">UserProvider</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">      </span><span class="n">userProvider</span><span class="p">.</span><span class="n">removeListener</span><span class="p">(</span><span class="n">_userListener</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ignore: no-op</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">dispose</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Run the app again. Now, when you sign in, you should see an empty TODO list for the new user. You can add TODO items, and they will be associated with that user. When you sign out and sign in with another user, you will see a different TODO list.</p>
+<p>Next, we are going to modify the <code>getTodoById</code> and <code>updateTodo</code> methods in the <code>todo_dao.dart</code> file to include the user ID as well:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="w">  </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getTodoById</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span>
+<span class="w">        </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">snapshots</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">doc</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Todo</span><span class="p">.</span><span class="n">fromFirestore</span><span class="p">(</span><span class="n">doc</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">   </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todoData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">todoData</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>We need to change the repository methods too:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_repository.dart</span>
+
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">getTodoById</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">getTodoById</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">//Update an existing Todo item</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updateTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">todo</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">updateTodo</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">todo</span><span class="p">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="n">todo</span><span class="p">.</span><span class="n">toMap</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Finally, update the <code>TodoProvider</code> methods to pass the user ID:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_provider.dart</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">getTodoById</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseAuth</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">currentUser</span><span class="o">?</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">getTodoById</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="n">todo</span><span class="p">.</span><span class="n">listen</span><span class="p">((</span><span class="n">Todo</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">title</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">description</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_isCompleted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">isCompleted</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="n">notifyListeners</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">updateTodo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseAuth</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">currentUser</span><span class="o">?</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">id:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">_title</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">description:</span><span class="w"> </span><span class="n">_description</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">isCompleted:</span><span class="w"> </span><span class="n">_isCompleted</span><span class="p">,</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">updateTodo</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="w"> </span><span class="n">todo</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Finally, we will do the same for the delete operation:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_dao.dart</span>
+
+<span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deleteTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_db</span>
+<span class="w">        </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">doc</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">delete</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>And in the repository:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// data/todo_repository.dart</span>
+
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deleteTodo</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_todoDao</span><span class="p">.</span><span class="n">deleteTodo</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>And finally, in the <code>todo_provider.dart</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/providers/todo_provider.dart</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">deleteTodo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseAuth</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">currentUser</span><span class="o">?</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">deleteTodo</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Run the app again. Now you should be able to delete TODO items as well.</p>
+<h3 id="additional-ui-changes">Additional UI changes</h3>
+<p>As a last detail, we can modify the <code>TodoListScreen</code> to show a message when none user is logged in, adding a ternary operator at the beginning of the <code>body</code> property:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="nl">body:</span><span class="w"> </span><span class="n">userProvider</span><span class="p">.</span><span class="n">currentUser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">   </span><span class="o">?</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Please sign in to view your TODOs.&#39;</span><span class="p">))</span>
+<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">listState</span><span class="p">.</span><span class="n">isLoading</span>
+<span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">CircularProgressIndicator</span><span class="p">())</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">listState</span><span class="p">.</span><span class="n">todoList</span><span class="p">.</span><span class="n">isEmpty</span>
+<span class="w">         </span><span class="o">?</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;No TODOs available.&#39;</span><span class="p">))</span>
+<span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span>
+<span class="w">            </span><span class="c1">// existing ListView.builder code</span>
+</code></pre></div></td></tr></table></div>
+<p>We also should hide the <code>FloatingActionButton</code> when no user is logged in:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ui/screens/todo_list_screen.dart</span>
+
+<span class="nl">floatingActionButton:</span><span class="w"> </span><span class="n">userProvider</span><span class="p">.</span><span class="n">currentUser</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">   </span><span class="o">?</span><span class="w"> </span><span class="n">FloatingActionButton</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">onPressed:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">newTodo</span><span class="p">(</span><span class="n">todoState</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">);</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nl">child:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span>
+<span class="w">   </span><span class="p">)</span>
+<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</code></pre></div></td></tr></table></div>
+<p>Run the app one last time. Now, when no user is logged in, you should see a message prompting you to sign in to view your TODOs, and the FloatingActionButton should be hidden.</p>
+<h2 id="secure-your-firestore-data">Secure your Firestore data</h2>
+<p>To ensure that each user's TODO items are private and secure, we need to set up Firestore security rules. These rules will restrict access to the data based on the authenticated user's ID.</p>
+<p>In the Firebase Console, navigate to the "Firestore Database" section and select the "Rules" tab. Replace the existing rules with the following:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>rules_version = &#39;2&#39;;
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow only authenticated content owners access
+    match /users/{userId} {
+      allow read, write: if request.auth != null &amp;&amp; request.auth.uid == userId
+      // Match any document in the &#39;todos&#39; subcollection
+      match /todos/{todoId} {
+        // Allow read and write access only to the authenticated user
+        allow read, write: if request.auth != null &amp;&amp; request.auth.uid == userId;
+      }
+    }
+  }
+}
+</code></pre></div></td></tr></table></div>
+<p>Rerun your app and test the authentication and data access. Each user should only be able to see and modify their own TODO items.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>
