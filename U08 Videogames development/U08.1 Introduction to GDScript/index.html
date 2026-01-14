@@ -1,0 +1,1846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../../U07%20Introduction%20to%20game%20engines/U07.1%20Introduction%20to%20Game%20Engines/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unit 8.1 Introduction to GDScript - Multimedia and mobile device programming - 2DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-81-introduction-to-gdscript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-header__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimedia and mobile device programming - 2DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit 8.1 Introduction to GDScript
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-nav__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Multimedia and mobile device programming - 2DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multimedia and mobile device programming - 2DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introduction to Mobile Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introduction to Mobile Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introduction%20to%20Mobile%20Development/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Android basics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Android basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.1%20-%20Kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.1. The Kotlin language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.2%20Basic%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U03 Android architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            U03 Android architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.1%20Android%20architecture%20copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.1. Android architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.2%20The%20MVVM%20pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.2 The MVVM design pattern
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.3%20ViewModel%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.3 ViewModel guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.4%20Navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.4 Navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.5%20Navigation%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.5 Navigation guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U04 Persistence with Room
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            U04 Persistence with Room
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.1%20Persistence%20with%20Room/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.1. Persistence with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.2%20Room%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.2. Room guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.3%20Relationships/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.3. Relationships with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.4%20More/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.4. More about Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U05 Multiplatform development with Flutter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            U05 Multiplatform development with Flutter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.1%20Introduction%20to%20Flutter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.1. Introduction to Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.2%20Flutter%20Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.2. Flutter Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.3%20Geolocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.3. Geolocation with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.4%20Mobile%20sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.4. Mobile sensors with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.5%20Camera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.5. Camera with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.6%20Files%20storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.6. Files storage with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U06 Connectivity and remote applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            U06 Connectivity and remote applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.1%20Introduction%20to%20Firebase%20and%20Firestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.1 Introduction to Firebase and Firestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.2%20Using%20Firestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.2 Using Firestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.3%20Firebase%20authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.3 Using Firebase Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.4%20Analytics%20and%20Crashlytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.4 Analytics and Crashlytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.5%20Connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.5 Connectivity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U07 Introduction to game engines
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            U07 Introduction to game engines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U07%20Introduction%20to%20game%20engines/U07.1%20Introduction%20to%20Game%20Engines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 7.1 Introduction to Game Engines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U08 Videogames development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            U08 Videogames development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 8.1 Introduction to GDScript
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.1 Introduction to GDScript
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-first-script" class="md-nav__link">
+    The first script
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    Operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-functions" class="md-nav__link">
+    System functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-control" class="md-nav__link">
+    Flow control
+  </a>
+  
+    <nav class="md-nav" aria-label="Flow control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-operators" class="md-nav__link">
+    Conditional operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ifelse" class="md-nav__link">
+    if/else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-loops" class="md-nav__link">
+    while loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-loops" class="md-nav__link">
+    for loops
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-first-script" class="md-nav__link">
+    The first script
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    Operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    Constants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-functions" class="md-nav__link">
+    System functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-control" class="md-nav__link">
+    Flow control
+  </a>
+  
+    <nav class="md-nav" aria-label="Flow control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-operators" class="md-nav__link">
+    Conditional operators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ifelse" class="md-nav__link">
+    if/else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-loops" class="md-nav__link">
+    while loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-loops" class="md-nav__link">
+    for loops
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-81-introduction-to-gdscript">Unit 8.1 Introduction to GDScript</h1>
+<p><strong>GDScript</strong> is a high-level, object-oriented, imperative, and gradually typed programming language created by <strong>Godot</strong>. It uses an <strong>indentation-based syntax</strong> similar to languages such as <strong>Python</strong>. Its goal is to optimize and tightly integrate with the <strong>Godot Engine</strong>, allowing great flexibility for the creation and integration of content.</p>
+<p><a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html">Official documentation</a></p>
+<h2 id="the-first-script">The first script</h2>
+<p>Let’s take the script from <a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_first_script.html">Creating your first script</a> in the Godot documentation.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">extends</span><span class="w"> </span><span class="n">Sprite2D</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span>
+<span class="k">var</span><span class="w"> </span><span class="n">angular_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">PI</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_process</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
+<span class="w">    </span><span class="n">rotation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">angular_speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delta</span>
+
+<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="o">.</span><span class="n">UP</span><span class="o">.</span><span class="n">rotated</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">speed</span>
+
+<span class="w">    </span><span class="n">position</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">velocity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delta</span>
+</code></pre></div></td></tr></table></div>
+<p>This script is associated with a <strong>Sprite2D</strong> node, which is why the first line, <code>extends Sprite2D</code>, inherits the <strong>functions</strong> (methods) and <strong>properties</strong> (variables) of the <strong>Sprite2D</strong> class. For example, the variables <code>rotation</code> and <code>position</code> are properties of the class, accessible from the Inspector (right panel).</p>
+<p>Next, we have two <strong>variables</strong> defined with the keyword <code>var</code>: <code>speed</code> and <code>angular_speed</code>. We will talk more about variables later.</p>
+<p>Finally, we have the <code>_process</code> function. A <strong>function</strong> is a block of code that has a name and can be called, which means its code can be executed every time we write its name. The code of GDScript functions is nested using indentation. In our example, the code consists of the following lines:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">rotation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">angular_speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delta</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb nb-Type">Vector2</span><span class="o">.</span><span class="n">UP</span><span class="o">.</span><span class="n">rotated</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">speed</span>
+
+<span class="n">position</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">velocity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delta</span>
+</code></pre></div></td></tr></table></div>
+<p><strong><code>_process</code></strong> is a function already defined in the system, which means we can change its contents, but it has a special meaning. This particular function is executed every <em>frame</em>, about 60 times per second, which allows character movement, effects, key input reading, etc.</p>
+<p>The <code>_process</code> function has a parameter, <strong><code>delta</code></strong>, which is the time that has passed since the last frame. This parameter is a variable usually used to make changes occur at the same speed regardless of the <strong><code>frame rate</code></strong> or <strong><code>fps</code></strong> (<em>frames per second</em>). In our code, we multiply it by <code>rotation</code> and <code>position</code> so that the rotation speed is consistent.</p>
+<h2 id="comments">Comments</h2>
+<p>Anything from a <code>#</code> to the end of the line is ignored and considered a comment.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># This is a single-line comment</span>
+</code></pre></div></td></tr></table></div>
+<p>Multi-line comments can be created using <code>"""</code> (three consecutive quotes) at the beginning and end of a block of text. Keep in mind that this creates a string, so it will not be removed when the script is compiled.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="sd">&quot;&quot;&quot; This is</span>
+<span class="sd"> a multi-line</span>
+<span class="sd"> comment</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="variables">Variables</h2>
+<p><strong>Variables</strong> are symbolic names that contain a value. For example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">life</span> <span class="o">=</span> <span class="mi">100</span>
+</code></pre></div></td></tr></table></div>
+<p>means that we are creating (using the keyword <code>var</code>) a variable called <em>life</em> with the value <code>100</code>.</p>
+<p>Variables can be read:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">life</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">life</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>This will print the value <code>100</code>, which is stored in the variable <code>life</code>.</p>
+<p>We can also modify the contents of a variable once it has been created using the assignment operator (<code>=</code>). The right-hand side is always evaluated first and then assigned to the variable on the left-hand side:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">life</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">#</span> <span class="n">life</span> <span class="n">has</span> <span class="n">the</span> <span class="n">value</span> <span class="mi">100</span>
+<span class="n">life</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">#</span> <span class="n">life</span> <span class="n">now</span> <span class="n">has</span> <span class="n">the</span> <span class="n">value</span> <span class="mi">50</span>
+
+<span class="n">var</span> <span class="n">damage</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">life</span> <span class="o">=</span> <span class="n">life</span> <span class="o">-</span> <span class="n">damage</span> <span class="o">#</span> <span class="n">Now</span> <span class="n">life</span> <span class="n">has</span> <span class="n">the</span> <span class="n">value</span> <span class="mi">40</span> <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Variables have a <strong>type</strong>, which is the kind of data they store. The basic GDScript types are:</p>
+<ul>
+<li><strong><code>null</code></strong>: <code>null</code> is an empty data type that contains no information and cannot be assigned any other value.</li>
+<li><strong><code>bool</code></strong>: Short for “boolean”, it can only be <code>true</code> or <code>false</code>.</li>
+<li><strong><code>int</code></strong>: Short for “integer”, it stores whole numbers (positive and negative).</li>
+<li><strong><code>float</code></strong>: Stores real numbers, including decimals, which are indicated with a dot (<code>.</code>).</li>
+<li><strong><code>String</code></strong>: A string of characters, enclosed in double quotes (<code>"</code>).</li>
+</ul>
+<p>Type assignment is done automatically, depending on the value assigned. In addition, if the value of a variable changes to a different type, the type of the variable also changes.</p>
+<p>Examples:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="kc">true</span> <span class="o">#</span> <span class="n">bool</span>
+<span class="n">var</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">#</span> <span class="n">int</span>
+<span class="n">var</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">4.5</span> <span class="o">#</span> <span class="n">float</span>
+<span class="n">var</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span> <span class="o">#</span> <span class="n">String</span>
+<span class="n">message</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">#</span> <span class="n">Now</span> <span class="n">message</span> <span class="n">is</span> <span class="n">int</span>
+</code></pre></div></td></tr></table></div>
+<p>We can also explicitly declare the type of a variable using a colon (<code>:</code>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">a</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">var</span> <span class="n">b</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var</span> <span class="n">c</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="n">var</span> <span class="n">message</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>This is known as <strong>static typing</strong>. It's recommended when we want to ensure that a variable always has the same type. If we try to assign a value of a different type, an error will occur.</p>
+<h2 id="operators">Operators</h2>
+<p>The most common mathematical operators are:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">#</span> <span class="n">addition</span>
+<span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">#</span> <span class="n">subtraction</span>
+<span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">#</span> <span class="n">multiplication</span>
+<span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="o">#</span> <span class="n">division</span>
+<span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">#</span> <span class="n">modulus</span><span class="p">,</span> <span class="n">the</span> <span class="n">result</span> <span class="n">is</span> <span class="n">the</span> <span class="n">remainder</span> <span class="n">of</span> <span class="n">the</span> <span class="n">integer</span> <span class="n">division</span> <span class="n">of</span> <span class="n">x</span> <span class="n">by</span> <span class="n">y</span><span class="p">.</span> <span class="n">Example</span><span class="p">:</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">-</span><span class="n">x</span> <span class="o">#</span> <span class="n">negation</span>
+<span class="n">x</span> <span class="o">**</span> <span class="n">y</span> <span class="o">#</span> <span class="n">exponentiation</span><span class="p">,</span> <span class="n">x</span> <span class="n">raised</span> <span class="n">to</span> <span class="n">the</span> <span class="n">power</span> <span class="n">of</span> <span class="n">y</span>
+</code></pre></div></td></tr></table></div>
+<p>The assignment operator <code>=</code> assigns to the variable on the left the resulting value of the operation on the right.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">#</span> <span class="n">x</span> <span class="n">equals</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="n">y</span> <span class="o">#</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">-=</span> <span class="n">y</span> <span class="o">#</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="n">y</span> <span class="o">#</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">/=</span> <span class="n">y</span> <span class="o">#</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="constants">Constants</h2>
+<p><strong>Constants</strong> are variables that cannot change while the script is running. Using the keyword <code>const</code> allows you to give a name to a constant value. If you try to assign a value to a constant after declaring it, you will get an error.</p>
+<p>It is recommended to use constants whenever a value should not change. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">height</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+<span class="w">    </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span>
+</code></pre></div></td></tr></table></div>
+<p>This code produces the error <em>"Cannot assign a new value to a constant"</em>.</p>
+<h2 id="enums">Enums</h2>
+<p><strong>Enums</strong> (enumerations) are a way to define a set of named integer constants. They are useful for representing a collection of related values in a readable way.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">UP</span><span class="p">,</span><span class="w"> </span><span class="n">DOWN</span><span class="p">,</span><span class="w"> </span><span class="n">LEFT</span><span class="p">,</span><span class="w"> </span><span class="n">RIGHT</span><span class="w"> </span><span class="p">}</span>
+<span class="k">var</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="o">.</span><span class="n">UP</span>
+</code></pre></div></td></tr></table></div>
+<p>It is the same that:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">UP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">const</span><span class="w"> </span><span class="n">DOWN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">const</span><span class="w"> </span><span class="n">LEFT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">const</span><span class="w"> </span><span class="n">RIGHT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="k">var</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UP</span>
+</code></pre></div></td></tr></table></div>
+<p>You can give a name to the enum. This is equivalent to defining a class with static constants.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">IDLE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">RUNNING</span><span class="p">,</span>
+<span class="w">    </span><span class="n">JUMPING</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ATTACKING</span>
+<span class="p">}</span>
+<span class="k">var</span><span class="w"> </span><span class="n">current_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">State</span><span class="o">.</span><span class="n">IDLE</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span><span class="w"> </span><span class="c1"># Prints 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">State</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="w"> </span><span class="c1"># Prints [IDLE, RUNNING, JUMPING, ATTACKING]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">State</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="w"> </span><span class="c1"># Prints [0, 1, 2, 3]</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="functions">Functions</h2>
+<p>A <strong>function</strong> is a piece of code associated with a symbolic name that can be executed at any time by writing the function’s name.</p>
+<p>The body of the function is defined by indentation to the right.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">func</span> <span class="n">welcomeMessage</span><span class="p">():</span>
+    <span class="n">var</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="n">welcomeMessage</span><span class="p">()</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">Welcome</span>
+</code></pre></div></td></tr></table></div>
+<p>In this example, the function name is <code>welcomeMessage</code>. It is followed by parentheses, inside which we write the parameters (in this case, there are none). The body of the function is the next two lines. Finally, the instruction <code>welcomeMessage()</code> executes the function, printing the message.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Functions are easy to distinguish from variables: functions always have parentheses at the end of their name, while variables do not.</p>
+</div>
+<p>Functions can have 0, 1, or more <strong>parameters</strong>, to which we can pass values that will be used inside the function:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">func</span> <span class="n">welcomeMessage</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">var</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Welcome &quot;</span> <span class="o">+</span> <span class="n">name</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="n">welcomeMessage</span><span class="p">(</span><span class="s2">&quot;Mary&quot;</span><span class="p">)</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">Welcome</span> <span class="n">Mary</span>
+</code></pre></div></td></tr></table></div>
+<p>In this example, the <code>+</code> operator concatenates (joins) the two strings.</p>
+<p>Another example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">func</span> <span class="n">addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="kr">return</span> <span class="n">result</span>
+
+<span class="n">addition</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">#</span> <span class="n">Prints</span> <span class="mi">11</span>
+</code></pre></div></td></tr></table></div>
+<p>The keyword <code>return</code> in a function returns the specified value and ends the execution of the function. If a function has no <code>return</code> instruction, it ends when it finishes and returns <code>null</code>.</p>
+<p>When we need to define a function but it has no body, we must write the keyword <code>pass</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">empty_function</span><span class="p">():</span>
+<span class="w">    </span><span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+<p>Similar to variables, functions can also have a type. This type indicates the type of value that the function will return. If the function does not return any value, its type is <code>void</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">addition</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">:</span>
+<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">result</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="system-functions">System functions</h3>
+<p>Godot has some predefined functions that we can use in our scripts. Their names usually start with <code>_</code>. The most important ones are:</p>
+<ul>
+<li><strong><code>_ready()</code></strong>: Called when the node is “ready”, that is, when both the node and its children have entered the scene tree. It is executed once at the beginning. It is usually used to initialize variables. It belongs to the <code>Node</code> class.</li>
+<li><strong><code>_init()</code></strong>: Called once when the script starts executing. It runs before <code>_ready()</code>. It belongs to the <code>Object</code> class.</li>
+<li><strong><code>_process(delta)</code></strong>: Called every frame. The <code>delta</code> argument is the time elapsed since the last frame (in seconds). It is used to implement the game loop in each scene.</li>
+<li><strong><code>_physics_process(delta)</code></strong>: Called every physics processing frame. Similar to <code>_process</code>, but used for objects that have physical behavior (gravity, forces, etc.).</li>
+</ul>
+<p><img alt="Godot lifecycle" src="../images/godot_lifecycle.jpeg" /></p>
+<h2 id="flow-control">Flow control</h2>
+<h3 id="conditional-operators">Conditional operators</h3>
+<p>These are operators whose result is <code>true</code> or <code>false</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span> <span class="n">are</span> <span class="n">equal</span>
+<span class="n">x</span> <span class="err">!</span><span class="o">=</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span> <span class="n">are</span> <span class="n">different</span>
+<span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">x</span> <span class="n">is</span> <span class="n">less</span> <span class="n">than</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">x</span> <span class="n">is</span> <span class="n">greater</span> <span class="n">than</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">x</span> <span class="n">is</span> <span class="n">less</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">&gt;=</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">x</span> <span class="n">is</span> <span class="n">greater</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">y</span>
+<span class="ow">not</span> <span class="n">x</span> <span class="o">#</span> <span class="n">negation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">x</span><span class="p">,</span> <span class="kc">true</span> <span class="ow">or</span> <span class="kc">false</span>
+<span class="err">!</span><span class="n">x</span> <span class="o">#</span> <span class="n">same</span> <span class="n">as</span> <span class="ow">not</span> <span class="n">x</span>
+</code></pre></div></td></tr></table></div>
+<p>We can combine multiple conditions using the operators <code>and</code> (<code>&amp;&amp;</code>) and <code>or</code> (<code>||</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">both</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span> <span class="n">are</span> <span class="kc">true</span>
+<span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">#</span> <span class="n">same</span> <span class="n">as</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span>
+<span class="n">x</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">#</span> <span class="kc">true</span> <span class="kr">if</span> <span class="n">either</span> <span class="n">value</span> <span class="n">is</span> <span class="kc">true</span>
+<span class="n">x</span> <span class="o">||</span> <span class="n">y</span> <span class="o">#</span> <span class="n">same</span> <span class="n">as</span> <span class="n">x</span> <span class="ow">or</span> <span class="n">y</span>
+</code></pre></div></td></tr></table></div>
+<p>Examples:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">var</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">#</span> <span class="kc">false</span>
+<span class="n">a</span> <span class="err">!</span><span class="o">=</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">#</span> <span class="kc">false</span>
+<span class="n">c</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="err">!</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">false</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">||</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">true</span>
+<span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span> <span class="o">#</span> <span class="kc">false</span>
+<span class="ow">not</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span><span class="p">)</span> <span class="o">#</span> <span class="kc">true</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ifelse">if/else</h3>
+<p>Simple conditions are created using the <code>if</code>/<code>else</code> syntax.</p>
+<p>The most basic syntax is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">code</span> <span class="n">block</span>
+</code></pre></div></td></tr></table></div>
+<p>In the condition, expressions like those seen in the previous section are used, whose result must be <code>true</code> or <code>false</code>. If the result is <code>true</code>, the <code>if</code> code block is executed. If the result is <code>false</code>, nothing is executed and the program continues.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="kr">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is less than b&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>We can use the keyword <code>else</code> to specify the code that will be executed if the condition is <code>false</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">code</span> <span class="n">block</span> <span class="n">A</span>
+<span class="kr">else</span><span class="p">:</span>
+    <span class="n">code</span> <span class="n">block</span> <span class="n">B</span>
+</code></pre></div></td></tr></table></div>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="kr">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is less than b&quot;</span><span class="p">)</span>
+<span class="kr">else</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is greater than or equal to b&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>If we have more than two conditions, we can evaluate those that do not meet the first one by adding <code>elif</code> statements:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="kr">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is less than b&quot;</span><span class="p">)</span>
+<span class="n">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+<span class="kr">else</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a and b are equal&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="while-loops"><code>while</code> loops</h3>
+<p>Loops are used to execute the same action while a condition is met.</p>
+<p>The simplest loop is <code>while</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+    <span class="n">instructions</span>
+</code></pre></div></td></tr></table></div>
+<p>For example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">#</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">counter</span> <span class="n">variable</span> <span class="n">n</span> <span class="n">to</span> <span class="mi">0</span>
+
+<span class="o">#</span> <span class="n">This</span> <span class="n">loop</span> <span class="n">prints</span> <span class="n">the</span> <span class="n">numbers</span> <span class="n">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">9</span>
+<span class="kr">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="for-loops"><code>for</code> loops</h3>
+<p><code>for</code> loops are mainly used to iterate over an array:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Marta&quot;</span><span class="p">,</span> <span class="s2">&quot;Samantha&quot;</span><span class="p">,</span> <span class="s2">&quot;Jimmy&quot;</span><span class="p">]</span>
+
+<span class="kr">for</span> <span class="n">name</span> <span class="kr">in</span> <span class="n">names</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">all</span> <span class="n">the</span> <span class="n">names</span> <span class="kr">in</span> <span class="n">the</span> <span class="n">array</span>
+</code></pre></div></td></tr></table></div>
+<p>In the previous example, we have an array called <em>names</em>, which we iterate over with <code>for name in names</code>; the variable <em>name</em> takes the value of each element in the <em>names</em> array.</p>
+<h2 id="arrays">Arrays</h2>
+<p><strong><code>arrays</code></strong> are sequences of variables or objects.</p>
+<p>We can create an empty array or one with elements:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span> <span class="o">#</span> <span class="n">Array</span> <span class="n">with</span> <span class="n">no</span> <span class="n">elements</span>
+<span class="n">var</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span> <span class="o">#</span> <span class="n">Array</span> <span class="n">with</span> <span class="mi">3</span> <span class="n">elements</span>
+</code></pre></div></td></tr></table></div>
+<p>We can read the value of an element using its index. The first element has index 0:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">apple</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">banana</span>
+</code></pre></div></td></tr></table></div>
+<p>Using the <code>.size()</code> method we get the number of elements in an array:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">#</span> <span class="n">Prints</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="n">fruits</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">the</span> <span class="n">last</span> <span class="n">element</span>
+</code></pre></div></td></tr></table></div>
+<p>We can use the value of <code>size</code> to iterate over the array:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+<span class="kr">for</span> <span class="n">i</span> <span class="kr">in</span> <span class="n">range</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">size</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">all</span> <span class="n">the</span> <span class="n">fruits</span>
+</code></pre></div></td></tr></table></div>
+<p>Arrays can grow automatically each time we add an element. We can do this with the <code>append</code> function:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">#</span> <span class="n">Prints</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="n">fruits</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">tomato</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

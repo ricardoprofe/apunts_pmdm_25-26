@@ -1012,6 +1012,132 @@
   
 
     
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U07 Introduction to game engines
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            U07 Introduction to game engines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U07%20Introduction%20to%20game%20engines/U07.1%20Introduction%20to%20Game%20Engines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 7.1 Introduction to Game Engines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U08 Videogames development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            U08 Videogames development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U08%20Videogames%20development/U08.1%20Introduction%20to%20GDScript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.1 Introduction to GDScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1631,6 +1757,29 @@
 <span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">dispose</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>We need to do the same for the TodoProvider methods that access individual TODO items. Modify the <code>saveTodo</code> method in <code>todo_provider.dart</code> to include the user ID:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">saveTodo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FirebaseAuth</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">currentUser</span><span class="o">?</span><span class="p">.</span><span class="n">uid</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">Todo</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Todo</span><span class="p">(</span>
+<span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">_title</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">description:</span><span class="w"> </span><span class="n">_description</span><span class="p">,</span>
+<span class="w">      </span><span class="nl">isCompleted:</span><span class="w"> </span><span class="n">_isCompleted</span><span class="p">,</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="n">TodoRepository</span><span class="p">.</span><span class="n">insertTodo</span><span class="p">(</span><span class="n">uid</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="n">todo</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Run the app again. Now, when you sign in, you should see an empty TODO list for the new user. You can add TODO items, and they will be associated with that user. When you sign out and sign in with another user, you will see a different TODO list.</p>
 <p>Next, we are going to modify the <code>getTodoById</code> and <code>updateTodo</code> methods in the <code>todo_dao.dart</code> file to include the user ID as well:</p>
