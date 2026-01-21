@@ -14,6 +14,8 @@
         <link rel="prev" href="../../U07%20Introduction%20to%20game%20engines/U07.1%20Introduction%20to%20Game%20Engines/">
       
       
+        <link rel="next" href="../U08.2%20Basic%20movement/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
@@ -1098,6 +1100,19 @@
     Variables
   </a>
   
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casting" class="md-nav__link">
+    Casting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1164,6 +1179,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#match" class="md-nav__link">
+    match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#while-loops" class="md-nav__link">
     while loops
   </a>
@@ -1189,10 +1211,71 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dictionaries" class="md-nav__link">
+    Dictionaries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-constructors" class="md-nav__link">
+    Class constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-classes" class="md-nav__link">
+    Built-in classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.2%20Basic%20movement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.2 Basic movement
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1250,6 +1333,19 @@
     Variables
   </a>
   
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casting" class="md-nav__link">
+    Casting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1316,6 +1412,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#match" class="md-nav__link">
+    match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#while-loops" class="md-nav__link">
     while loops
   </a>
@@ -1341,6 +1444,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dictionaries" class="md-nav__link">
+    Dictionaries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-constructors" class="md-nav__link">
+    Class constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-classes" class="md-nav__link">
+    Built-in classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1359,6 +1503,10 @@
 <h1 id="unit-81-introduction-to-gdscript">Unit 8.1 Introduction to GDScript</h1>
 <p><strong>GDScript</strong> is a high-level, object-oriented, imperative, and gradually typed programming language created by <strong>Godot</strong>. It uses an <strong>indentation-based syntax</strong> similar to languages such as <strong>Python</strong>. Its goal is to optimize and tightly integrate with the <strong>Godot Engine</strong>, allowing great flexibility for the creation and integration of content.</p>
 <p><a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html">Official documentation</a></p>
+<div class="admonition question">
+<p class="admonition-title">Step by step tutorials</p>
+<p>Before continuing with this section, it is recommended to go through the <a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html">Step by step tutorials</a> in the Godot documentation, which will show you how to manage the Godot interface and create simple projects using GDScript.</p>
+</div>
 <h2 id="the-first-script">The first script</h2>
 <p>Let’s take the script from <a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_first_script.html">Creating your first script</a> in the Godot documentation.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1463,6 +1611,22 @@
 <span class="n">var</span> <span class="n">message</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>This is known as <strong>static typing</strong>. It's recommended when we want to ensure that a variable always has the same type. If we try to assign a value of a different type, an error will occur.</p>
+<h3 id="casting">Casting</h3>
+<p>When we work with static typing, we may need to convert a variable from one type to another. This is called <strong>casting</strong>.</p>
+<p>We can cast a variable by using the operator as followed by the desired type:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<span class="k">var</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="w"> </span><span class="c1"># b is now 5.0</span>
+<span class="k">var</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="w"> </span><span class="c1"># c is now &quot;5&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Casting between object types results in the same object if the value is of the same type or a subtype of the cast type.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">my_node2D</span><span class="p">:</span><span class="w"> </span><span class="n">Node2D</span>
+<span class="n">my_node2D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">Sprite2D</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Node2D</span><span class="w"> </span><span class="c1"># Casts the Sprite2D node to Node2D type</span>
+<span class="n">my_node2D2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">Button</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Node2D</span><span class="w"> </span><span class="c1"># Results in &#39;null&#39; since a Button is not a subtype of Node2D.</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="operators">Operators</h2>
 <p>The most common mathematical operators are:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1598,12 +1762,14 @@
 <h3 id="system-functions">System functions</h3>
 <p>Godot has some predefined functions that we can use in our scripts. Their names usually start with <code>_</code>. The most important ones are:</p>
 <ul>
-<li><strong><code>_ready()</code></strong>: Called when the node is “ready”, that is, when both the node and its children have entered the scene tree. It is executed once at the beginning. It is usually used to initialize variables. It belongs to the <code>Node</code> class.</li>
 <li><strong><code>_init()</code></strong>: Called once when the script starts executing. It runs before <code>_ready()</code>. It belongs to the <code>Object</code> class.</li>
+<li><strong><code>_enter_tree()</code></strong>: Called when the node enters the scene tree. It is executed before <code>_ready()</code>. It belongs to the <code>Node</code> class.</li>
+<li><strong><code>_ready()</code></strong>: Called when the node is “ready”, that is, when both the node and its children have entered the scene tree. It is executed once at the beginning. It is usually used to initialize variables. It belongs to the <code>Node</code> class.</li>
 <li><strong><code>_process(delta)</code></strong>: Called every frame. The <code>delta</code> argument is the time elapsed since the last frame (in seconds). It is used to implement the game loop in each scene.</li>
 <li><strong><code>_physics_process(delta)</code></strong>: Called every physics processing frame. Similar to <code>_process</code>, but used for objects that have physical behavior (gravity, forces, etc.).</li>
+<li><strong><code>_exit_tree()</code></strong>: Called when the node is removed from the scene tree. It is used to clean up resources or stop processes related to the node.</li>
 </ul>
-<p><img alt="Godot lifecycle" src="../images/godot_lifecycle.jpeg" /></p>
+<p><img alt="Godot Node lifecycle" src="../images/godot_lifecycle.jpeg" /></p>
 <h2 id="flow-control">Flow control</h2>
 <h3 id="conditional-operators">Conditional operators</h3>
 <p>These are operators whose result is <code>true</code> or <code>false</code>:</p>
@@ -1729,6 +1895,22 @@
 <span class="kr">else</span><span class="p">:</span>
    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a and b are equal&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="match">match</h3>
+<p>The <code>match</code> statement is similar to the <code>switch</code> statement in other programming languages. It allows you to compare a value against multiple possible cases and execute the corresponding code block for the matching case.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="p">:</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number one!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number two!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">_</span><span class="p">:</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Any other number&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Default case</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="while-loops"><code>while</code> loops</h3>
 <p>Loops are used to execute the same action while a condition is met.</p>
 <p>The simplest loop is <code>while</code>:</p>
@@ -1789,7 +1971,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">all</span> <span class="n">the</span> <span class="n">fruits</span>
 </code></pre></div></td></tr></table></div>
 <p>Arrays can grow automatically each time we add an element. We can do this with the <code>append</code> function:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">var</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
@@ -1797,7 +1979,155 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">#</span> <span class="n">Prints</span> <span class="mi">4</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="n">fruits</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">#</span> <span class="n">Prints</span> <span class="n">tomato</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+Since Godot 4.0, GDScript also supports <strong>typed arrays</strong>. To create a typed array, we use the syntax <code>Array&lt;Type&gt;</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">int_array</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">Array</span><span class="p">[</span><span class="nb nb-Type">int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+<span class="k">var</span><span class="w"> </span><span class="n">string_array</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">Array</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;banana&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<span class="n">int_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1"># Valid</span>
+<span class="n">string_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Valid</span>
+<span class="n">int_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;five&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Error: Cannot add a String to an Array[int]</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="dictionaries">Dictionaries</h2>
+<p><strong>Dictionaries</strong> are collections of key-value pairs, where each key is unique and is used to access its corresponding value.</p>
+<p>We can create an empty dictionary or one with elements:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">empty_dict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1"># Empty dictionary</span>
+<span class="k">var</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;city&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;New York&#39;</span><span class="p">}</span><span class="w"> </span><span class="c1"># Dictionary with 3 key-value pairs</span>
+</code></pre></div></td></tr></table></div>
+<p>We can read the value associated with a key:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;city&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span><span class="w"> </span><span class="c1"># Prints John</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span><span class="w"> </span><span class="c1"># Prints 30</span>
+</code></pre></div></td></tr></table></div>
+<p>To add a new key-value pair, we can use the assignment operator:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">}</span>
+<span class="n">person</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;New York&#39;</span><span class="w"> </span><span class="c1"># Adds a new key-value pair</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">])</span><span class="w"> </span><span class="c1"># Prints New York</span>
+</code></pre></div></td></tr></table></div>
+<p>The key can be string, integer, or any other type.</p>
+<p>Since Godot 4.4, GDScript also supports <strong>typed dictionaries</strong>. To create a typed dictionary, we use the syntax <code>Dictionary&lt;KeyType, ValueType&gt;</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">dict</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">Dictionary</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;two&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<span class="n">dict</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1"># Valid</span>
+<span class="n">dict</span><span class="p">[</span><span class="s1">&#39;four&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;four&#39;</span><span class="w"> </span><span class="c1"># Error: Cannot add a String value to a Dictionary[String, int]</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="classes">Classes</h2>
+<p>By default, all script files are <strong>unnamed classes</strong>. In this case, you can only reference them using the file's path, using either a relative or an absolute path:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">my_script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="s2">&quot;res://path/to/your_script.gd&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>You can give a name to a class using the <code>class_name</code> keyword at the top of the script file:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class_name</span><span class="w"> </span><span class="n">Enemy</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">take_damage</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+<span class="w">    </span><span class="n">health</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">amount</span>
+</code></pre></div></td></tr></table></div>
+<p>You can optionally use the <code>@icon</code> annotation to assign an icon to the class in the Godot editor:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">@</span><span class="n">icon</span><span class="p">(</span><span class="s2">&quot;res://path/to/icon.png&quot;</span><span class="p">)</span>
+<span class="k">class_name</span><span class="w"> </span><span class="n">Enemy</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+</code></pre></div></td></tr></table></div>
+<p>Now, you can create instances of the class using its name directly:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">enemy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Enemy</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="n">enemy</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">enemy</span><span class="o">.</span><span class="n">health</span><span class="p">)</span><span class="w"> </span><span class="c1"># Prints 80</span>
+</code></pre></div></td></tr></table></div>
+<p>Named classes are globally accessible throughout the project, without needing to load them using their file path.</p>
+<div class="admonition info">
+<p class="admonition-title">public vs. private</p>
+<p>By default, <strong>all variables and functions in GDScript are public</strong>, meaning they can be accessed from outside the class. To denote that a variable or function is private (accessible only within the class), you can prefix its name with an underscore (<code>_</code>):</p>
+</div>
+<h3 id="class-constructors">Class constructors</h3>
+<p>A class can have a constructor function named <code>_init()</code>, which is called when an instance of the class is created. You can define parameters for the constructor to initialize the instance with specific values:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class_name</span><span class="w"> </span><span class="n">Enemy</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+<span class="k">var</span><span class="w"> </span><span class="n">health</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span>
+<span class="k">func</span><span class="w"> </span><span class="n">_init</span><span class="p">(</span><span class="n">initial_health</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="n">health</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initial_health</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="built-in-classes">Built-in classes</h3>
+<p>GDScript includes many built-in classes that provide useful functionality for game development. Some commonly used built-in classes are:</p>
+<ul>
+<li><strong><code>Node</code></strong>: The base class for all nodes in the scene tree. Provides functionality for managing child nodes, signals, and more.</li>
+<li><strong><code>Vector2</code></strong>: Represents a 2D vector with <code>x</code> and <code>y</code> components. Useful for positions, directions, and velocities in 2D space.</li>
+<li><strong><code>Vector3</code></strong>: Represents a 3D vector with <code>x</code>, <code>y</code>, and <code>z</code> components. Useful for positions, directions, and velocities in 3D space.</li>
+<li><strong><code>Color</code></strong>: Represents a color with red, green, blue, and alpha components.</li>
+<li><strong><code>Rect2</code></strong>: Represents a rectangle in 2D space, defined by its position and size.</li>
+<li><strong><code>Transform2D</code></strong>: Represents a 2D transformation, including translation, rotation, and scaling.</li>
+<li><strong><code>Transform3D</code></strong>: Represents a 3D transformation, including translation, rotation, and scaling.</li>
+<li><strong><code>Quaternion</code></strong>: Represents a quaternion, used for rotations in 3D space.</li>
+<li><strong><code>Sprite2D</code></strong>: A node that displays a 2D image (texture) in the scene.</li>
+<li><strong><code>KinematicBody2D</code></strong>: A node used for 2D physics-based movement and collision detection.</li>
+<li><strong><code>Area2D</code></strong>: A node that detects when other bodies enter or exit its area, useful for triggers and zones.</li>
+<li><strong><code>Timer</code></strong>: A node that can be used to create timed events and delays in your game logic.</li>
+<li><strong><code>AudioStreamPlayer</code></strong>: A node that plays audio streams, such as sound effects and music.</li>
+<li><strong><code>AnimationPlayer</code></strong>: A node that manages and plays animations for various properties of nodes.</li>
+</ul>
+<p>You can find more information about built-in classes in the <a href="https://docs.godotengine.org/en/stable/classes/index.html">Godot documentation</a>.</p>
+<h2 id="signals">Signals</h2>
+<p><strong>Signals</strong> are a messaging system used in Godot to allow nodes to communicate with each other. They are similar to events or callbacks in other programming languages.</p>
+<p>Signals are defined in a class and can be emitted (triggered) when a specific event occurs. Other nodes can connect to these signals and define functions (callbacks) that will be executed when the signal is emitted.</p>
+<p>Example of defining and emitting a signal:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># player.gd</span>
+
+<span class="k">class_name</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+
+<span class="k">signal</span><span class="w"> </span><span class="n">health_changed</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">health</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">take_damage</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">):</span>
+<span class="w">    </span><span class="n">health</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">amount</span>
+<span class="w">    </span><span class="n">health_changed</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">health</span><span class="p">)</span><span class="w"> </span><span class="c1"># Emit the signal when health changes</span>
+</code></pre></div></td></tr></table></div>
+<p>This can be connected to another node:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># ui.gd</span>
+
+<span class="k">class_name</span><span class="w"> </span><span class="n">UI</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">Control</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_node</span><span class="p">(</span><span class="s2">&quot;/root/Player&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">player</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;health_changed&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_on_health_changed&quot;</span><span class="p">)</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_health_changed</span><span class="p">(</span><span class="n">new_health</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">):</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Player health changed to: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="n">new_health</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 
 
