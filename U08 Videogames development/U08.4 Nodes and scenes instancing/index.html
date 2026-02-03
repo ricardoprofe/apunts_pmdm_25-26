@@ -14,6 +14,8 @@
         <link rel="prev" href="../U08.3%20Animations/">
       
       
+        <link rel="next" href="../U08.5%20Collisions/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
@@ -1173,6 +1175,19 @@
     Instancing kunais
   </a>
   
+    <nav class="md-nav" aria-label="Instancing kunais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-delay-to-the-kunai-throw" class="md-nav__link">
+    Add a delay to the kunai throw
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1191,6 +1206,46 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.5%20Collisions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.5 Collisions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.6%20Camera%20and%20parallax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.6 Camera and parallax
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1262,6 +1317,19 @@
   <a href="#instancing-kunais" class="md-nav__link">
     Instancing kunais
   </a>
+  
+    <nav class="md-nav" aria-label="Instancing kunais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-delay-to-the-kunai-throw" class="md-nav__link">
+    Add a delay to the kunai throw
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1575,7 +1643,7 @@ It also has a signal called <strong><code>timeout()</code></strong> that is emit
 <span class="k">func</span><span class="w"> </span><span class="n">throw_kunai</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
 <span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">kunai_instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kunai</span><span class="o">.</span><span class="n">instantiate</span><span class="p">()</span>
 <span class="w">    </span><span class="n">kunai_instance</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">90</span>
-<span class="w">    </span><span class="n">kunai_instance</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">40</span>
+<span class="w">    </span><span class="n">kunai_instance</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">position</span><span class="o">.</span><span class="n">y</span>
 <span class="w">    </span><span class="n">kunai_instance</span><span class="o">.</span><span class="n">set_as_top_level</span><span class="p">(</span><span class="bp">true</span><span class="p">)</span>
 <span class="w">    </span><span class="n">add_child</span><span class="p">(</span><span class="n">kunai_instance</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1611,6 +1679,16 @@ It also has a signal called <strong><code>timeout()</code></strong> that is emit
 <span class="w">    </span><span class="n">move_and_slide</span><span class="p">()</span>
 <span class="w">    </span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">clamp</span><span class="p">(</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">get_viewport_rect</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<h4 id="add-a-delay-to-the-kunai-throw">Add a delay to the kunai throw</h4>
+<p>To add a delay to the kunai throw, we use a timer that calls the <code>throw_kunai</code> function after a short delay when the attack action is triggered. This simulates the time it takes for the player to perform the throwing animation before the kunai is actually thrown.</p>
+<p>Add a new Timer node to the Player scene and name it <code>AttackDelay</code>. Set its <code>Wait Time</code> property to <code>0.2</code> seconds, and check the <code>One Shot</code> property. </p>
+<p>In the script, modify the attack input handling to the next way:</p>
+<p>```gdscript
+    if Input.is_action_just_pressed("attack") and !isDead:    <br />
+        if $AttackDelay.time_left &lt;= 0:
+            $AttackDelay.start()
+            anim_state.travel("throw")
+            get_tree().create_timer(0.2).timeout.connect(throw_kunai)</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://docs.godotengine.org/en/stable/tutorials/scripting/nodes_and_scene_instances.html">Godot Documentation: Instancing Scenes</a></li>

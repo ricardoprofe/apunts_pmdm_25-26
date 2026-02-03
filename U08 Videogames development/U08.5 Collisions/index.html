@@ -1,0 +1,1599 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ricardo Sánchez">
+      
+      
+      
+        <link rel="prev" href="../U08.4%20Nodes%20and%20scenes%20instancing/">
+      
+      
+        <link rel="next" href="../U08.6%20Camera%20and%20parallax/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Unit 8.5 Collisions - Multimedia and mobile device programming - 2DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/my.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-85-collisions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-header__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Multimedia and mobile device programming - 2DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit 8.5 Collisions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Multimedia and mobile device programming - 2DAM" class="md-nav__button md-logo" aria-label="Multimedia and mobile device programming - 2DAM" data-md-component="logo">
+      
+  <img src="../../stylesheets/logo_me_blanc.png" alt="logo">
+
+    </a>
+    Multimedia and mobile device programming - 2DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multimedia and mobile device programming - 2DAM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U01 Introduction to Mobile Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            U01 Introduction to Mobile Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introduction%20to%20Mobile%20Development/UD1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 01. Introduction to Mobile Development.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U02 Android basics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            U02 Android basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.1%20-%20Kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.1. The Kotlin language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Android%20basics/U02.2%20Basic%20Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 2.2. Basic Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U03 Android architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            U03 Android architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.1%20Android%20architecture%20copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.1. Android architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.2%20The%20MVVM%20pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.2 The MVVM design pattern
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.3%20ViewModel%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.3 ViewModel guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.4%20Navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.4 Navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Android%20architecture/U03.5%20Navigation%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 3.5 Navigation guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U04 Persistence with Room
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            U04 Persistence with Room
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.1%20Persistence%20with%20Room/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.1. Persistence with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.2%20Room%20guided%20practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.2. Room guided practice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.3%20Relationships/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.3. Relationships with Room
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U04%20Persistence%20with%20Room/U04.4%20More/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 4.4. More about Android development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U05 Multiplatform development with Flutter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            U05 Multiplatform development with Flutter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.1%20Introduction%20to%20Flutter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.1. Introduction to Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.2%20Flutter%20Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.2. Flutter Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.3%20Geolocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.3. Geolocation with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.4%20Mobile%20sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.4. Mobile sensors with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.5%20Camera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.5. Camera with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U05%20Multiplatform%20development%20with%20Flutter/U05.6%20Files%20storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 5.6. Files storage with Flutter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U06 Connectivity and remote applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            U06 Connectivity and remote applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.1%20Introduction%20to%20Firebase%20and%20Firestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.1 Introduction to Firebase and Firestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.2%20Using%20Firestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.2 Using Firestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.3%20Firebase%20authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.3 Using Firebase Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.4%20Analytics%20and%20Crashlytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.4 Analytics and Crashlytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U06%20Connectivity%20and%20remote%20applications/U06.5%20Connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 6.5 Connectivity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U07 Introduction to game engines
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            U07 Introduction to game engines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U07%20Introduction%20to%20game%20engines/U07.1%20Introduction%20to%20Game%20Engines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 7.1 Introduction to Game Engines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    U08 Videogames development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            U08 Videogames development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.1%20Introduction%20to%20GDScript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.1 Introduction to GDScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.2%20Basic%20movement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.2 Basic movement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.3%20Animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.3 Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.4%20Nodes%20and%20scenes%20instancing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.4 Nodes and scenes instancing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 8.5 Collisions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.5 Collisions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collision-layers-and-masks" class="md-nav__link">
+    Collision Layers and Masks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collision-shapes" class="md-nav__link">
+    Collision Shapes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-collisions-on-a-kinematicbody2d-or-characterbody2d" class="md-nav__link">
+    Detecting collisions on a KinematicBody2D or CharacterBody2D
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-collisions-on-an-area2d-aginst-other-bodies" class="md-nav__link">
+    Detecting collisions on an Area2D aginst other bodies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collisions-with-aread2d" class="md-nav__link">
+    Collisions with Aread2D
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collission-with-projectiles" class="md-nav__link">
+    Collission with projectiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U08.6%20Camera%20and%20parallax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.6 Camera and parallax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#collision-layers-and-masks" class="md-nav__link">
+    Collision Layers and Masks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collision-shapes" class="md-nav__link">
+    Collision Shapes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-collisions-on-a-kinematicbody2d-or-characterbody2d" class="md-nav__link">
+    Detecting collisions on a KinematicBody2D or CharacterBody2D
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detecting-collisions-on-an-area2d-aginst-other-bodies" class="md-nav__link">
+    Detecting collisions on an Area2D aginst other bodies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collisions-with-aread2d" class="md-nav__link">
+    Collisions with Aread2D
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collission-with-projectiles" class="md-nav__link">
+    Collission with projectiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-85-collisions">Unit 8.5 Collisions</h1>
+<p>In this unit, we will explore how to implement collision detection and response in a videogame using the Godot Engine.</p>
+<p>First of all, we need to understand the concept of collision layers and masks.</p>
+<h2 id="collision-layers-and-masks">Collision Layers and Masks</h2>
+<p>Each physics body in Godot can be assigned to one or more <strong>collision layers</strong>. These layers determine which objects can collide with each other.</p>
+<p>Example: if object A is on layer 1 and object B is on layer 2, they will not collide.</p>
+<p>A collision mask specifies which layers an object will check for collisions against.</p>
+<p>Example: if object A is in layer 1 and has a collision mask that includes layer 2, it will detect collisions with object B that is on layer 2.</p>
+<p>Nodes that extend <code>CollisionObject2D</code> (like <code>Area2D</code>, <code>StaticBody2D</code>, <code>KinematicBody2D</code>, <code>RigidBody2D</code> and <code>CharacterBody2D</code>) have properties for setting collision layers and masks.</p>
+<p><img alt="Collision Layers and Masks" src="../images/collision_layers.png" /></p>
+<p>You can assign names to collision layers in the <strong>Project Settings</strong> under <code>General &gt; Layer Names &gt; 2D Physics</code>.</p>
+<p>A good practice is to place the player character in its own layer (e.g., "Player"), enemies in another layer (e.g., "Enemies"), and environment objects in a third layer (e.g., "Environment") to organize collision detection effectively.</p>
+<p><img alt="Layer Names" src="../images/layers_names.png" /></p>
+<p>For instance, in our game we can place the player in the "Player" layer (layer 1) and set its collision mask to detect collisions with layers 2 to 5.</p>
+<h2 id="collision-shapes">Collision Shapes</h2>
+<p>To detect collisions, physics bodies need to have collision shapes. Godot provides several built-in shape types, such as:</p>
+<ul>
+<li>RectangleShape2D</li>
+<li>CircleShape2D</li>
+<li>CapsuleShape2D</li>
+<li>ConvexPolygonShape2D</li>
+<li>ConcavePolygonShape2D</li>
+</ul>
+<h2 id="detecting-collisions-on-a-kinematicbody2d-or-characterbody2d">Detecting collisions on a KinematicBody2D or CharacterBody2D</h2>
+<p>When using a <code>KinematicBody2D</code>/<code>CharacterBody2D</code>, you can detect collisions during movement using the <code>move_and_collide()</code> or <code>move_and_slide()</code> methods.</p>
+<p>Example using <code>move_and_collide()</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">collision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">move_and_collide</span><span class="p">(</span><span class="n">velocity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delta</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="n">collision</span><span class="p">:</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Collided with: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">collision</span><span class="o">.</span><span class="n">get_collider</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Example using <code>move_and_slide()</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">move_and_slide</span><span class="p">()</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">get_slide_collision_count</span><span class="p">():</span>
+<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">collision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_slide_collision</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Collided with: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">collision</span><span class="o">.</span><span class="n">get_collider</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="detecting-collisions-on-an-area2d-aginst-other-bodies">Detecting collisions on an Area2D aginst other bodies</h2>
+<p>An <code>Area2D</code> node can detect when other bodies enter or exit its area using signals.</p>
+<p>The easiest way to detect collisions is to attach an Area2D node as a child of the object you want to detect collisions for.</p>
+<p>Add an <strong>Area2D</strong> node and a <strong>CollisionShape2D</strong> as its child to the <strong>Player</strong>. Set the shape to define the area. Make sure that the collision shape of the area is a bit larger that the player's collision shape. You can change the debug color of the collision shapes.</p>
+<p><img alt="Area2D Setup" src="../images/area_collider.png" /></p>
+<p>Do the same for the Bird scene.</p>
+<p>Now, the Area2D node of the player can detect the Area2D node of the bird when they overlap. To detect this, we can connect the <code>body_entered</code> signal of the Area2D node to a script attached to the player. But before, we will create groups to identify the objects.</p>
+<p>Go to the inspector of the Bird scene, <em>Node &gt; Groups</em>, and add a new <strong>global</strong> group called <strong>"enemies"</strong>. Add the group to the Bird node. You'll see a new icon (a point inside a square) next to the node name.</p>
+<p>Next, select the <strong>Area2D node</strong> of the Player scene, go to the <em>Node</em> tab, and double-click on the <code>body_entered</code> signal. Connect it to the Player script. This will create a new function in the Player script named <code>_on_area2D_body_entered(body: Node2D)</code>. Inside this function, we can check if the body that entered the area belongs to the "enemies" group.</p>
+<p>Create alse the next groups we will use further:</p>
+<ul>
+<li><strong>player</strong> (for the Player node)</li>
+<li><strong>rewards</strong> (for the Coin node, etc.)</li>
+<li><strong>weapons</strong> (for the Kunai node)</li>
+</ul>
+<p><img alt="Groups Setup" src="../images/groups.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">_on_area_2d_body_entered</span><span class="p">(</span><span class="n">body</span><span class="p">:</span><span class="w"> </span><span class="n">Node2D</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">body</span><span class="o">.</span><span class="n">is_in_group</span><span class="p">(</span><span class="s2">&quot;enemies&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enemy entered&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>If this check works, you can implement the logic to handle the collision, such as reducing the player's health or ending the game. Create a variable to store the player's health and decrease it when colliding with an enemy.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># player.gd</span>
+<span class="err">@</span><span class="k">export</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">isDead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_area_2d_body_entered</span><span class="p">(</span><span class="n">body</span><span class="p">:</span><span class="w"> </span><span class="n">Node2D</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Body entered&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">body</span><span class="o">.</span><span class="n">is_in_group</span><span class="p">(</span><span class="s2">&quot;enemies&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="n">life</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Life: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">life</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+<span class="w">            </span><span class="n">anim_state</span><span class="o">.</span><span class="n">travel</span><span class="p">(</span><span class="s2">&quot;dead&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">isDead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">        </span><span class="k">else</span><span class="p">:</span>
+<span class="w">            </span><span class="n">anim_state</span><span class="o">.</span><span class="n">travel</span><span class="p">(</span><span class="s2">&quot;damage&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>We also create a boolean variable <code>isDead</code> to prevent further actions when the player is dead.</p>
+<p>Check that everything works by running the game and colliding with the bird enemies. You can see how the dead animation doesn't play again once the player is dead. To solve that, we must add the <code>!isDead</code> check to the movement code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">_physics_process</span><span class="p">(</span><span class="n">delta</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">Input</span><span class="o">.</span><span class="n">is_action_just_pressed</span><span class="p">(</span><span class="s2">&quot;jump&quot;</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is_on_floor</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">!</span><span class="n">isDead</span><span class="p">:</span>
+<span class="w">        </span><span class="n">velocity</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jump_velocity</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">velocity</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mf">0.1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">!</span><span class="n">isDead</span><span class="p">:</span>
+<span class="w">        </span><span class="n">anim_state</span><span class="o">.</span><span class="n">travel</span><span class="p">(</span><span class="s2">&quot;jump&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">velocity</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">!</span><span class="n">isDead</span><span class="p">:</span>
+<span class="w">        </span><span class="n">anim_state</span><span class="o">.</span><span class="n">travel</span><span class="p">(</span><span class="s2">&quot;fall&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_on_floor</span><span class="p">())</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">!</span><span class="n">isDead</span><span class="p">:</span>
+<span class="w">        </span><span class="n">anim_state</span><span class="o">.</span><span class="n">travel</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1"># Do the same for other movement and attack code...</span>
+</code></pre></div></td></tr></table></div>
+<p>When the birds collides the playyer it collides repeatly. To avoid this, we can disable the Area2D node of the bird when it collides with the player. To do this, we can connect the <code>body_entered</code> signal of the Area2D node of the bird to its script.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># bird.gd</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_area_2d_area_entered</span><span class="p">(</span><span class="n">area</span><span class="p">:</span><span class="w"> </span><span class="n">Area2D</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">area</span><span class="o">.</span><span class="n">is_in_group</span><span class="p">(</span><span class="s2">&quot;player&quot;</span><span class="p">)):</span>
+<span class="w">        </span><span class="o">$</span><span class="n">CollisionShape2D</span><span class="o">.</span><span class="n">set_deferred</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>The <strong>setDeferred()</strong> assigns a value to the given property at the end of the current frame. This is useful to avoid modifying the scene tree while it is being processed.</p>
+<p>For this to work, we need to add the <strong>player Area2D node</strong> to a group called <strong>"player"</strong>.</p>
+<h2 id="collisions-with-aread2d">Collisions with Aread2D</h2>
+<p>To detect collisions with an Area2D node, you can use the <code>area_entered</code> and <code>area_exited</code> signals. These signals are emitted when another Area2D enters or exits the area.</p>
+<p>In our example, add an <strong>Area2D</strong> node to the <strong>Coin scene</strong>, with a <strong>CollisionShape2D</strong> as its child. Set the shape to a <strong>CircleShape2D</strong> that fits the coin. Assign the <strong>Area2D node</strong> of the <strong>Coin node</strong> to the <strong>"rewards"</strong> group.</p>
+<p>On the Player node, connect the <code>area_entered</code> signal of the <strong>Area2D node</strong> to the Player script. As we want to add points when collecting coins, we create a variable <code>points</code> to store the score.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># player.gd</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="n">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c1"># Existing code...</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_area_2d_area_entered</span><span class="p">(</span><span class="n">area</span><span class="p">:</span><span class="w"> </span><span class="n">Area2D</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">area</span><span class="o">.</span><span class="n">is_in_group</span><span class="p">(</span><span class="s2">&quot;rewards&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="n">points</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">area</span><span class="o">.</span><span class="n">get_parent</span><span class="p">()</span><span class="o">.</span><span class="n">pointsValue</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Points: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">points</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>get_parent()</code> method returns the parent node of the Area2D, which is the Coin node, because it has the script thtat holds the <code>pointsValue</code> variable.</p>
+<p>In the Coin script, we can define the <code>pointsValue</code> variable and remove the coin from the scene when collected.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># coin.gd</span>
+<span class="err">@</span><span class="k">export</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">pointsValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_area_2d_area_entered</span><span class="p">(</span><span class="n">area</span><span class="p">:</span><span class="w"> </span><span class="n">Area2D</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">area</span><span class="o">.</span><span class="n">is_in_group</span><span class="p">(</span><span class="s2">&quot;player&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="n">queue_free</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="collission-with-projectiles">Collission with projectiles</h2>
+<p>To detect collisions with projectiles, we can use the same approach as with the Area2D node. For example, we can create a <strong>Kunai scene</strong> with a <strong>Area2D</strong> node and a <strong>CollisionShape2D</strong> as its child. Set the shape to a <strong>RectangleShape2D</strong> that fits the kunai. Add the group <strong>"weapons"</strong> to the <strong>Area2D node</strong> of the Kunai scene.</p>
+<p>Go to the Bird scene, and connect the <code>area_entered</code> signal of the <strong>Area2D node</strong> to the Bird script.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># bird.gd</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">dead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_physics_process</span><span class="p">(</span><span class="n">delta</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Existing code</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">dead</span><span class="p">):</span>
+<span class="w">        </span><span class="n">rotation</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delta</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_area_2d_body_entered</span><span class="p">(</span><span class="n">body</span><span class="p">:</span><span class="w"> </span><span class="n">Node2D</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">is_in_group</span><span class="p">(</span><span class="s2">&quot;weapons&quot;</span><span class="p">)):</span>
+<span class="w">        </span><span class="n">apply_central_impulse</span><span class="p">(</span><span class="nb nb-Type">Vector2</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">500</span><span class="p">))</span>
+<span class="w">        </span><span class="o">$</span><span class="n">CollisionShape2D</span><span class="o">.</span><span class="n">set_deferred</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">)</span>
+<span class="w">        </span><span class="n">dead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">        </span><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">timeout</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">queue_free</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>For this to work, we need to change the <code>_process()</code> method to <code>_physics_process()</code> to apply physics forces correctly. We also have added a <code>dead</code> variable to rotate the bird when it is hit by a kunai.</p>
+<p>When the kunai collides with the bird, we apply an impulse to make it fly away, disable its collision shape, set the <code>dead</code> variable to true to rotate it, and create a timer to remove the bird from the scene after 1 second.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/tutorials/physics/physics_introduction.html">Godot Documentation: Physics and collisions</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>
