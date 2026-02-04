@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../U08.5%20Collisions/">
+        <link rel="prev" href="../U08.6%20Camera%20and%20parallax/">
       
       
-        <link rel="next" href="../U08.7%20HUD/">
+        <link rel="next" href="../U08.8%20Screens%20and%20globals/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Unit 8.6 Camera and parallax - Multimedia and mobile device programming - 2DAM</title>
+        <title>Unit 8.7 HUD - Multimedia and mobile device programming - 2DAM</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#unit-86-camera-and-parallax" class="md-skip">
+        <a href="#unit-87-hud" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Unit 8.6 Camera and parallax
+              Unit 8.7 HUD
             
           </span>
         </div>
@@ -1134,6 +1134,26 @@
                 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../U08.6%20Camera%20and%20parallax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit 8.6 Camera and parallax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1149,7 +1169,7 @@
           
   
   <span class="md-ellipsis">
-    Unit 8.6 Camera and parallax
+    Unit 8.7 HUD
   </span>
   
 
@@ -1160,7 +1180,7 @@
         
   
   <span class="md-ellipsis">
-    Unit 8.6 Camera and parallax
+    Unit 8.7 HUD
   </span>
   
 
@@ -1182,22 +1202,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#parallax" class="md-nav__link">
-    Parallax
+  <a href="#user-interface-components-in-godot" class="md-nav__link">
+    User Interface Components in Godot
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#camera2d" class="md-nav__link">
-    Camera2D
+  <a href="#creating-the-hud-scene" class="md-nav__link">
+    Creating the HUD Scene
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the HUD Scene">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hud-script" class="md-nav__link">
+    HUD Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-the-hud-with-the-game" class="md-nav__link">
+    Integrating the HUD with the Game
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#ending-the-game" class="md-nav__link">
+    Ending the Game
   </a>
   
 </li>
@@ -1206,26 +1246,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../U08.7%20HUD/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Unit 8.7 HUD
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1305,22 +1325,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#parallax" class="md-nav__link">
-    Parallax
+  <a href="#user-interface-components-in-godot" class="md-nav__link">
+    User Interface Components in Godot
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#camera2d" class="md-nav__link">
-    Camera2D
+  <a href="#creating-the-hud-scene" class="md-nav__link">
+    Creating the HUD Scene
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the HUD Scene">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hud-script" class="md-nav__link">
+    HUD Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-the-hud-with-the-game" class="md-nav__link">
+    Integrating the HUD with the Game
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#ending-the-game" class="md-nav__link">
+    Ending the Game
   </a>
   
 </li>
@@ -1340,70 +1380,153 @@
                   
 
 
-<h1 id="unit-86-camera-and-parallax">Unit 8.6 Camera and parallax</h1>
-<p>In this unit we will learn how to implement camera movement and parallax scrolling in a videogame using the Godot Engine.</p>
-<p>In our Endless Runner game, we will add a parallax effect to the background to create a sense of depth.</p>
-<h2 id="parallax">Parallax</h2>
-<p>Parallax is a visual effect where background layers move at different speeds relative to the camera movement, creating an illusion of depth.</p>
-<p>To implement parallax in Godot, we can use the <code>Parallax2D</code> node. </p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><code>ParallaxBackground</code> and <code>ParallaxLayer</code> nodes are deprecated in Godot 4.x and should be replaced with <code>Parallax2D</code>.</p>
-</div>
-<p>Set the next structure in the scene tree:</p>
-<p><img alt="Parallax2D Structure" src="../images/parallax%20order.png" /></p>
-<p>The Heaven layer will show the background sky that will not move. Place the sprites of the mountain, clouds, waves and grass in their sprite nodes inside their corresponding Parallax node. </p>
-<p>The mountain and the clouds are stand-alone textures, but for the waves and grass we need to set carefully the parallax repetition.</p>
-<p>Scale all the textures so they are placed correctly in the scene.</p>
-<p>The left part of the waves and grass textures must must be placed at the 0 position in the X axis, and the right part must scaled to fit the width of the game window (1024 pixels).</p>
-<p>Fro a game with static camera, like this one, we must only set the <strong>Repeat Size</strong> and <strong>Autoscroll</strong> properties of the ParallaxLayer nodes. Try with these values:</p>
+<h1 id="unit-87-hud">Unit 8.7 HUD</h1>
+<p>In this unit, we will learn how to create a <strong>Heads-Up Display (HUD)</strong> for our videogame using the Godot Engine.</p>
+<p>A HUD is an overlay that displays important information to the player, such as score, health, and other game stats.</p>
+<p>But first, let's take a look at the main components of the <strong>user interface (UI)</strong> in Godot.</p>
+<h2 id="user-interface-components-in-godot">User Interface Components in Godot</h2>
+<p>User interface elements in Godot are created using <code>Control</code> nodes. Some commonly used <code>Control</code> nodes include:</p>
 <ul>
-<li>Mountain: <ul>
-<li>Repeat Size X=1024. </li>
-<li>Autoscroll X= -10</li>
+<li><strong>Content control nodes</strong>:</li>
+<li><strong><code>Label</code></strong>: Displays text on the screen. </li>
+<li><strong><code>Button</code></strong>: A clickable button.</li>
+<li><strong><code>LineEdit</code></strong>: A single-line input field for text.</li>
+<li><strong><code>TextEdit</code></strong>: A multi-line text input field.</li>
+<li><strong>Layout controls</strong>:  </li>
+<li><strong><code>VBoxContainer</code></strong>: Arranges child nodes vertically.</li>
+<li><strong><code>HBoxContainer</code></strong>: Arranges child nodes horizontally.</li>
+<li><strong><code>GridContainer</code></strong>: Arranges child nodes in a grid format.</li>
+<li><strong><code>MarginContainer</code></strong>: Adds margins around its child nodes.</li>
+<li><strong><code>CenterContainer</code></strong>: Centers its child nodes.</li>
+<li><strong><code>Panel</code></strong>: A simple panel that can contain other UI elements.</li>
+<li>Others like <code>ScrollContainer</code>, <code>TabContainer</code>, <code>Popup</code> etc.</li>
+<li><strong>Specialized controls</strong>:</li>
+<li><strong><code>ProgressBar</code></strong>: Displays a progress bar.</li>
+<li><strong><code>TextureRect</code></strong>: Displays an image or texture.</li>
+<li><strong><code>Slider</code></strong>: A slider control for selecting a value from a range.</li>
+<li><strong><code>CheckBox</code></strong>: A checkbox for binary choices.</li>
+<li>Others like <code>OptionButton</code>, <code>SpinBox</code>, <code>Tree</code>, etc.</li>
 </ul>
-</li>
-<li>Clouds: <ul>
-<li>Repeat Size X=1024. </li>
-<li>Autoscroll X= -20</li>
+<p>See all the <code>Control</code> nodes in the Godot UI tutorial: <a href="https://docs.godotengine.org/en/4.5/tutorials/ui/">UI</a>.</p>
+<h2 id="creating-the-hud-scene">Creating the HUD Scene</h2>
+<p>First, create a new scene and add a <code>CanvasLayer</code> node as the root. This ensures that the HUD elements are drawn on top of the game scene. Rename it to <strong>"HUD"</strong>.</p>
+<p>Add a <strong><code>HBoxContainer</code></strong> as a child of the <code>CanvasLayer</code> to arrange HUD elements horizontally. Adjust its anchors and margins to position it at the top of the screen.</p>
+<p>Add the following elements to the <code>HBoxContainer</code>: a <strong><code>ProgressBar</code></strong> to represent the player's health, an <strong><code>VSeparator</code></strong> and a <strong><code>Label</code></strong> to display the score.</p>
+<p>Rename the ProgressBar to <strong>"LifeProgressBar"</strong> and the Label to <strong>"ScoreLabel"</strong>.</p>
+<p>Edit the next properties of the <code>LifeProgressBar</code> in the Inspector:</p>
+<ul>
+<li><strong>Show Percent</strong>: off</li>
+<li><strong>Min Value</strong>: 0</li>
+<li><strong>Max Value</strong>: 3</li>
+<li><strong>Step</strong>: 1 (to increment/decrement in whole numbers)</li>
+<li><strong>Value</strong>: 3 (initial value)</li>
+<li><strong>Layout &gt; Custom Minimum Size</strong> &gt; <strong>X</strong>: 120, <strong>Y</strong>: 40 (adjust to your texture size)</li>
+<li><strong>Styles</strong>:</li>
+<li><strong>Background</strong>: <code>StyleBoxEmpty</code> (to no show any background)</li>
+<li><strong>Fill</strong>: <code>StyleBoxTexture</code> with the heart texture assigned.</li>
+<li><strong>Axis Stretch</strong>: <code>Tile</code>.</li>
 </ul>
-</li>
-<li>Waves: <ul>
-<li>Repeat Size X=1283. </li>
-<li>Autoscroll X= -50</li>
+<p>Edit the <code>VSeparator</code> properties:</p>
+<ul>
+<li><strong>Theme Overrides</strong> &gt; Constants &gt; Separation: 200, Styles &gt; Separator: <code>StyleBoxEmpty</code> (to no show any separator)</li>
 </ul>
-</li>
-<li>Grass: <ul>
-<li>Repeat Size X=1130. </li>
-<li>Autoscroll X= -400</li>
+<p>Edit the next properties of the <code>ScoreLabel</code> in the Inspector:</p>
+<ul>
+<li><strong>Text</strong>: "Score:"</li>
+<li><strong>Theme Overrides</strong> &gt; Fonts &gt; <strong>Font</strong>: assign the fonts you want with an appropiate <strong>size</strong> (e.g., 50).</li>
 </ul>
-</li>
-</ul>
-<p>As you can see, the repeat size means the point where the texture will start repeating, and the autoscroll value indicates the speed of movement of each layer. </p>
-<p><img alt="Parallax example" src="../images/parallax.png" /></p>
-<h2 id="camera2d">Camera2D</h2>
-<p>To this point we are using a static camera centered to fit the screen. But in many games, the camera follows the player character.</p>
-<p>Let's do some changes to our game only to illustrate this point.</p>
-<p>Add a <code>Camera2D</code> node to the main scene. Change it's transform position to Y=291. This will center the camera vertically in the screen.</p>
-<p>To follow the player, add the next code to the main scene script:</p>
+<p><img alt="HUD Structure" src="../images/hud_layout.png" /></p>
+<h3 id="hud-script">HUD Script</h3>
+<p>Attach a new script to the <code>HUD</code> node. This script will manage the HUD elements, updating the health and score as needed.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">_process</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
-<span class="w">    </span><span class="o">$</span><span class="n">Camera2D</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">Player</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># hud.gd</span>
+<span class="k">extends</span><span class="w"> </span><span class="n">CanvasLayer</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">playerLife</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="k">var</span><span class="w"> </span><span class="n">playerScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_process</span><span class="p">(</span><span class="n">delta</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="o">$</span><span class="n">HBoxContainer</span><span class="o">/</span><span class="n">LifeProgressBar</span><span class="o">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">playerLife</span>
+<span class="w">    </span><span class="o">$</span><span class="n">HBoxContainer</span><span class="o">/</span><span class="n">ScoreLabel</span><span class="o">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Score: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="n">playerScore</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>This code will update the camera's X position to match the player's X position every frame.</p>
-<p>Play the game. Probably you should adjust the background positions and sizes again to fit the new camera view.</p>
-<p>With this camera setup, the parallax ussually is set with the layers moving at different speeds based on the camera movement. Instead of adjusting the autoscroll property, we can set the <strong>Scroll Scale</strong> property of each ParallaxLayer node to define how much they move relative to the camera movement. For example:</p>
-<ul>
-<li>Mountain: Scroll Scale X=0.1</li>
-<li>Clouds: Scroll Scale X=0.2</li>
-<li>Waves: Scroll Scale X=0.5</li>
-<li>Grass: Scroll Scale X=1.0</li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://docs.godotengine.org/en/stable/classes/class_camera2d.html">Godot Documentation: Camera2D</a></li>
-<li><a href="https://docs.godotengine.org/en/stable/tutorials/2d/2d_parallax.html">Godot Documentation: Parallax 2D</a></li>
-</ul>
+<p>The <code>str</code> function converts the score integer to a string for display.</p>
+<h2 id="integrating-the-hud-with-the-game">Integrating the HUD with the Game</h2>
+<p>To integrate the HUD with the game, add the HUD scene as a child of the main game scene.</p>
+<p>In the player script, we can update the HUD variables when the player collects coins or takes damage. To do that, we need to get a reference to the HUD and player nodes, and update the <code>playerScore</code> and <code>playerLife</code> variables accordingly.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># main.gd</span>
+
+<span class="err">@</span><span class="k">onready</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">Player</span>
+<span class="err">@</span><span class="k">onready</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">hud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">HUD</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_process</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
+<span class="w">    </span><span class="c1"># Update HUD</span>
+<span class="w">    </span><span class="n">hud</span><span class="o">.</span><span class="n">playerLife</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">player</span><span class="o">.</span><span class="n">life</span>
+<span class="w">    </span><span class="n">hud</span><span class="o">.</span><span class="n">playerScore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">player</span><span class="o">.</span><span class="n">points</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="ending-the-game">Ending the Game</h2>
+<p>To end the game when the player's life reaches zero, we can add a check in the player script. When the life is zero, we can trigger a game over state and show a game over message on the HUD.</p>
+<p>Add a new CanvasLayer node to the Main scene for the Game Over message. Add a Panel node as a child of this CanvasLayer. Change its name to <strong>"GameOverPanel"</strong>.</p>
+<p>Add a Label node as a child of the Panel to display the "Game Over" text. Add also two buttons for "Restart" and "Quit". </p>
+<p>You can change the style of the Panel and its children as you like, in the <strong>Theme Overrides</strong> section of the Inspector.</p>
+<p><img alt="Game Over Panel" src="../images/game_over_panel.png" /></p>
+<p>We can check the player's life in the <code>_process</code> function of the main script and call a function to show the Game Over panel when life reaches zero, after a short delay to show the death animation.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># main.gd</span>
+<span class="k">func</span><span class="w"> </span><span class="n">_process</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
+<span class="w">    </span><span class="c1"># Existing code...</span>
+
+<span class="w">    </span><span class="c1">#Check end of player life</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">player</span><span class="o">.</span><span class="n">life</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+<span class="w">        </span><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">timeout</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">end_game</span><span class="p">)</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">end_game</span><span class="p">():</span>
+<span class="w">    </span><span class="n">gameOverPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">    </span><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">paused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>end_game</code> function makes the Game Over panel visible and pauses the game.</p>
+<p>Finally, connect the <em>"pressed"</em> signals of the <strong>Restart button</strong> to a <code>restart</code> function:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">restart</span><span class="p">():</span>
+<span class="w">    </span><span class="n">player</span><span class="o">.</span><span class="n">life</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="n">player</span><span class="o">.</span><span class="n">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">player</span><span class="o">.</span><span class="n">isDead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+<span class="w">    </span><span class="n">gameOverPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+<span class="w">    </span><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">paused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+<span class="w">    </span><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">reload_current_scene</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>In order to the buttons to work when the game is paused, you need to set the <strong>Pause Mode</strong> property of the buttons to <strong>"When Paused"</strong> or <strong>"Always"</strong>.</p>
+</div>
 
 
 

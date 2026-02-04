@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../U08.5%20Collisions/">
+        <link rel="prev" href="../U08.7%20HUD/">
       
       
-        <link rel="next" href="../U08.7%20HUD/">
+        <link rel="next" href="../U08.9%20Music%20and%20sounds/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Unit 8.6 Camera and parallax - Multimedia and mobile device programming - 2DAM</title>
+        <title>Unit 8.8 Screens and globals - Multimedia and mobile device programming - 2DAM</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#unit-86-camera-and-parallax" class="md-skip">
+        <a href="#unit-88-screens-and-globals" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Unit 8.6 Camera and parallax
+              Unit 8.8 Screens and globals
             
           </span>
         </div>
@@ -1134,29 +1134,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Unit 8.6 Camera and parallax
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../U08.6%20Camera%20and%20parallax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1165,47 +1145,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#parallax" class="md-nav__link">
-    Parallax
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#camera2d" class="md-nav__link">
-    Camera2D
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1235,9 +1174,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../U08.8%20Screens%20and%20globals/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit 8.8 Screens and globals
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1246,6 +1205,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#start-screen" class="md-nav__link">
+    Start Screen
+  </a>
+  
+    <nav class="md-nav" aria-label="Start Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen-change" class="md-nav__link">
+    Screen change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panel-toggle" class="md-nav__link">
+    Panel toggle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    Global Variables
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1305,22 +1318,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#parallax" class="md-nav__link">
-    Parallax
+  <a href="#start-screen" class="md-nav__link">
+    Start Screen
   </a>
+  
+    <nav class="md-nav" aria-label="Start Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen-change" class="md-nav__link">
+    Screen change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panel-toggle" class="md-nav__link">
+    Panel toggle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#camera2d" class="md-nav__link">
-    Camera2D
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#global-variables" class="md-nav__link">
+    Global Variables
   </a>
   
 </li>
@@ -1340,70 +1366,124 @@
                   
 
 
-<h1 id="unit-86-camera-and-parallax">Unit 8.6 Camera and parallax</h1>
-<p>In this unit we will learn how to implement camera movement and parallax scrolling in a videogame using the Godot Engine.</p>
-<p>In our Endless Runner game, we will add a parallax effect to the background to create a sense of depth.</p>
-<h2 id="parallax">Parallax</h2>
-<p>Parallax is a visual effect where background layers move at different speeds relative to the camera movement, creating an illusion of depth.</p>
-<p>To implement parallax in Godot, we can use the <code>Parallax2D</code> node. </p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><code>ParallaxBackground</code> and <code>ParallaxLayer</code> nodes are deprecated in Godot 4.x and should be replaced with <code>Parallax2D</code>.</p>
-</div>
-<p>Set the next structure in the scene tree:</p>
-<p><img alt="Parallax2D Structure" src="../images/parallax%20order.png" /></p>
-<p>The Heaven layer will show the background sky that will not move. Place the sprites of the mountain, clouds, waves and grass in their sprite nodes inside their corresponding Parallax node. </p>
-<p>The mountain and the clouds are stand-alone textures, but for the waves and grass we need to set carefully the parallax repetition.</p>
-<p>Scale all the textures so they are placed correctly in the scene.</p>
-<p>The left part of the waves and grass textures must must be placed at the 0 position in the X axis, and the right part must scaled to fit the width of the game window (1024 pixels).</p>
-<p>Fro a game with static camera, like this one, we must only set the <strong>Repeat Size</strong> and <strong>Autoscroll</strong> properties of the ParallaxLayer nodes. Try with these values:</p>
+<h1 id="unit-88-screens-and-globals">Unit 8.8 Screens and globals</h1>
+<p>In this unit, we will learn how to create different <strong>screens</strong> for our videogame using the Godot Engine, as well as how to manage <strong>global variables</strong>.</p>
+<h2 id="start-screen">Start Screen</h2>
+<p>Create a new scene and add a <code>Control</code> node as the root. Rename it to <strong>"StartScene"</strong>.</p>
+<p>Add a Panel as a child of the <code>Control</code> and rename it to <strong>"MainPanel"</strong>. </p>
+<p>Inside this panel, add the next nodes:</p>
 <ul>
-<li>Mountain: <ul>
-<li>Repeat Size X=1024. </li>
-<li>Autoscroll X= -10</li>
+<li><strong>ColorRect</strong>: Set the color you want for the background.</li>
+<li><strong>TextureRect</strong>: Add a logo or title image for the game.</li>
+<li><strong>Player</strong>: optionally, add a sprite or animation of the player character.</li>
+<li><strong>Button</strong>: Rename it to <strong>"PlayButton"</strong> and set its text to "Play".</li>
+<li><strong>Button</strong>: Rename it to <strong>"CreditsButton"</strong> and set its text to "Credits".</li>
+<li><strong>Label</strong>: Rename it to <strong>"MusicLabel"</strong> and set its text to "Music".</li>
+<li><strong>CheckButton</strong>: Rename it to <strong>"MusicCheckButton"</strong>.</li>
 </ul>
-</li>
-<li>Clouds: <ul>
-<li>Repeat Size X=1024. </li>
-<li>Autoscroll X= -20</li>
-</ul>
-</li>
-<li>Waves: <ul>
-<li>Repeat Size X=1283. </li>
-<li>Autoscroll X= -50</li>
-</ul>
-</li>
-<li>Grass: <ul>
-<li>Repeat Size X=1130. </li>
-<li>Autoscroll X= -400</li>
-</ul>
-</li>
-</ul>
-<p>As you can see, the repeat size means the point where the texture will start repeating, and the autoscroll value indicates the speed of movement of each layer. </p>
-<p><img alt="Parallax example" src="../images/parallax.png" /></p>
-<h2 id="camera2d">Camera2D</h2>
-<p>To this point we are using a static camera centered to fit the screen. But in many games, the camera follows the player character.</p>
-<p>Let's do some changes to our game only to illustrate this point.</p>
-<p>Add a <code>Camera2D</code> node to the main scene. Change it's transform position to Y=291. This will center the camera vertically in the screen.</p>
-<p>To follow the player, add the next code to the main scene script:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">_process</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
-<span class="w">    </span><span class="o">$</span><span class="n">Camera2D</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">Player</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span>
+<p><img alt="Start Screen Structure" src="../images/start_scene.png" /></p>
+<h3 id="screen-change">Screen change</h3>
+<p>To change to a new scene, we can use the next instruction:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">change_scene_to_file</span><span class="p">(</span><span class="s2">&quot;res://path/to/scene.tscn&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>This code will update the camera's X position to match the player's X position every frame.</p>
-<p>Play the game. Probably you should adjust the background positions and sizes again to fit the new camera view.</p>
-<p>With this camera setup, the parallax ussually is set with the layers moving at different speeds based on the camera movement. Instead of adjusting the autoscroll property, we can set the <strong>Scroll Scale</strong> property of each ParallaxLayer node to define how much they move relative to the camera movement. For example:</p>
-<ul>
-<li>Mountain: Scroll Scale X=0.1</li>
-<li>Clouds: Scroll Scale X=0.2</li>
-<li>Waves: Scroll Scale X=0.5</li>
-<li>Grass: Scroll Scale X=1.0</li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://docs.godotengine.org/en/stable/classes/class_camera2d.html">Godot Documentation: Camera2D</a></li>
-<li><a href="https://docs.godotengine.org/en/stable/tutorials/2d/2d_parallax.html">Godot Documentation: Parallax 2D</a></li>
-</ul>
+<p>Let's make the transition from the Start Screen to the Game Scene when the Play button is pressed.</p>
+<p>Attach a script to the <code>StartScene</code> node and add the following code.</p>
+<p>Associate the <strong>PlayButton</strong> <code>pressed()</code> signal to the script:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># start_scene.gd</span>
+<span class="k">extends</span><span class="w"> </span><span class="n">Control</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_play_button_pressed</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">change_scene_to_file</span><span class="p">(</span><span class="s2">&quot;res://MainScene/main.tscn&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Set the StartScene as the main scene in the project settings to test it: <em>Project -&gt; Project Settings -&gt; Application -&gt; Run -&gt; Main Scene</em>.</p>
+<p>Now, if you play the game, you will see the Start Screen, and when you press the Play button, it will change to the Game Scene.</p>
+<p>Do the same for the Quit button of the Main Scene to return to the Start Screen.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># main.gd</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_quit_button_pressed</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="n">get_tree</span><span class="p">()</span><span class="o">.</span><span class="n">change_scene_to_file</span><span class="p">(</span><span class="s2">&quot;res://StartScene/start_scene.tscn&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="panel-toggle">Panel toggle</h3>
+<p>For our credits screen, we can use a Panel node that is hidden by default and is shown when the Credits button is pressed.</p>
+<p>Add a new Panel to the StartScene and rename it to <strong>"CreditsPanel"</strong>. Inside this panel, add a Label with the credits text and a Button to close the panel.</p>
+<p>Add a RichTextLabel node to the CreditsPanel for better formatting of the credits text. This type of node allows you to use BBCode for text formatting, such as bold, italics, and different colors. You can view the BBCode reference in the <a href="https://docs.godotengine.org/en/stable/tutorials/ui/bbcode_in_richtextlabel.html#reference">Godot documentation</a>.</p>
+<p>You can style the CreditsPanel and its children as you like using the Theme Overrides section of the Inspector.</p>
+<p><img alt="Credits Panel" src="../images/credits_panel.png" /></p>
+<p>For make the CreditsPanel appear and disappear, first, connect the CreditsButton <code>pressed()</code> signal and the Return button <code>pressed()</code> signal to the StartScene script. Then, add the next code to the StartScene script:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># start_scene.gd</span>
+<span class="k">extends</span><span class="w"> </span><span class="n">Control</span>
+
+<span class="err">@</span><span class="k">onready</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">mainPanel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">MainPanel</span>
+<span class="err">@</span><span class="k">onready</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">creditsPanel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">CreditsPanel</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="n">mainPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">    </span><span class="n">creditsPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_credits_button_pressed</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="n">mainPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+<span class="w">    </span><span class="n">creditsPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_return_button_pressed</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="n">mainPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">    </span><span class="n">creditsPanel</span><span class="o">.</span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="global-variables">Global Variables</h2>
+<p>Global variables are useful to store information that needs to be accessed from different scenes, such as player settings, scores, or game states.</p>
+<p>In our example, we can use global variables to store the music setting (on/off) and access it from both the Start Screen and the Game Scene.</p>
+<p>Create a new script in the root directory and name it <strong>"global.gd"</strong>. This script will hold our global variables.</p>
+<p>The content of the global.gd script will be:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># global.gd</span>
+<span class="k">extends</span><span class="w"> </span><span class="n">Node</span>
+
+<span class="k">var</span><span class="w"> </span><span class="n">musicOn</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+</code></pre></div></td></tr></table></div>
+<p>In the Project Settings, go to the <strong>Globals</strong> tab. Add the <code>global.gd</code> script by clicking on the "Add" button. This will make the global variables accessible from any scene.</p>
+<p><img alt="Globals Settings" src="../images/globals.png" /></p>
+<p>In the <strong>StartScene</strong>, connect the <code>toggled()</code> signal of the <strong>MusicCheckButton</strong> to the StartScene script.</p>
+<p>Now, we can modify the StartScene script to update the global music setting when the MusicCheckButton is toggled.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># start_scene.gd</span>
+
+<span class="err">@</span><span class="k">onready</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="s2">&quot;/root/Global&quot;</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">_on_music_check_button_toggled</span><span class="p">(</span><span class="n">toggled_on</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">bool</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<span class="w">    </span><span class="n">global</span><span class="o">.</span><span class="n">musicOn</span><span class="o">=</span><span class="n">toggled_on</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Music on: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">global</span><span class="o">.</span><span class="n">musicOn</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Check in the console that the global variable updates when you toggle the button.</p>
+<p>Finally, in the Game Scene, we can access the global music setting to play or stop the background music based on the player's choice. We will implement the music and sound effects in the next unit.</p>
 
 
 
